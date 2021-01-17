@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get("/establecimiento", "App\Http\Controllers\EstablecimientoController@mostrarEstablecimiento");
+Route::get("/login", "App\Http\Controllers\UserController@index");
