@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/establecimiento", "App\Http\Controllers\EstablecimientoController@mostrarEstablecimiento");
+Route::get("/admin", "App\Http\Controllers\CategoriesController@showAll");
 Route::get("/login", "App\Http\Controllers\UserController@index");
