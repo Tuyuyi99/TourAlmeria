@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Establishment;
 use Illuminate\Http\Request;
+use App\Models\Review;
 
-class EstablishmentController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,10 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $EstablishmentList = Establishment::all();
-        $data['EstablishmentList'] = $EstablishmentList;
+        $ReviewList = Review::all();
+        $data["ReviewList"] = $ReviewList;
         return view("admin", $data);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -43,19 +42,18 @@ class EstablishmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Establishment  $establishment
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $Establishment = Establishment::find($id);
-        return view("admin", $Establishment);
+    public function show($id){
+        $review = Review::find($id);
+        return view("admin", $review);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Establishment  $establishment
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -67,10 +65,10 @@ class EstablishmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Establishment  $establishment
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Establishment $establishment)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +76,10 @@ class EstablishmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Establishment  $establishment
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Establishment $establishment)
+    public function destroy($id)
     {
         //
     }

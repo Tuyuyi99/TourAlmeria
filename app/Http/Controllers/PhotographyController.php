@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Establishment;
+use App\Models\Photography;
 use Illuminate\Http\Request;
 
-class EstablishmentController extends Controller
+class PhotographyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,10 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $EstablishmentList = Establishment::all();
-        $data['EstablishmentList'] = $EstablishmentList;
+        $PhotographyList = Photography::all();
+        $data['PhotographyList'] = $PhotographyList;
         return view("admin", $data);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -43,22 +42,22 @@ class EstablishmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Establishment  $establishment
+     * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $Establishment = Establishment::find($id);
-        return view("admin", $Establishment);
+        $Photography = Photography::find($id);
+        return view("admin", $Photography);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Establishment  $establishment
+     * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Photography $photography)
     {
         //
     }
@@ -67,10 +66,10 @@ class EstablishmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Establishment  $establishment
+     * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Establishment $establishment)
+    public function update(Request $request, Photography $photography)
     {
         //
     }
@@ -78,10 +77,10 @@ class EstablishmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Establishment  $establishment
+     * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Establishment $establishment)
+    public function destroy(Photography $photography)
     {
         //
     }

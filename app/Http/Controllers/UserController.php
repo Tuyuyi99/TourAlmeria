@@ -12,9 +12,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $UserList = User::all();
+        $data["UserList"] = $UserList;
+        return view("admin", $data);
     }
 
     /**
@@ -33,9 +34,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $usr = new User();
+        $usr->name = $request->name;
+        $usr->password = $request->password;
+        $usr->save();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -44,9 +48,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id){
+        $user = User::find($id);
+        return view("admin", $user);
     }
 
     /**
