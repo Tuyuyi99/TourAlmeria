@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index(){
         $UserList = User::all();
         $data["UserList"] = $UserList;
-        return view("admin", $data);
+        return view("admin/admin", $data);
     }
 
     /**
@@ -50,7 +50,7 @@ class UserController extends Controller
      */
     public function show($id){
         $user = User::find($id);
-        return view("admin", $user);
+        return view("admin/admin", $user);
     }
 
     /**

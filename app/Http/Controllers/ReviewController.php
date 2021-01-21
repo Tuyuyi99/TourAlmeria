@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index(){
         $ReviewList = Review::all();
         $data["ReviewList"] = $ReviewList;
-        return view("admin", $data);
+        return view("admin/admin", $data);
     }
 
     /**
@@ -47,7 +47,7 @@ class ReviewController extends Controller
      */
     public function show($id){
         $review = Review::find($id);
-        return view("admin", $review);
+        return view("admin/admin", $review);
     }
 
     /**

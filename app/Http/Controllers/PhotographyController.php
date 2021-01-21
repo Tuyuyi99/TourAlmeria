@@ -15,7 +15,7 @@ class PhotographyController extends Controller
     public function index(){
         $PhotographyList = Photography::all();
         $data['PhotographyList'] = $PhotographyList;
-        return view("admin", $data);
+        return view("admin/admin", $data);
     }
 
     /**
@@ -48,7 +48,7 @@ class PhotographyController extends Controller
     public function show($id)
     {
         $Photography = Photography::find($id);
-        return view("admin", $Photography);
+        return view("admin/admin", $Photography);
     }
 
     /**

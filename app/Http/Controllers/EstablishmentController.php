@@ -15,7 +15,7 @@ class EstablishmentController extends Controller
     public function index(){
         $EstablishmentList = Establishment::all();
         $data['EstablishmentList'] = $EstablishmentList;
-        return view("admin", $data);
+        return view("admin/admin", $data);
     }
     
 
@@ -49,7 +49,7 @@ class EstablishmentController extends Controller
     public function show($id)
     {
         $Establishment = Establishment::find($id);
-        return view("admin", $Establishment);
+        return view("admin/admin", $Establishment);
     }
 
     /**

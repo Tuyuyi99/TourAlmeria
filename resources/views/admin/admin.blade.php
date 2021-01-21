@@ -20,8 +20,22 @@
 
     @if(isset($CategoriesList))
         @foreach ($CategoriesList as $category)
-            <h1>Categoria: {{ $category->name }}</h1>
+            <h1>Categoria:
+                <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST">
+                    @method("PATCH")
+                    @csrf
+                    <input type="text" name="name" value="{{$category->name}}"><br>
+                    <input type="submit">
+                </form>
+                <form action="{{route('category.destroy', $category->id)}}" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <input type="submit" value="Borrar">
+                </form>
+                <a href="{{route('category.edit', $category->id)}}">Modificar</a>
+            </h1>
         @endforeach
+        <a href="{{ route('category.create') }}">Crear</a>
     @endif
 
     @if(isset($EstablishmentList))
