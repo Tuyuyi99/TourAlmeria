@@ -14,8 +14,24 @@
 
     @if(isset($UserList))
         @foreach ($UserList as $user)
-            <h1>Usuario: {{ $user->name }}</h1>
+            <h1>Usuario: {{ $user->name }}
+                <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST">
+                    @method("PATCH")
+                    @csrf
+                    <input type="text" name="name" value="{{$user->name}}"><br>
+                    <input type="text" name="password" value="{{$user->password}}"><br>
+                    <input type="submit">
+                </form>
+                <form action="{{route('user.destroy', $user->id)}}" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <input type="submit" value="Borrar">
+                </form>
+                <a href="{{route('user.edit', $user->id)}}">Modificar</a>
+
+            </h1>
         @endforeach
+        <a href="{{ route('user.create') }}">Crear</a>
     @endif
 
     @if(isset($CategoriesList))
@@ -41,7 +57,9 @@
     @if(isset($EstablishmentList))
         @foreach ($EstablishmentList as $establishment)
             <h1>Establecimiento: {{ $establishment->name }}</h1>
+            <a href="{{route('establishment.edit', $establishment->id)}}">Modificar</a>
         @endforeach
+        <a href="{{ route('establishment.create') }}">Crear</a>
     @endif
 
     @if(isset($PhotographyList))

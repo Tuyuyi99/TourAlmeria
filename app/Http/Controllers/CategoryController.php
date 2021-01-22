@@ -14,7 +14,7 @@ class CategoryController extends Controller
     }
 
     public function create(){
-        return view('categoryForm');
+        return view('admin/categoryForm');
     }
 
     public function store(Request $request){
@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
     public function edit($id){
         $category = Category::find($id);
-        return view('categoryForm', array('category' => $category));
+        return view('admin/categoryForm', array('category' => $category));
     }
 
     public function update(Request $request){

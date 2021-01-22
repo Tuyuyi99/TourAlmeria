@@ -23,9 +23,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('admin/userForm');
     }
 
     /**
@@ -35,10 +34,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $usr = new User();
-        $usr->name = $request->name;
-        $usr->password = $request->password;
-        $usr->save();
+        $user = new User();
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->save();
         return redirect()->route('user.index');
     }
 
@@ -59,9 +58,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $user = User::find($id);
+        return view('admin/userForm', array('user' => $user));
     }
 
     /**
@@ -73,7 +72,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -82,8 +85,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }
