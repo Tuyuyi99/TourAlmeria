@@ -19,6 +19,7 @@ class CreateEstablishmentTable extends Migration
             $table->string('description');
             $table->string('address');
             $table->enum('outstanding', ['yes', 'no'])->default('no');
+            $table->integer('id_category');
             $table->timestamps();
         });
     }

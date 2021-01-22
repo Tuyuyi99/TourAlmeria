@@ -35,7 +35,10 @@ Route::post('admin/category/store', 'App\Http\Controllers\CategoryController@sto
 Route::get('admin/category/edit/{id}', 'App\Http\Controllers\CategoryController@edit')->name('category.edit');
 
 Route::get('admin/establishment', 'App\Http\Controllers\EstablishmentController@index')->name('establishment.index');
+Route::get('admin/establishment/edit/{id}', 'App\Http\Controllers\EstablishmentController@edit')->name('establishment.edit');
+Route::get('admin/establishment/create', 'App\Http\Controllers\EstablishmentController@create')->name('establishment.create');
 
 Route::get('admin/photography', 'App\Http\Controllers\PhotographyController@index')->name('photography.index');
 
 Route::get('admin/review', 'App\Http\Controllers\ReviewController@index')->name('review.index');
+

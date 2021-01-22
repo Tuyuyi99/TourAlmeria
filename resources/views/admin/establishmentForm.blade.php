@@ -7,8 +7,10 @@
         @method("PATCH")
 @else
     <form action="{{ route('establishment.store') }}" method="POST">
-    name:<input type="text" name="name"><br>
-    password:<input type="text" name="password"><br>
+        name:<input type="text" name="name"><br>
+        description:<input type="text" name="description"><br>
+        address:<input type="text" name="address"><br>
+        outstanding:<input type="text" name="outstanding"><br>
 @endisset
  @csrf
 

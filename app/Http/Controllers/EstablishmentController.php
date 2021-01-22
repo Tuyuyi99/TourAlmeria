@@ -24,8 +24,7 @@ class EstablishmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         return view('admin/establishmentForm');
     }
 
@@ -35,9 +34,10 @@ class EstablishmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $establishment = new Establishment($request);
+        $category->save();
+        return redirect()->route('establishment.index');
     }
 
     /**
@@ -46,8 +46,7 @@ class EstablishmentController extends Controller
      * @param  \App\Models\Establishment  $establishment
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id){
         $Establishment = Establishment::find($id);
         return view("admin/admin", $Establishment);
     }
@@ -58,9 +57,9 @@ class EstablishmentController extends Controller
      * @param  \App\Models\Establishment  $establishment
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $establishment = Establishment::find($id);
+        return view('admin/establishmentForm', array('establishment' => $establishment));
     }
 
     /**
@@ -70,9 +69,13 @@ class EstablishmentController extends Controller
      * @param  \App\Models\Establishment  $establishment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Establishment $establishment)
-    {
-        //
+    public function update(Request $request){
+        $establishment = Establishment::find($request->id);
+        $establishment->name = $request->name;
+        $establishment->description = $request->description;
+        $establishment->address = $request->address;
+        $establishment->save();
+        return redirect()->route('establishment.index');
     }
 
     /**
@@ -81,8 +84,7 @@ class EstablishmentController extends Controller
      * @param  \App\Models\Establishment  $establishment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Establishment $establishment)
-    {
+    public function destroy($id){
         //
     }
 }
