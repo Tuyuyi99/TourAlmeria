@@ -6,10 +6,14 @@
     <title>Admin</title>
 </head>
 <body>
-    <a href="{{ route('user.index') }}">Listado Usuarios</a>
-    <a href="{{ route('category.index') }}">Listado Categorias</a>
-    <a href="{{ route('establishment.index') }}">Listado Establecimientos</a>
+    <a href="{{ route('user.index') }}">Listado Usuarios</a> <a href="{{ route('user.create') }}">Crear Usuario</a>
+    <br>
+    <a href="{{ route('category.index') }}">Listado Categorias</a> <a href="{{ route('category.create') }}">Crear Categoria</a>
+    <br>
+    <a href="{{ route('establishment.index') }}">Listado Establecimientos</a> <a href="{{ route('establishment.create') }}">Crear Establecimiento</a>
+    <br>
     <a href="{{ route('photography.index') }}">Listado Fotografias</a>
+    <br>
     <a href="{{ route('review.index') }}">Listado Reseñas</a>
 
     @if(isset($UserList))

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Establishment;
 use Illuminate\Http\Request;
+use App\Models\Establishment;
+use App\Models\Category;
 
 class EstablishmentController extends Controller
 {
@@ -25,7 +26,8 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('admin/establishmentForm');
+        $categories = Category::all();
+        return view('admin/establishmentForm', ['categoriesList' => $categories]);
     }
 
     /**
@@ -35,8 +37,13 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $establishment = new Establishment($request);
-        $category->save();
+        $establishment = new Establishment();
+        $establishment->name = $request->name;
+        $establishment->description = $request->description;
+        $establishment->address = $request->address;
+        $establishment->outstanding = $request->outstanding;
+        $establishment->id_category = $request->id_category;
+        $establishment->save();
         return redirect()->route('establishment.index');
     }
 
@@ -59,7 +66,10 @@ class EstablishmentController extends Controller
      */
     public function edit($id){
         $establishment = Establishment::find($id);
-        return view('admin/establishmentForm', array('establishment' => $establishment));
+        $categories = Category::all();
+        $data["establishment"] = $establishment;
+        $data["categoriesList"] = $categories;
+        return view('admin/establishmentForm', $data);
     }
 
     /**
@@ -74,6 +84,8 @@ class EstablishmentController extends Controller
         $establishment->name = $request->name;
         $establishment->description = $request->description;
         $establishment->address = $request->address;
+        $establishment->outstanding = $request->outstanding;
+        $establishment->id_category = $request->id_category;
         $establishment->save();
         return redirect()->route('establishment.index');
     }
