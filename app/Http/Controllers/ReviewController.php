@@ -25,7 +25,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/reviewForm');
     }
 
     /**
@@ -36,7 +36,9 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $review = new Review($request);
+        $review->save();
+        return redirect()->route('review.index');
     }
 
     /**
@@ -58,7 +60,8 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review = Review::find($id);
+        return view('admin/reviewForm', array('review' => $review));
     }
 
     /**
@@ -70,7 +73,12 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $review = Review::find($request->id);
+        $review->name = $request->name;
+        $review->rating = $request->rating;
+        $review->commentary = $request->commentary;
+        $review->save();
+        return redirect()->route('review.index');
     }
 
     /**
@@ -81,6 +89,8 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $review = Review::find($id);
+        $review->delete();
+        return redirect()->route('review.index');
     }
 }

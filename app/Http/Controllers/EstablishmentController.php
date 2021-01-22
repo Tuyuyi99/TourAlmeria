@@ -85,6 +85,8 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        //
+        $establishment = Establishment::find($id);
+        $establishment->delete();
+        return redirect()->route('establishment.index');
     }
 }

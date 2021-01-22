@@ -25,7 +25,7 @@ class PhotographyController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin/photographyForm");
     }
 
     /**
@@ -36,7 +36,9 @@ class PhotographyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $photography = new Photography($request);
+        $photography->save();
+        return redirect()->route("photography.index");
     }
 
     /**
@@ -57,9 +59,10 @@ class PhotographyController extends Controller
      * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photography $photography)
+    public function edit($id)
     {
-        //
+        $photography = Photography::find($id);
+        return view('admin/photographyForm', array('photography' => $photography));
     }
 
     /**
@@ -69,9 +72,12 @@ class PhotographyController extends Controller
      * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photography $photography)
+    public function update(Request $request, $id)
     {
-        //
+        $photography = Photography::find($request->id);
+        $photography->image = $request->image;
+        $photography->save();
+        return redirect()->route("photography.index");
     }
 
     /**
@@ -80,8 +86,10 @@ class PhotographyController extends Controller
      * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Photography $photography)
+    public function destroy($id)
     {
-        //
+        $photography = Photography::find($id);
+        $photography->delete();
+        return redirect()->route("photography.index");
     }
 }
