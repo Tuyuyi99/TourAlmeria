@@ -13,8 +13,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $UserList = User::all();
-        $data["UserList"] = $UserList;
+        $userList = User::all();
+        $data["userList"] = $userList;
         return view("admin/admin", $data);
     }
 

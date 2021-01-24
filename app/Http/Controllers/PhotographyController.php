@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photography;
+use App\Models\Establishment;
 use Illuminate\Http\Request;
+
 
 class PhotographyController extends Controller
 {
@@ -13,8 +15,8 @@ class PhotographyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $PhotographyList = Photography::all();
-        $data['PhotographyList'] = $PhotographyList;
+        $photographyList = Photography::all();
+        $data['photographyList'] = $photographyList;
         return view("admin/admin", $data);
     }
 
@@ -25,7 +27,8 @@ class PhotographyController extends Controller
      */
     public function create()
     {
-        return view("admin/photographyForm");
+        $establishmentList = Establishment::all();
+        return view("admin/photographyForm", ['establishmentList' => $establishmentList]);
     }
 
     /**
@@ -36,7 +39,9 @@ class PhotographyController extends Controller
      */
     public function store(Request $request)
     {
-        $photography = new Photography($request);
+        $photography = new Photography();
+        $photography->image = $request->image;
+        $photography->id_establishment = $request->id_establishment;
         $photography->save();
         return redirect()->route("photography.index");
     }
@@ -49,8 +54,8 @@ class PhotographyController extends Controller
      */
     public function show($id)
     {
-        $Photography = Photography::find($id);
-        return view("admin/admin", $Photography);
+        $photography = Photography::find($id);
+        return view("admin/admin", $photography);
     }
 
     /**
@@ -62,7 +67,10 @@ class PhotographyController extends Controller
     public function edit($id)
     {
         $photography = Photography::find($id);
-        return view('admin/photographyForm', array('photography' => $photography));
+        $establishmentList = Establishment::all();
+        $data["establishmentList"] = $establishmentList;
+        $data["photography"] = $photography;
+        return view('admin/photographyForm', $data);
     }
 
     /**
@@ -72,10 +80,11 @@ class PhotographyController extends Controller
      * @param  \App\Models\Photography  $photography
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $photography = Photography::find($request->id);
         $photography->image = $request->image;
+        $photography->id_establishment = $request->id_establishment;
         $photography->save();
         return redirect()->route("photography.index");
     }

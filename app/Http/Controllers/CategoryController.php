@@ -8,8 +8,8 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function index(){
-        $CategoriesList = Category::all();
-        $data["CategoriesList"] = $CategoriesList;
+        $categoriesList = Category::all();
+        $data["categoriesList"] = $categoriesList;
         return view("admin/admin", $data);
     }
 
@@ -26,7 +26,7 @@ class CategoryController extends Controller
 
     public function show($id){
         $category = Category::find($id);
-        return view("admin/admin", ["CategoriesList" => $category]);
+        return view("admin/admin", ["categoriesList" => $category]);
     }
 
     public function edit($id){

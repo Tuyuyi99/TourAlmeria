@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Establishment;
 use App\Models\Review;
 
 class ReviewController extends Controller
@@ -13,8 +14,8 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $ReviewList = Review::all();
-        $data["ReviewList"] = $ReviewList;
+        $reviewList = Review::all();
+        $data["reviewList"] = $reviewList;
         return view("admin/admin", $data);
     }
 
@@ -25,7 +26,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        return view('admin/reviewForm');
+        $establishmentList = Establishment::all();
+        return view('admin/reviewForm', ['establishmentList' => $establishmentList]);
     }
 
     /**
@@ -36,7 +38,11 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $review = new Review($request);
+        $review = new Review();
+        $review->name = $request->name;
+        $review->rating = $request->rating;
+        $review->commentary = $request->commentary;
+        $review->id_establishment = $request->id_establishment;
         $review->save();
         return redirect()->route('review.index');
     }
@@ -61,7 +67,10 @@ class ReviewController extends Controller
     public function edit($id)
     {
         $review = Review::find($id);
-        return view('admin/reviewForm', array('review' => $review));
+        $establishmentList = Establishment::all();
+        $data["establishmentList"] = $establishmentList;
+        $data["review"] = $review;
+        return view('admin/reviewForm', $data);
     }
 
     /**
@@ -71,12 +80,13 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $review = Review::find($request->id);
         $review->name = $request->name;
         $review->rating = $request->rating;
         $review->commentary = $request->commentary;
+        $review->id_establishment = $request->id_establishment;
         $review->save();
         return redirect()->route('review.index');
     }

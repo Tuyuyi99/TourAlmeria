@@ -14,8 +14,8 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $EstablishmentList = Establishment::all();
-        $data['EstablishmentList'] = $EstablishmentList;
+        $establishmentList = Establishment::all();
+        $data['establishmentList'] = $establishmentList;
         return view("admin/admin", $data);
     }
     
@@ -54,8 +54,8 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $Establishment = Establishment::find($id);
-        return view("admin/admin", $Establishment);
+        $establishment = Establishment::find($id);
+        return view("admin/admin", $establishment);
     }
 
     /**
