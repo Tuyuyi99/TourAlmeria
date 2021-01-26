@@ -1,3 +1,7 @@
+@extends("layouts/master")
+@section("title", "Panel de Administracion Modificación")
+@section("content")
+
 @isset($user)
         <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST">
         name:<input type="text" name="name" value="{{$user->name}}"><br>
@@ -12,3 +16,5 @@
 
     <input type="submit">
     </form>
+
+@endsection

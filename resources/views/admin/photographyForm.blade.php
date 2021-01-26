@@ -1,3 +1,7 @@
+@extends("layouts/master")
+@section("title", "Panel de Administracion Modificación")
+@section("content")
+
 @isset($photography)
         <form action="{{ route('photography.update', ['id' => $photography->id]) }}" method="POST">
         image:<input type="text" name="image" value="{{$photography->image}}"><br>
@@ -29,3 +33,5 @@
         
     <input type="submit">
     </form>
+
+@endsection

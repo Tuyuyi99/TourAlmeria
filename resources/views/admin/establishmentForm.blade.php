@@ -1,3 +1,7 @@
+@extends("layouts/master")
+@section("title", "Panel de Administracion Modificación")
+@section("content")
+
 @isset($establishment)
         <form action="{{ route('establishment.update', ['id' => $establishment->id]) }}" method="POST">
         name:<input type="text" name="name" value="{{$establishment->name}}"><br>
@@ -49,3 +53,5 @@
  @csrf
         <input type="submit">
     </form>
+
+@endsection

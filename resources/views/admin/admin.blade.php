@@ -1,59 +1,54 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-</head>
-<body>
-    <a href="{{ route('user.index') }}">Listado Usuarios</a> <a href="{{ route('user.create') }}">Crear Usuario</a>
-    <br>
-    <a href="{{ route('category.index') }}">Listado Categorias</a> <a href="{{ route('category.create') }}">Crear Categoria</a>
-    <br>
-    <a href="{{ route('establishment.index') }}">Listado Establecimientos</a> <a href="{{ route('establishment.create') }}">Crear Establecimiento</a>
-    <br>
-    <a href="{{ route('photography.index') }}">Listado Fotografias</a> <a href="{{ route('photography.create') }}">Crear Fotografia</a>
-    <br>
-    <a href="{{ route('review.index') }}">Listado Reseñas</a> <a href="{{ route('review.create') }}">Crear Reseña</a>
-
+@extends("layouts/master")
+@section("title", "Panel de Administracion Listado")
+@section("content")
     @if(isset($userList))
+        <div class="d-flex justify-content-center">
+            <a href="{{ route('user.create') }}">
+                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
+            </a>
+        </div>
         @foreach ($userList as $user)
-            <h1>Usuario: {{ $user->name }}
-                <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST">
-                    @method("PATCH")
-                    @csrf
-                    <input type="text" name="name" value="{{$user->name}}"><br>
-                    <input type="text" name="password" value="{{$user->password}}"><br>
-                    <input type="submit">
-                </form>
-                <form action="{{route('user.destroy', $user->id)}}" method="POST">
-                    @csrf
-                    @method("DELETE")
-                    <input type="submit" value="Borrar">
-                </form>
-                <a href="{{route('user.edit', $user->id)}}">Modificar</a>
+            <main>
+                <div class="row w-100">
+                    <div class="col-8">
+                        <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST" class="m-0 d-flex align-items-center">
+                            @method("PATCH")
+                            @csrf
+                            <h3 class="d-inline">Nombre: <input type="text" name="name" value="{{$user->name}}" size="10" style="border:none; border-bottom:solid 1px;"></h3>
 
-            </h1>
+                            <h3 class="d-inline">Contraseña: <input type="text" name="password" value="{{$user->password}}" size="10" style="border:none; border-bottom:solid 1px;"></h3>
+                            <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                        </form>
+                    </div>
+                    <div class="col-4 d-flex align-items-center justify-content-end">
+                        <form action="{{route('user.destroy', $user->id)}}" method="POST" class="m-0">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                        </form>
+                        <a href="{{route('user.edit', $user->id)}}" class="btn btn-success">Editar</a>
+                    </div>
+                </div>
+            </main>
         @endforeach
-        <a href="{{ route('user.create') }}">Crear</a>
     @endif
 
     @if(isset($categoriesList))
         @foreach ($categoriesList as $category)
-            <h1>Categoria:
+            <h1>Categoria:</h1>
                 <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST">
                     @method("PATCH")
                     @csrf
-                    <input type="text" name="name" value="{{$category->name}}"><br>
+                    <input type="text" name="name" value="{{$category->name}}">
                     <input type="submit">
                 </form>
                 <form action="{{route('category.destroy', $category->id)}}" method="POST">
                     @csrf
                     @method("DELETE")
-                    <input type="submit" value="Borrar">
+                    <button type="submit" class="btn btn-danger">Borrar</button>
                 </form>
                 <a href="{{route('category.edit', $category->id)}}">Modificar</a>
-            </h1>
+
         @endforeach
         <a href="{{ route('category.create') }}">Crear</a>
     @endif
@@ -97,5 +92,7 @@
         @endforeach
         <a href="{{ route('review.create') }}">Crear</a>
     @endif
+
+@endsection
 </body>
 </html>

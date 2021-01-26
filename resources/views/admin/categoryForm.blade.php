@@ -1,3 +1,7 @@
+@extends("layouts/master")
+@section("title", "Panel de Administracion Modificación")
+@section("content")
+
 @isset($category)
         <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST">
         name:<input type="text" name="name" value="{{$category->name}}"><br>
@@ -10,3 +14,5 @@
 
     <input type="submit">
     </form>
+
+@endsection

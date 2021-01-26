@@ -1,3 +1,7 @@
+@extends("layouts/master")
+@section("title", "Panel de Administracion Modificación")
+@section("content")
+
 @isset($review)
         <form action="{{ route('review.update', ['id' => $review->id]) }}" method="POST">
         name:<input type="text" name="name" value="{{$review->name}}"><br>
@@ -33,3 +37,5 @@
 
     <input type="submit">
     </form>
+
+@endsection
