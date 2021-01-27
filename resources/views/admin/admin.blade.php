@@ -69,7 +69,7 @@
     @if(isset($photographyList))
         @foreach ($photographyList as $photography)
             <h1>Fotografia: {{ $photography->name }}</h1>
-            <img src="{{ url('assets/img/') }}">
+            <img src="{{ asset('assets/img/' .  $photography->image)}}">
             <a href="{{route('photography.edit', $photography->id)}}">Modificar</a>
             <form action="{{route('photography.destroy', $photography->id)}}" method="POST">
                 @csrf
