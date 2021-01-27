@@ -3,8 +3,8 @@
 @section("content")
 
 @isset($photography)
-        <form action="{{ route('photography.update', ['id' => $photography->id]) }}" method="POST">
-        image:<input type="text" name="image" value="{{$photography->image}}"><br>
+        <form enctype="multipart/form-data" action="{{ route('photography.update', ['id' => $photography->id]) }}" method="POST">
+        image:<input type="file" name="image" value="{{$photography->image}}"><br>
         @method("PATCH")
         <select name="id_establishment">
                 @if(isset($establishmentList))
@@ -18,8 +18,8 @@
                 @endif
         </select>
 @else
-    <form action="{{ route('photography.store') }}" method="POST">
-        image:<input type="text" name="image"><br>
+    <form enctype="multipart/form-data" action="{{ route('photography.store') }}" method="POST">
+        image:<input type="file" name="image"><br>
         <select name="id_establishment">
         @if(isset($establishmentList))
                         @foreach ($establishmentList as $establishment)

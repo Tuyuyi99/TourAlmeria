@@ -42,6 +42,10 @@ class PhotographyController extends Controller
         $photography = new Photography();
         $photography->image = $request->image;
         $photography->id_establishment = $request->id_establishment;
+        $image = $request->image;
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('assets/img'), $imageName);
+        $photography->image = $imageName;
         $photography->save();
         return redirect()->route("photography.index");
     }
