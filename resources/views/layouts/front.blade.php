@@ -6,16 +6,17 @@
     <link href="{{ url('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>@yield("title")</title>
 </head>
 <body>
     <header class="fixed-top">
       <nav class="navbar navbar-light navHome" id="menuNav" style="height: 70px">
         <div class="container-fluid h-100">
-          <div class="row w-100 h-100 text-center">
+          <div class="row w-100 h-100 text-center d-flex align-items-center">
 
             <div class="col-8 h-100 d-flex justify-content-start align-items-center">
-                <a class="nav-link" id="navTitulo" style="font-size:2rem; color:white;">TourAlmería</a>
+                <a class="nav-link" id="navTitulo" style="font-size:2rem; color:white; letter-spacing: 7px; cursor: pointer;">TourAlmería</a>
             </div>
 
             <div class="col-4 h-100 d-flex align-items-center justify-content-center">

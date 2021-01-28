@@ -4,7 +4,7 @@ function scroll(){
     var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
     if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
         document.getElementById("menuNav").style.backgroundColor = "white";
-        document.getElementById("menuNav").style.height = "62px";
+        document.getElementById("menuNav").style.height = "70px";
         document.getElementById("menuNav").style.borderBottom = "1px solid rgba(240, 240, 240, .8)";
         document.getElementById("menuNav").style.boxShadow = "0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15)";
         document.getElementById("navTitulo").classList.add("text-dark");
