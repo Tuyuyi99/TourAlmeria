@@ -19,6 +19,7 @@
 
     <div>@yield("content")</div>
 
+    <script src="{{ url('assets/js/script.js') }}"></script>
     <script src="{{ url('assets/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

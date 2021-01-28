@@ -2,6 +2,17 @@
 @section("title", "Panel de Administracion Listado")
 @section("content")
     @if(isset($userList))
+        <div class="w-100 d-flex justify-content-center">
+            <div class="input-group mb-3 w-50">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                </ul>
+            </div>
+        </div>
+    
         <div class="d-flex justify-content-center">
             <a href="{{ route('user.create') }}">
                 <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
@@ -69,7 +80,7 @@
     @if(isset($photographyList))
         @foreach ($photographyList as $photography)
             <h1>Fotografia: {{ $photography->name }}</h1>
-            <img src="{{ asset('assets/img/' .  $photography->image)}}">
+            <img src="{{ asset('assets/img/' .  $photography->image)}}" style="width:15%;">
             <a href="{{route('photography.edit', $photography->id)}}">Modificar</a>
             <form action="{{route('photography.destroy', $photography->id)}}" method="POST">
                 @csrf
