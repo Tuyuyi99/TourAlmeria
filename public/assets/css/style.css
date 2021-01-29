@@ -1,3 +1,10 @@
+header{
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 container-mg {
     display: flex;
     align-items: center;

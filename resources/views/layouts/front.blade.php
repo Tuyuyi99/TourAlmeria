@@ -10,7 +10,7 @@
     <title>@yield("title")</title>
 </head>
 <body>
-    <header class="fixed-top">
+    <header class="animate__animated animate__bounce" id="header">
       <nav class="navbar navbar-light navHome" id="menuNav" style="height: 70px">
         <div class="container-fluid h-100">
           <div class="row w-100 h-100 text-center d-flex align-items-center">
