@@ -1,4 +1,4 @@
-main {
+container-mg {
     display: flex;
     align-items: center;
     margin: auto;
@@ -53,4 +53,38 @@ main {
 .navHome .nav-link{
     transition: all 0.2s;
     color:white;
+}
+
+#inputFindHeader{
+    background: transparent;
+    border-radius: 19px;
+    padding-right: 37px;
+}
+
+.textInputWhite{
+    color: white; 
+}
+
+.textInputWhite::placeholder{
+    color: white; 
+}
+
+.textInputDark{
+    color: rgba(0, 0, 0, 0.7); 
+}
+
+.textInputDark::placeholder{
+    color: rgba(0, 0, 0, 0.7); 
+}
+
+#boxInputFindHeader {
+    width: 50%;
+    transition: all 1s;
+}
+
+.inputFindIcon{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
 }

@@ -19,7 +19,7 @@
             </a>
         </div>
         @foreach ($userList as $user)
-            <main>
+            <container-mg>
                 <div class="row w-100">
                     <div class="col-8">
                         <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST" class="m-0 d-flex align-items-center">
@@ -40,7 +40,7 @@
                         <a href="{{route('user.edit', $user->id)}}" class="btn btn-success">Editar</a>
                     </div>
                 </div>
-            </main>
+            </container-mg>
         @endforeach
     @endif
 

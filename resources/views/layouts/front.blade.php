@@ -22,13 +22,17 @@
             <div class="col-4 h-100 d-flex align-items-center justify-content-center">
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link-scale" style="color: white; cursor: pointer;" id="dropdownMenuTop" data-bs-toggle="dropdown">
-                    Menú
+                    Categorías
                     </a>
                     <ul class="dropdown-menu centerVertical" aria-labelledby="dropdownMenuTop">
                         <a class="dropdown-item" href="#">1</a>
                         <a class="dropdown-item" href="#">2</a>
                     </ul>
-                </div>        
+                </div>
+                <div class="input-group" id="boxInputFindHeader">
+                  <input type="text" class="form-control textInputWhite" placeholder="Buscar" aria-label="buscador" aria-describedby="buscador" id="inputFindHeader" style="color:white;">
+                  <i class="fa fa-search inputFindIcon" style="color: white;"></i>
+                </div>
             </div>
 
           </div>
