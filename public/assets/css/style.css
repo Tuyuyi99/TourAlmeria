@@ -53,15 +53,6 @@ container-mg {
     letter-spacing: 10px;
 }
 
-.navHome {
-    transition: all 0.3s;
-}
-
-.navHome .nav-link{
-    transition: all 0.2s;
-    color:white;
-}
-
 #inputFindHeader{
     background: transparent;
     border-radius: 19px;
@@ -86,7 +77,7 @@ container-mg {
 
 #boxInputFindHeader {
     width: 50%;
-    transition: all 1s;
+    transition: width 1s;
 }
 
 .inputFindIcon{

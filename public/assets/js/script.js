@@ -3,21 +3,12 @@ window.onscroll = function() {scroll()};
 function scroll(){
     var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
 
-    if (document.body.scrollTop > (pxScroll - 100) || document.documentElement.scrollTop > (pxScroll - 100)) {
-      document.getElementById("header").style.display = "none";
-      document.getElementById("header").classList.remove("animate__bounce");
-      document.getElementById("header").classList.add("animate__slideInDown");
-
-    }
-    else{
-      document.getElementById("header").style.display = "block";
-      document.getElementById("header").classList.add("animate__bounce");
-      document.getElementById("header").classList.remove("animate__slideInDown");
-    }
-
     if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
-      document.getElementById("header").style.display = "block";
         document.getElementById("header").style.position = "fixed";
+        document.getElementById("header").style.display = "none";
+        document.getElementById("header").classList.remove("animate__bounce");
+        document.getElementById("header").classList.add("animate__slideInDown");
+        document.getElementById("header").style.display = "block";
         document.getElementById("menuNav").style.backgroundColor = "white";
         document.getElementById("menuNav").style.height = "70px";
         document.getElementById("menuNav").style.borderBottom = "1px solid rgba(240, 240, 240, .8)";
@@ -35,6 +26,9 @@ function scroll(){
         }
       } else {
         document.getElementById("header").style.position = "absolute";
+        document.getElementById("header").style.display = "block";
+        document.getElementById("header").classList.add("animate__bounce");
+        document.getElementById("header").classList.remove("animate__slideInDown");
         document.getElementById("menuNav").style.backgroundColor = "transparent";
         document.getElementById("menuNav").style.height = "70px";
         document.getElementById("menuNav").style.borderBottom = "none";

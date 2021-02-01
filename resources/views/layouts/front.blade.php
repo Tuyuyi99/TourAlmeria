@@ -16,7 +16,7 @@
           <div class="row w-100 h-100 text-center d-flex align-items-center">
 
             <div class="col-8 h-100 d-flex justify-content-start align-items-center">
-                <a class="nav-link" id="navTitulo" style="font-size:2rem; color:white; letter-spacing: 7px; cursor: pointer;">TourAlmería</a>
+                <a href="#" class="nav-link" id="navTitulo" style="font-size:2rem; color:white; letter-spacing: 7px; cursor: pointer;">TourAlmería</a>
             </div>
 
             <div class="col-4 h-100 d-flex align-items-center justify-content-center">
@@ -25,8 +25,11 @@
                     Categorías
                     </a>
                     <ul class="dropdown-menu centerVertical" aria-labelledby="dropdownMenuTop">
-                        <a class="dropdown-item" href="#">1</a>
-                        <a class="dropdown-item" href="#">2</a>
+                      @if(isset($categoriesList))
+                                  @foreach ($categoriesList as $category)
+                                    <a class="dropdown-item" href="#">{{ $category->name }}</a>
+                                  @endforeach
+                      @endif
                     </ul>
                 </div>
                 <div class="input-group" id="boxInputFindHeader">
@@ -39,7 +42,6 @@
         </div>
       </nav>
     </header>
-
 
     <div>@yield("content")</div>
 

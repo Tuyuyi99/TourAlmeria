@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class GeneralController extends Controller
 {
@@ -12,7 +13,9 @@ class GeneralController extends Controller
     }
 
     public function getMain(){
-        return view("front/main");
+        $categoriesList = Category::all();
+        $data["categoriesList"] = $categoriesList;
+        return view("front/main", $data);
     }
 
 }
