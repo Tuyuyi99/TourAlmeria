@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+require __DIR__.'/auth.php';
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 Route::get('/', 'App\Http\Controllers\GeneralController@getMain');
 Route::get('admin', 'App\Http\Controllers\GeneralController@getAdmin');
