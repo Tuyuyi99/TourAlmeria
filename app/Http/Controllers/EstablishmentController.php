@@ -41,6 +41,7 @@ class EstablishmentController extends Controller
         $establishment->name = $request->name;
         $establishment->description = $request->description;
         $establishment->address = $request->address;
+        $establishment->google_maps = $request->google_maps;
         $establishment->outstanding = $request->outstanding;
         $establishment->id_category = $request->id_category;
         $establishment->save();
@@ -84,6 +85,7 @@ class EstablishmentController extends Controller
         $establishment->name = $request->name;
         $establishment->description = $request->description;
         $establishment->address = $request->address;
+        $establishment->google_maps = $request->google_maps;
         $establishment->outstanding = $request->outstanding;
         $establishment->id_category = $request->id_category;
         $establishment->save();

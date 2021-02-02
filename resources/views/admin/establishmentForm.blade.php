@@ -7,6 +7,7 @@
         name:<input type="text" name="name" value="{{$establishment->name}}"><br>
         description:<input type="text" name="description" value="{{$establishment->description}}"><br>
         address:<input type="text" name="address" value="{{$establishment->address}}"><br>
+        google maps:<input type="text" name="google_maps" value="{{$establishment->google_maps}}"><br>
         outstanding:
         <select name="outstanding">
                 @if($establishment->outstanding == "yes")
@@ -35,6 +36,7 @@
         name:<input type="text" name="name"><br>
         description:<input type="text" name="description"><br>
         address:<input type="text" name="address"><br>
+        google maps:<input type="text" name="google_maps"><br>
         outstanding:
         <select name="outstanding">
                 <option value="yes">yes</option>
