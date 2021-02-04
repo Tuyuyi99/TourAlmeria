@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Establishment;
 use App\Models\Category;
+use App\Models\Photography;
 
 class EstablishmentController extends Controller
 {
@@ -15,7 +16,12 @@ class EstablishmentController extends Controller
      */
     public function index(){
         $establishmentList = Establishment::all();
+        $photographyList = Photography::all();
+        $categoriesList = Category::all();
+        
         $data['establishmentList'] = $establishmentList;
+        $data['categoriesListEstablishment'] = $categoriesList;
+        $data['photographyListEstablishment'] = $photographyList;
         return view("admin/admin", $data);
     }
     

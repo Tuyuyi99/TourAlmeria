@@ -14,8 +14,10 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
+        $establishmentList = Establishment::all();
         $reviewList = Review::all();
         $data["reviewList"] = $reviewList;
+        $data["establishmentListReview"] = $establishmentList;
         return view("admin/admin", $data);
     }
 

@@ -42,7 +42,7 @@
                             @method("DELETE")
                             <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                         </form>
-                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success">Modificar</a>
+                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success">Editar</a>
                     </div>
                 </div>
             </container-mg>
@@ -86,7 +86,7 @@
                             @method("DELETE")
                             <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                         </form>
-                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-success">Modificar</a>
+                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-success">Editar</a>
                     </div>
                 </div>
             </container-mg>
@@ -114,7 +114,7 @@
         @foreach ($establishmentList as $establishment)
         <container-mg>
             <div class="row w-100">
-                <div class="col-8 d-flex align-items-center">
+                <div class="col-12 d-flex align-items-center">
                     <form action="{{ route('establishment.update', ['id' => $establishment->id]) }}" method="POST"
                         class="m-0 d-flex align-items-center">
                         @method("PATCH")
@@ -124,17 +124,60 @@
 
                         <h5 class="d-inline">Descripcion: <input type="text" name="description" value="{{ $establishment->description }}"
                             size="30" style="border:none; border-bottom:solid 1px;"></h5>
+
+                        <h5 class="d-inline">Direccion: <input type="text" name="address" value="{{ $establishment->address }}"
+                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+
+                        <h5 class="d-inline">Google Maps: <input type="text" name="google_maps" value="{{ $establishment->google_maps }}"
+                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+
+                        <select name="outstanding">
+                            @if($establishment->outstanding == "yes")
+                                    <option value="yes" selected>yes</option>
+                                    <option value="no">no</option>
+                            @else
+                                    <option value="yes">yes</option>
+                                    <option value="no" selected>no</option>
+                            @endif
+                        </select>
+
+                        <select name="id_category">
+                            @if(isset($categoriesListEstablishment))
+                                @foreach ($categoriesListEstablishment as $category)
+                                    @if($category->id == $establishment->id_category)
+                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                    @else
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endif
+                                @endforeach
+                            @endif
+                        </select>
                                     
                     <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
                     </form>
                 </div>
-                <div class="col-4 d-flex align-items-center justify-content-end">
+                
+                <div class="col-12 d-flex align-items-center">
+                    @foreach ($photographyListEstablishment as $photography)
+                        @if($photography->id_establishment == $establishment->id)
+                            <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
+                            <a href="{{ route('photography.edit', $photography->id) }}">Modificar</a>
+                            <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <input type="submit" value="Borrar">
+                            </form>
+                        @endif
+                    @endforeach
+                </div>
+
+                <div class="col-12 d-flex align-items-center justify-content-end">
                     <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0">
                         @csrf
                         @method("DELETE")
                         <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                     </form>
-                    <a href="{{ route('establishment.edit', $establishment->id) }}" class="btn btn-success">Modificar</a>
+                    <a href="{{ route('establishment.edit', $establishment->id) }}" class="btn btn-success">Editar</a>
                 </div>
             </div>
         </container-mg>
@@ -160,7 +203,6 @@
         </a>
     </div>
         @foreach ($photographyList as $photography)
-            <h1>Fotografia: {{ $photography->name }}</h1>
             <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
             <a href="{{ route('photography.edit', $photography->id) }}">Modificar</a>
             <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
@@ -208,6 +250,18 @@
                             
                         <h4 class="d-inline">Comentario: <input type="text" name="commentary" value="{{ $review->commentary }}"
                             size="15" style="border:none; border-bottom:solid 1px;"></h4>
+
+                        <select name="id_establishment">
+                            @if(isset($establishmentListReview))
+                                            @foreach ($establishmentListReview as $establishment)
+                                                    @if($establishment->id == $review->id_establishment)
+                                                                <option value="{{ $establishment->id }}" selected>{{ $establishment->name }}</option>
+                                                    @else
+                                                        <option value="{{ $establishment->id }}">{{ $establishment->name }}</option>
+                                                    @endif
+                                            @endforeach
+                            @endif
+                        </select>
                         <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
                     </form>
                 </div>
@@ -217,7 +271,7 @@
                         @method("DELETE")
                         <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                     </form>
-                <a href="{{ route('review.edit', $review->id) }}" class="btn btn-success">Modificar</a>
+                <a href="{{ route('review.edit', $review->id) }}" class="btn btn-success">Editar</a>
                 </div>
             </div>
         </container-mg>
