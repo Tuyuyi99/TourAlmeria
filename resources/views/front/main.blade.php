@@ -2,26 +2,53 @@
 @section("title", "TourAlmeria")
 @section("content")
 
-    <section class="container-header animate__animated animate__rotateInDownLeft">
-        <span id="titleContainerHeader">
-            <h1 class="animate__animated animate__bounceInDown animate__delay-2s">Tour Almería</h1>
-        </span>
+  <section class="container-header animate__animated animate__rotateInDownLeft">
+    <span id="titleContainerHeader">
+        <h1 class="animate__animated animate__bounceInDown animate__delay-2s">Tour Almería</h1>
+    </span>
 
-        <div class="w-100 position-absolute" style="height: 150px; overflow: hidden; bottom: 0; color: white;" id="waveHeader">
-            <div style="height: 150px; overflow: hidden;" >
-                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                    <path d="M-4.22,-3.45 C253.67,166.28 342.27,-66.61 523.98,34.03 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
-                </svg>
+    <div class="w-100 position-absolute" style="height: 150px; overflow: hidden; bottom: 0; color: white;" id="waveHeader">
+      <div style="height: 150px; overflow: hidden;" >
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+          <path d="M-4.22,-3.45 C253.67,166.28 342.27,-66.61 523.98,34.03 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="row d-flex align-items-center m-auto">
+    @if(isset($establishmentList))
+      @foreach ($establishmentList as $establishment)
+        @php($count = 1)
+        <div class="col-4 d-flex justify-content-center">
+          <div class="card" style="width: 18rem;">
+          @if(isset($photographyList))
+            @foreach ($photographyList as $photography)
+
+              @if($photography->id_establishment == $establishment->id && $count == 1)
+                <img src="{{ asset('assets/img/' . $photography->image) }}" class="card-img-top" alt="">
+                @php($count++)
+              @endif
+            @endforeach
+          @endif
+          
+            <div class="card-body">
+              <h5 class="card-title">{{ $establishment->name }}</h5>
+              <p class="card-text">{{ $establishment->description }}</p>
+              <a href="#" class="btn btn-primary">ir</a>
             </div>
+          </div>
         </div>
-    </section>
+      @endforeach
+    @endif
+  </div>
 
-    <div id="carouselMain" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"></li>
-    <li data-bs-target="#carouselMain" data-bs-slide-to="1"></li>
-    <li data-bs-target="#carouselMain" data-bs-slide-to="2"></li>
-  </ol>
+  <div id="carouselMain" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselMain" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselMain" data-bs-slide-to="2"></li>
+    </ol>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src="{{ url('assets/img/tio-tom.jpg')  }}" class="d-block w-50" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px;" alt="">
@@ -55,16 +82,11 @@
   </a>
 </div>
 
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-    <h1>Principal2</h1>
-
+<h1>Principal2</h1>
+<h1>Principal2</h1>
+<h1>Principal2</h1>
+<h1>Principal2</h1>
+<h1>Principal2</h1>
+<h1>Principal2</h1>
 
 @endsection

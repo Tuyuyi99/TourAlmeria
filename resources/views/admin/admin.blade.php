@@ -158,6 +158,7 @@
                 </div>
                 
                 <div class="col-12 d-flex align-items-center">
+                @if(isset($photographyListEstablishment))
                     @foreach ($photographyListEstablishment as $photography)
                         @if($photography->id_establishment == $establishment->id)
                             <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
@@ -169,6 +170,7 @@
                             </form>
                         @endif
                     @endforeach
+                @endif
                 </div>
 
                 <div class="col-12 d-flex align-items-center justify-content-end">
