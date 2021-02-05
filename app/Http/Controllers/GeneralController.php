@@ -9,6 +9,10 @@ use App\Models\Photography;
 
 class GeneralController extends Controller
 {
+    public function __construct(){
+        $this->middleware("auth")->except("getMain");
+    }
+    
  
     public function getAdmin(){
         return view("admin/admin");

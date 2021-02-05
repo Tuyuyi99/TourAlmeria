@@ -16,6 +16,7 @@
         <a href="{{ route('establishment.index') }}">Listado Establecimientos</a>
         <a href="{{ route('photography.index') }}">Listado Fotografias</a>
         <a href="{{ route('review.index') }}">Listado Reseñas</a>
+        <a href="{{ route('logout') }}">Logout</a>
     </div>
 
     <div>@yield("content")</div>
