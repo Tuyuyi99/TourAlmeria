@@ -1,56 +1,34 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
+    <container-mg class="animate__animated animate__rotateIn" style="width: 35%;">
+ 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="form-signin inicio mx-auto" id="Inicio_Sesion">
             @csrf
 
-            <!-- User -->
-            <div>
-                <x-label for="name" :value="__('name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="name" name="name" :value="old('name')" required autofocus />
+            <div class="text-center mb-4">
+                <img class="mb-4 w-100" src="{{ asset('assets/img/login/login.svg') }}" alt="">
+                <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+            </div>
+            <div class="form-label-group">
+                <x-input id="name" class="form-control" type="text" name="name" :value="old('name')" placeholder="Usuario" required autofocus />
+                <label for="name">Usuario</label>
             </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+            <div class="form-label-group">
+                <x-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="Contraseña" />
+                <label for="password">Contraseña</label>
             </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Login') }}
-                </x-button>
-            </div>
+            <x-button class="btn btn-lg btn-block w-100" style="background: #EB3349;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #F45C43, #EB3349);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #F45C43, #EB3349); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            ">{{ __('Login') }}</x-button>
+                
         </form>
-    </x-auth-card>
+
+    </container-mg>
 </x-guest-layout>
