@@ -11,4 +11,8 @@ class Establishment extends Model
     public function photography() {
         return $this->hasMany(Photography::class, 'id_establishment');
     }
+
+    public function category() {
+        return $this->hasOne(Category::class, 'id_category');
+    }
 }
