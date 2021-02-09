@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Establishment extends Model
 {
     use HasFactory;
+    public function photography() {
+        return $this->hasMany(Photography::class, 'id_establishment');
+    }
 }

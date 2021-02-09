@@ -19,23 +19,13 @@
   <div class="row d-flex align-items-center m-auto">
     @if(isset($establishmentList))
       @foreach ($establishmentList as $establishment)
-        @php($count = 1)
         <div class="col-4 d-flex justify-content-center">
           <div class="card" style="width: 18rem;">
-          @if(isset($photographyList))
-            @foreach ($photographyList as $photography)
-
-              @if($photography->id_establishment == $establishment->id && $count == 1)
-                <img src="{{ asset('assets/img/' . $photography->image) }}" class="card-img-top" alt="">
-                @php($count++)
-              @endif
-            @endforeach
-          @endif
-          
+            <img src="{{ asset('assets/img/' . $establishment->photography->first()->image) }}" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title">{{ $establishment->name }}</h5>
               <p class="card-text">{{ $establishment->description }}</p>
-              <a href="#" class="btn btn-primary">ir</a>
+              <a href="#" class="btn btn-primary d-flex justify-content-center">ir</a>
             </div>
           </div>
         </div>
@@ -88,5 +78,22 @@
 <h1>Principal2</h1>
 <h1>Principal2</h1>
 <h1>Principal2</h1>
+
+<div class="modal fade" tabindex="-1" id="modalPrueba">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="header">
+        titulo
+      </div>
+      <div class="modal-body">
+        body
+      </div>
+      <div class="modal-footer">
+        pìe
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-success" type="button" data-toogle="modal" data-target="modalPrueba">Abrir modal</button>
 
 @endsection
