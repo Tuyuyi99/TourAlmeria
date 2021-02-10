@@ -161,19 +161,27 @@
                 @if(isset($photographyListEstablishment))
                     @foreach ($photographyListEstablishment as $photography)
                         @if($photography->id_establishment == $establishment->id)
-                            <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
-                            <a href="{{ route('photography.edit', $photography->id) }}">Modificar</a>
+                            <img src="{{ asset('assets/img/establishments/' . $photography->image) }}" style="width:15%;">
                             <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
-                                <input type="submit" value="Borrar">
+                                <input type="submit" value="Borrar Fotografia" class="btn btn-danger me-2 ms-1">
                             </form>
                         @endif
                     @endforeach
                 @endif
                 </div>
+                
 
                 <div class="col-12 d-flex align-items-center justify-content-end">
+                    <form enctype="multipart/form-data" action="{{ route('photography.store') }}" method="POST">
+                        @csrf
+                        @method("POST")
+                        <input type="file" name="image"><br>
+                        <input type="hidden" name="id_establishment" value="{{ $establishment->id}}">
+                        <input type="submit">
+                </form>
+
                     <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0">
                         @csrf
                         @method("DELETE")

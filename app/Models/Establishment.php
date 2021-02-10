@@ -12,7 +12,11 @@ class Establishment extends Model
         return $this->hasMany(Photography::class, 'id_establishment');
     }
 
-    public function category() {
-        return $this->hasOne(Category::class, 'id_category');
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
+    public function review(){
+        return $this->belongsTo(Review::class);
     }
 }

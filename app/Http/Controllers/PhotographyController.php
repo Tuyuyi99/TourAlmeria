@@ -32,7 +32,7 @@ class PhotographyController extends Controller
     public function create()
     {
         $establishmentList = Establishment::all();
-        return view("admin/photographyForm", ['establishmentList' => $establishmentList]);
+        return view("admin/establishmentPhotographyForm", ['establishmentList' => $establishmentList]);
     }
 
     /**
@@ -48,10 +48,10 @@ class PhotographyController extends Controller
         $photography->id_establishment = $request->id_establishment;
         $image = $request->image;
         $imageName = $image->getClientOriginalName();
-        $image->move(public_path('assets/img'), $imageName);
+        $image->move(public_path('assets/img/establishments/'), $imageName);
         $photography->image = $imageName;
         $photography->save();
-        return redirect()->route("photography.index");
+        return redirect()->route("establishment.index");
     }
 
     /**
@@ -94,7 +94,7 @@ class PhotographyController extends Controller
         $photography->image = $request->image;
         $photography->id_establishment = $request->id_establishment;
         $photography->save();
-        return redirect()->route("photography.index");
+        return redirect()->route("establishment.index");
     }
 
     /**
@@ -107,6 +107,6 @@ class PhotographyController extends Controller
     {
         $photography = Photography::find($id);
         $photography->delete();
-        return redirect()->route("photography.index");
+        return redirect()->route("establishment.index");
     }
 }

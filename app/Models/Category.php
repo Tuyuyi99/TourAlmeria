@@ -10,6 +10,6 @@ class Category extends Model
     use HasFactory;
 
     public function establishment() {
-        return $this->belongsTo(Establishment::class);
+        return $this->hasMany(Establishment::class, 'id_category');
     }
 }
