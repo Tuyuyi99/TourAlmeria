@@ -42,6 +42,7 @@ Route::get('admin/establishment/create', 'App\Http\Controllers\EstablishmentCont
 Route::patch('admin/establishment/update/{id}', 'App\Http\Controllers\EstablishmentController@update')->name('establishment.update');
 Route::delete('admin/establishment/destroy/{id}', 'App\Http\Controllers\EstablishmentController@destroy')->name('establishment.destroy');
 Route::post('admin/establishment/store', 'App\Http\Controllers\EstablishmentController@store')->name('establishment.store');
+Route::get('admin/establishment/show/{id}', 'App\Http\Controllers\EstablishmentController@show')->name('establishment.show');
 
  //CRUD de fotografías
 

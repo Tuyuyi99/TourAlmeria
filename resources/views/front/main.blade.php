@@ -21,17 +21,36 @@
       @foreach ($establishmentList as $establishment)
         <div class="col-4 d-flex justify-content-center">
           <div class="card" style="width: 18rem;">
-            <img src="{{ asset('assets/img/' . $establishment->photography->first()->image) }}" class="card-img-top" alt="">
+            <img src="{{ asset('assets/img/establishments/' . $establishment->photography->first()->image) }}" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title">{{ $establishment->name }}</h5>
               <p class="card-text">{{ $establishment->description }}</p>
-              <a href="#" class="btn btn-primary d-flex justify-content-center">ir</a>
+              <button type="button" class="btn btn-primary d-flex justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
+                Abrir
+              </button>
             </div>
           </div>
         </div>
       @endforeach
     @endif
   </div>
+
+  <div class="modal fade" id="establishmentModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="establishmentModalTitle"></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="establishmentModalDescription">
+        ...
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
 
   <div id="carouselMain" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
@@ -78,22 +97,5 @@
 <h1>Principal2</h1>
 <h1>Principal2</h1>
 <h1>Principal2</h1>
-
-<div class="modal fade" tabindex="-1" id="modalPrueba">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="header">
-        titulo
-      </div>
-      <div class="modal-body">
-        body
-      </div>
-      <div class="modal-footer">
-        pìe
-      </div>
-    </div>
-  </div>
-</div>
-<button class="btn btn-success" type="button" data-toogle="modal" data-target="modalPrueba">Abrir modal</button>
 
 @endsection

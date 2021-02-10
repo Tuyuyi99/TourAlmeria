@@ -46,3 +46,30 @@ function scroll(){
        }
       }
 }
+
+function establishmentShowContentModal(id){
+  $(document).ready(function(){
+      $.ajax({url: "admin/establishment/show/" + id,
+      beforeSend: function () {
+        $("#establishmentModalTitle").html("<h4>Procesando, espere por favor...</h4>");
+        $("#establishmentModalDescription").html("");
+      },
+       success: function(result){
+        var name = result.name;
+        var description = result.description;
+        var address = result.address;
+        var google_maps = result.google_maps;
+        console.log(result);
+        $("#establishmentModalTitle").html(name);
+        $("#establishmentModalDescription").html(`
+        <h5>Descripcion: ${description}</h5>
+        <h5>Dirección: ${address}</h5>
+        ${google_maps}
+        
+        `);
+        }
+      });
+      
+  });
+
+}

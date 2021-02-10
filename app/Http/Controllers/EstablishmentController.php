@@ -11,7 +11,7 @@ class EstablishmentController extends Controller
 {
     
     public function __construct(){
-        $this->middleware("auth");
+        $this->middleware("auth")->except("show");
     }
     /**
      * Display a listing of the resource.
@@ -66,7 +66,7 @@ class EstablishmentController extends Controller
      */
     public function show($id){
         $establishment = Establishment::find($id);
-        return view("admin/admin", $establishment);
+        return $establishment;
     }
 
     /**
