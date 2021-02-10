@@ -20,8 +20,8 @@
     @if(isset($establishmentList))
       @foreach ($establishmentList as $establishment)
         <div class="col-4 d-flex justify-content-center">
-          <div class="card" style="width: 18rem;">
-            <img src="{{ asset('assets/img/establishments/' . $establishment->photography->first()->image) }}" class="card-img-top" alt="">
+          <div class="card" style="width: 20rem;">
+            <img src="{{ asset('assets/img/establishments/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
             <div class="card-body">
               <h5 class="card-title">{{ $establishment->name }}</h5>
               <p class="card-text">{{ $establishment->description }}</p>

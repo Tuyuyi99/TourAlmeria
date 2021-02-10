@@ -76,10 +76,10 @@ class EstablishmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id){
-        $establishmentList = Establishment::find($id);
-        $photographyList = Photography::all();
-        $data["establishmentList"] = $establishmentList;
-        $data["photographyList"] = $photographyList;
+        $establishment = Establishment::find($id);
+        $categories = Category::all();
+        $data["establishment"] = $establishment;
+        $data["categoriesList"] = $categories;
         return view('admin/establishmentForm', $data);
     }
 

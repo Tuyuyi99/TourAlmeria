@@ -158,37 +158,49 @@
                 </div>
                 
                 <div class="col-12 d-flex align-items-center">
+                    <div class="row w-100" style="height: 150px;">
+                        <div class="col-8 d-flex justify-content-start align-items-center">
+                            <form enctype="multipart/form-data" action="{{ route('photography.store') }}" method="POST" class="m-0 w-100">
+                                @csrf
+                                @method("POST")
+
+                                    <input class="form-control w-50 d-inline-block" type="file" name="image">
+                                    <button class="btn btn-outline-primary" type="submit">Subir imagen</button>
+
+                                <input type="hidden" name="id_establishment" value="{{ $establishment->id}}">
+
+                            </form>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0 d-inline-block">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                            </form>
+                            <a href="{{ route('establishment.edit', $establishment->id) }}" class="btn btn-success">Editar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 d-flex align-items-center" style="padding: 10px 10px 10px 10px;">
+                    <div class="row w-100">
                 @if(isset($photographyListEstablishment))
                     @foreach ($photographyListEstablishment as $photography)
                         @if($photography->id_establishment == $establishment->id)
-                            <img src="{{ asset('assets/img/establishments/' . $photography->image) }}" style="width:15%;">
-                            <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
-                                @csrf
-                                @method("DELETE")
-                                <input type="submit" value="Borrar Fotografia" class="btn btn-danger me-2 ms-1">
-                            </form>
+                            <div class="boxPhotographyAdmin col-3 d-flex justify-content-center align-items-center position-relative mb-5">
+                                <img src="{{ asset('assets/img/establishments/' . $photography->image) }}" style="width:50%; height: 200px;">
+                                <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <input type="submit" value="Borrar Fotografia" class="btn btn-danger me-2 ms-1 centerVerticalHorizontal">
+                                </form>
+                            </div>
                         @endif
                     @endforeach
                 @endif
+                    </div>
                 </div>
                 
-
-                <div class="col-12 d-flex align-items-center justify-content-end">
-                    <form enctype="multipart/form-data" action="{{ route('photography.store') }}" method="POST">
-                        @csrf
-                        @method("POST")
-                        <input type="file" name="image"><br>
-                        <input type="hidden" name="id_establishment" value="{{ $establishment->id}}">
-                        <input type="submit">
-                </form>
-
-                    <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
-                    </form>
-                    <a href="{{ route('establishment.edit', $establishment->id) }}" class="btn btn-success">Editar</a>
-                </div>
             </div>
         </container-mg>
         @endforeach

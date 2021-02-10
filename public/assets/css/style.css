@@ -86,3 +86,19 @@ container-mg {
     right: 15px;
     transform: translateY(-50%);
 }
+
+.boxPhotographyAdmin input{
+    display: none;
+}
+
+.boxPhotographyAdmin {
+    cursor: pointer;
+}
+
+.boxPhotographyAdmin:hover input{
+    display: block;
+}
+
+.boxPhotographyAdmin:hover img{
+    opacity: .8;
+}
