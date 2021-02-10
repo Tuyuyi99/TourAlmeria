@@ -194,37 +194,6 @@
         @endforeach
     @endif
 
-    @if (isset($photographyList))
-    <div class="w-100 d-flex justify-content-center">
-        <div class="input-group mb-3 w-50">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Dropdown</button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <a href="{{ route('photography.create') }}">
-            <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
-        </a>
-    </div>
-        @foreach ($photographyList as $photography)
-            <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
-            <a href="{{ route('photography.edit', $photography->id) }}">Modificar</a>
-            <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
-                @csrf
-                @method("DELETE")
-                <input type="submit" value="Borrar">
-            </form>
-        @endforeach
-        <a href="{{ route('photography.create') }}">Crear</a>
-    @endif
-
-
     @if (isset($reviewList))
     <div class="w-100 d-flex justify-content-center">
         <div class="input-group mb-3 w-50">
