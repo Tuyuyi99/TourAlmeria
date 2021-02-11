@@ -48,8 +48,9 @@ function scroll(){
 }
 
 function establishmentShowContentModal(id){
+
   $(document).ready(function(){
-      $.ajax({url: "admin/establishment/show/" + id,
+      $.ajax({url: "admin/establishment/showAjax/" + id,
       beforeSend: function () {
         $("#establishmentModalTitle").html("<h4>Procesando, espere por favor...</h4>");
         $("#establishmentModalDescription").html("");
@@ -59,17 +60,24 @@ function establishmentShowContentModal(id){
         var description = result.description;
         var address = result.address;
         var google_maps = result.google_maps;
-        console.log(result);
         $("#establishmentModalTitle").html(name);
-        $("#establishmentModalDescription").html(`
+        $("#establishmentModalDescription").append(`
         <h5>Descripcion: ${description}</h5>
         <h5>Dirección: ${address}</h5>
         ${google_maps}
-        
         `);
         }
       });
       
-  });
+      $.ajax({url: "admin/establishment/showAjaxPhotography/" + id, success: function(resultImg){
+        $.each(resultImg, function(i, result){
+          $("#establishmentModalDescription").append(`
+          <img src="assets/img/establishments/${result.image}">
+          `);
+        });
 
+
+
+      }});
+  });
 }

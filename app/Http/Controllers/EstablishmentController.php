@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Establishment;
 use App\Models\Category;
 use App\Models\Photography;
@@ -11,7 +12,7 @@ class EstablishmentController extends Controller
 {
     
     public function __construct(){
-        $this->middleware("auth")->except("show");
+        $this->middleware("auth")->except("showAjax", "showAjaxPhotography");
     }
     /**
      * Display a listing of the resource.
@@ -66,7 +67,17 @@ class EstablishmentController extends Controller
      */
     public function show($id){
         $establishment = Establishment::find($id);
+        return view("admin");
+    }
+
+    public function showAjax($id){
+        $establishment = Establishment::find($id);
         return $establishment;
+    }
+
+    public function showAjaxPhotography($id){
+        $establishmentPhotography = Establishment::find($id);
+        return $establishmentPhotography->photography;
     }
 
     /**

@@ -17,6 +17,6 @@ class Establishment extends Model
     }
 
     public function review(){
-        return $this->belongsTo(Review::class);
+        return $this->hasMany(Review::class, 'id_establishment');
     }
 }

@@ -21,10 +21,8 @@ class GeneralController extends Controller
     public function getMain(){
         $categoriesList = Category::all();
         $establishmentList = Establishment::all();
-        $photographyList = Photography::all();
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
-        $data["photographyList"] = $photographyList;
         return view("front/main", $data);
     }
 

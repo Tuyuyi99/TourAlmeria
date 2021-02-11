@@ -36,7 +36,7 @@
   </div>
 
   <div class="modal fade" id="establishmentModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title" id="establishmentModalTitle"></h2>

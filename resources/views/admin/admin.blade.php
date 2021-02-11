@@ -116,44 +116,50 @@
             <div class="row w-100">
                 <div class="col-12 d-flex align-items-center">
                     <form action="{{ route('establishment.update', ['id' => $establishment->id]) }}" method="POST"
-                        class="m-0 d-flex align-items-center">
-                        @method("PATCH")
-                        @csrf
-                        <h5 class="d-inline">Nombre: <input type="text" name="name" value="{{ $establishment->name }}"
-                            size="10" style="border:none; border-bottom:solid 1px;"></h5>
+                    class="m-0 d-flex align-items-center">
+                        <div class="row">
+                            <div class="col-12 col-xxl-6 d-flex align-items-center" style="height: 100px;">
 
-                        <h5 class="d-inline">Descripcion: <input type="text" name="description" value="{{ $establishment->description }}"
-                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                @method("PATCH")
+                                @csrf
+                                <h5 class="d-inline">Nombre: <input type="text" name="name" value="{{ $establishment->name }}"
+                                    size="10" style="border:none; border-bottom:solid 1px;"></h5>
 
-                        <h5 class="d-inline">Direccion: <input type="text" name="address" value="{{ $establishment->address }}"
-                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                <h5 class="d-inline">Descripcion: <input type="text" name="description" value="{{ $establishment->description }}"
+                                    size="30" style="border:none; border-bottom:solid 1px;"></h5>
 
-                        <h5 class="d-inline">Google Maps: <input type="text" name="google_maps" value="{{ $establishment->google_maps }}"
-                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                <h5 class="d-inline">Direccion: <input type="text" name="address" value="{{ $establishment->address }}"
+                                    size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                            </div>
+                            <div class="col-12 col-xxl-6 d-flex align-items-center">
+                                <h5 class="d-inline">Google Maps: <input type="text" name="google_maps" value="{{ $establishment->google_maps }}"
+                                size="30" style="border:none; border-bottom:solid 1px;"></h5>
 
-                        <select name="outstanding">
-                            @if($establishment->outstanding == "yes")
-                                    <option value="yes" selected>yes</option>
-                                    <option value="no">no</option>
-                            @else
-                                    <option value="yes">yes</option>
-                                    <option value="no" selected>no</option>
-                            @endif
-                        </select>
-
-                        <select name="id_category">
-                            @if(isset($categoriesListEstablishment))
-                                @foreach ($categoriesListEstablishment as $category)
-                                    @if($category->id == $establishment->id_category)
-                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                <select name="outstanding">
+                                    @if($establishment->outstanding == "yes")
+                                            <option value="yes" selected>yes</option>
+                                            <option value="no">no</option>
                                     @else
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="yes">yes</option>
+                                            <option value="no" selected>no</option>
                                     @endif
-                                @endforeach
-                            @endif
-                        </select>
-                                    
-                    <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                                </select>
+
+                                <select name="id_category">
+                                    @if(isset($categoriesListEstablishment))
+                                        @foreach ($categoriesListEstablishment as $category)
+                                            @if($category->id == $establishment->id_category)
+                                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                            @else
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </select>
+                                            
+                                <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 
