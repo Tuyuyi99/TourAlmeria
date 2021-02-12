@@ -22,7 +22,7 @@
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
           <div data-aos="fade-up" class="card cardMain" style="width: 25rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
             @if(isset($establishment->photography->first()->image))
-            <img src="{{ asset('assets/img/establishments/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
+            <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
             @endif
             <div class="card-body">
               <h2 class="card-title text-center">{{ $establishment->name }}</h2>

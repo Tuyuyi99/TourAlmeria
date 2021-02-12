@@ -196,7 +196,7 @@
                     @foreach ($photographyListEstablishment as $photography)
                         @if($photography->id_establishment == $establishment->id)
                             <div class="boxPhotographyAdmin col-3 d-flex justify-content-center align-items-center position-relative mb-5">
-                                <img src="{{ asset('assets/img/establishments/' . $photography->image) }}" style="width:50%; height: 200px;">
+                                <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $photography->image) }}" style="width:50%; height: 200px;">
                                 <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
                                     @csrf
                                     @method("DELETE")
