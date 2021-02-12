@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Filesystem\Filesystem;
 use App\Models\Establishment;
 use App\Models\Category;
 use App\Models\Photography;
@@ -125,10 +125,16 @@ class EstablishmentController extends Controller
      */
     public function destroy($id){
         $establishment = Establishment::find($id);
-        /*$ruta = "assets/img/establishments/" . $establishment->first()->name;
-        rmdir($ruta);*/
-
+        $ruta = "assets/img/establishments/" . $establishment->name;
+        $file = new Filesystem;
+        $file->cleanDirectory($ruta);
+        rmdir($ruta);
+        
+        foreach($establishment->photography as $establishmentPhotography){
+        $establishmentPhotography->delete();
+        }
         $establishment->delete();
+        
         return redirect()->route('establishment.index');
     }
 }

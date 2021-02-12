@@ -43,13 +43,15 @@ class PhotographyController extends Controller
      */
     public function store(Request $request)
     {
+        $establishment = Establishment::find($request->id_establishment);
         foreach($request->image as $image){
+            
             $photography = new Photography();
             $photography->image = $image;
             $photography->id_establishment = $request->id_establishment;
             
             $imageName = $image->getClientOriginalName();
-            $image->move(public_path('assets/img/establishments/'), $imageName);
+            $image->move(public_path('assets/img/establishments/' . $establishment->name), $imageName);
             $photography->image = $imageName;
             $photography->save();
         }
