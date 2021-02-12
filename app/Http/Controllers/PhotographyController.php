@@ -43,15 +43,17 @@ class PhotographyController extends Controller
      */
     public function store(Request $request)
     {
-        $photography = new Photography();
-        $photography->image = $request->image;
-        $photography->id_establishment = $request->id_establishment;
-        
-        $image = $request->image;
-        $imageName = $image->getClientOriginalName();
-        $image->move(public_path('assets/img/establishments/'), $imageName);
-        $photography->image = $imageName;
-        $photography->save();
+        foreach($request->image as $image){
+            $photography = new Photography();
+            $photography->image = $image;
+            $photography->id_establishment = $request->id_establishment;
+            
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('assets/img/establishments/'), $imageName);
+            $photography->image = $imageName;
+            $photography->save();
+        }
+
         return redirect()->route("establishment.index");
     }
 

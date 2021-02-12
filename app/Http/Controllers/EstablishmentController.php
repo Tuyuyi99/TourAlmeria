@@ -55,6 +55,10 @@ class EstablishmentController extends Controller
         $establishment->google_maps = $request->google_maps;
         $establishment->outstanding = $request->outstanding;
         $establishment->id_category = $request->id_category;
+        $ruta = "assets/img/establishments/" . $establishment->name;
+        if(!mkdir($ruta, 0777, true)) {
+            die('Fallo al crear las carpetas...');
+        }
         $establishment->save();
         return redirect()->route('establishment.index');
     }
@@ -121,6 +125,9 @@ class EstablishmentController extends Controller
      */
     public function destroy($id){
         $establishment = Establishment::find($id);
+        /*$ruta = "assets/img/establishments/" . $establishment->first()->name;
+        rmdir($ruta);*/
+
         $establishment->delete();
         return redirect()->route('establishment.index');
     }

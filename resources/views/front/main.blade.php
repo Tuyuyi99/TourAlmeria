@@ -19,13 +19,15 @@
   <div class="row d-flex align-items-center m-auto">
     @if(isset($establishmentList))
       @foreach ($establishmentList as $establishment)
-        <div class="col-4 d-flex justify-content-center">
-          <div class="card" style="width: 20rem;">
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
+          <div data-aos="fade-up" class="card cardMain" style="width: 25rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
+            @if(isset($establishment->photography->first()->image))
             <img src="{{ asset('assets/img/establishments/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
+            @endif
             <div class="card-body">
-              <h5 class="card-title">{{ $establishment->name }}</h5>
+              <h2 class="card-title text-center">{{ $establishment->name }}</h2>
               <p class="card-text">{{ $establishment->description }}</p>
-              <button type="button" class="btn btn-primary d-flex justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
+              <button type="button" class="btn btn-primary d-flex justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
             </div>
@@ -42,17 +44,33 @@
         <h2 class="modal-title" id="establishmentModalTitle"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="establishmentModalDescription">
-        ...
-      </div>
-      <div class="modal-footer">
+      <div class="modal-body">
+      <div id="establishmentModalDescription"></div>
+
+      <div id="carouselMainEstablishment" class="carousel slide w-100" data-bs-ride="carousel">
+            <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators">
+            </ol>
+            <div class="carousel-inner" id="carouselMainEstablishmentGalery">
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+
+        </div>
+    
 
       </div>
     </div>
   </div>
 </div>
 
-  <div id="carouselMain" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div id="carouselMain" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
       <li data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"></li>
       <li data-bs-target="#carouselMain" data-bs-slide-to="1"></li>
@@ -90,12 +108,5 @@
     <span class="visually-hidden">Next</span>
   </a>
 </div>
-
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
 
 @endsection

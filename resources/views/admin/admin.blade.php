@@ -134,30 +134,32 @@
                             <div class="col-12 col-xxl-6 d-flex align-items-center">
                                 <h5 class="d-inline">Google Maps: <input type="text" name="google_maps" value="{{ $establishment->google_maps }}"
                                 size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                
+                                <div class="w-100 d-flex justify-content-end">
+                                    <select name="outstanding" class="mx-1">
+                                        @if($establishment->outstanding == "yes")
+                                                <option value="yes" selected>yes</option>
+                                                <option value="no">no</option>
+                                        @else
+                                                <option value="yes">yes</option>
+                                                <option value="no" selected>no</option>
+                                        @endif
+                                    </select>
 
-                                <select name="outstanding">
-                                    @if($establishment->outstanding == "yes")
-                                            <option value="yes" selected>yes</option>
-                                            <option value="no">no</option>
-                                    @else
-                                            <option value="yes">yes</option>
-                                            <option value="no" selected>no</option>
-                                    @endif
-                                </select>
-
-                                <select name="id_category">
-                                    @if(isset($categoriesListEstablishment))
-                                        @foreach ($categoriesListEstablishment as $category)
-                                            @if($category->id == $establishment->id_category)
-                                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                                            @else
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endif
-                                        @endforeach
-                                    @endif
-                                </select>
-                                            
-                                <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                                    <select name="id_category" class="mx-1">
+                                        @if(isset($categoriesListEstablishment))
+                                            @foreach ($categoriesListEstablishment as $category)
+                                                @if($category->id == $establishment->id_category)
+                                                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                                @else
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                                
+                                    <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -170,7 +172,7 @@
                                 @csrf
                                 @method("POST")
 
-                                    <input class="form-control w-50 d-inline-block" type="file" name="image">
+                                    <input class="form-control w-50 d-inline-block" type="file" name="image[]" multiple>
                                     <button class="btn btn-outline-primary" type="submit">Subir imagen</button>
 
                                 <input type="hidden" name="id_establishment" value="{{ $establishment->id}}">
