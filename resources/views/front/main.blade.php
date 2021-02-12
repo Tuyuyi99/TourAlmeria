@@ -38,8 +38,11 @@
   </div>
 
   <div class="modal fade" id="establishmentModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-xl">
-    <div class="modal-content">
+
+  <div class="lds-facebook centerVerticalHorizontal"><div></div><div></div><div></div></div>
+
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" id="establishmentModalDialog">
+    <div class="modal-content animate-zoom">
       <div class="modal-header">
         <h2 class="modal-title" id="establishmentModalTitle"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
