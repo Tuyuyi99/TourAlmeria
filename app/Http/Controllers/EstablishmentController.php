@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Filesystem\Filesystem;
 use App\Models\Establishment;
 use App\Models\Category;
 use App\Models\Photography;
@@ -11,7 +12,7 @@ class EstablishmentController extends Controller
 {
     
     public function __construct(){
-        $this->middleware("auth");
+        $this->middleware("auth")->except("showAjax", "showAjaxPhotography");
     }
     /**
      * Display a listing of the resource.
@@ -54,6 +55,10 @@ class EstablishmentController extends Controller
         $establishment->google_maps = $request->google_maps;
         $establishment->outstanding = $request->outstanding;
         $establishment->id_category = $request->id_category;
+        $ruta = "assets/img/establishments/" . $establishment->name;
+        if(!mkdir($ruta, 0777, true)) {
+            die('Fallo al crear las carpetas...');
+        }
         $establishment->save();
         return redirect()->route('establishment.index');
     }
@@ -66,7 +71,17 @@ class EstablishmentController extends Controller
      */
     public function show($id){
         $establishment = Establishment::find($id);
-        return view("admin/admin", $establishment);
+        return view("admin");
+    }
+
+    public function showAjax($id){
+        $establishment = Establishment::find($id);
+        return $establishment;
+    }
+
+    public function showAjaxPhotography($id){
+        $establishmentPhotography = Establishment::find($id);
+        return $establishmentPhotography->photography;
     }
 
     /**
@@ -110,7 +125,16 @@ class EstablishmentController extends Controller
      */
     public function destroy($id){
         $establishment = Establishment::find($id);
+        $ruta = "assets/img/establishments/" . $establishment->name;
+        $file = new Filesystem;
+        $file->cleanDirectory($ruta);
+        rmdir($ruta);
+        
+        foreach($establishment->photography as $establishmentPhotography){
+        $establishmentPhotography->delete();
+        }
         $establishment->delete();
+        
         return redirect()->route('establishment.index');
     }
 }

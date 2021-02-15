@@ -116,106 +116,103 @@
             <div class="row w-100">
                 <div class="col-12 d-flex align-items-center">
                     <form action="{{ route('establishment.update', ['id' => $establishment->id]) }}" method="POST"
-                        class="m-0 d-flex align-items-center">
-                        @method("PATCH")
-                        @csrf
-                        <h5 class="d-inline">Nombre: <input type="text" name="name" value="{{ $establishment->name }}"
-                            size="10" style="border:none; border-bottom:solid 1px;"></h5>
+                    class="m-0 d-flex align-items-center">
+                        <div class="row">
+                            <div class="col-12 col-xxl-6 d-flex align-items-center" style="height: 100px;">
 
-                        <h5 class="d-inline">Descripcion: <input type="text" name="description" value="{{ $establishment->description }}"
-                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                @method("PATCH")
+                                @csrf
+                                <h5 class="d-inline">Nombre: <input type="text" name="name" value="{{ $establishment->name }}"
+                                    size="10" style="border:none; border-bottom:solid 1px;"></h5>
 
-                        <h5 class="d-inline">Direccion: <input type="text" name="address" value="{{ $establishment->address }}"
-                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                <h5 class="d-inline">Descripcion: <input type="text" name="description" value="{{ $establishment->description }}"
+                                    size="30" style="border:none; border-bottom:solid 1px;"></h5>
 
-                        <h5 class="d-inline">Google Maps: <input type="text" name="google_maps" value="{{ $establishment->google_maps }}"
-                            size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                <h5 class="d-inline">Direccion: <input type="text" name="address" value="{{ $establishment->address }}"
+                                    size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                            </div>
+                            <div class="col-12 col-xxl-6 d-flex align-items-center">
+                                <h5 class="d-inline">Google Maps: <input type="text" name="google_maps" value="{{ $establishment->google_maps }}"
+                                size="30" style="border:none; border-bottom:solid 1px;"></h5>
+                                
+                                <div class="w-100 d-flex justify-content-end">
+                                    <select name="outstanding" class="mx-1">
+                                        @if($establishment->outstanding == "yes")
+                                                <option value="yes" selected>yes</option>
+                                                <option value="no">no</option>
+                                        @else
+                                                <option value="yes">yes</option>
+                                                <option value="no" selected>no</option>
+                                        @endif
+                                    </select>
 
-                        <select name="outstanding">
-                            @if($establishment->outstanding == "yes")
-                                    <option value="yes" selected>yes</option>
-                                    <option value="no">no</option>
-                            @else
-                                    <option value="yes">yes</option>
-                                    <option value="no" selected>no</option>
-                            @endif
-                        </select>
-
-                        <select name="id_category">
-                            @if(isset($categoriesListEstablishment))
-                                @foreach ($categoriesListEstablishment as $category)
-                                    @if($category->id == $establishment->id_category)
-                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                                    @else
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endif
-                                @endforeach
-                            @endif
-                        </select>
-                                    
-                    <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                                    <select name="id_category" class="mx-1">
+                                        @if(isset($categoriesListEstablishment))
+                                            @foreach ($categoriesListEstablishment as $category)
+                                                @if($category->id == $establishment->id_category)
+                                                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                                @else
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                                
+                                    <button type="submit" class="btn btn-primary me-1 ms-2">Modificar</button>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 
                 <div class="col-12 d-flex align-items-center">
+                    <div class="row w-100" style="height: 150px;">
+                        <div class="col-8 d-flex justify-content-start align-items-center">
+                            <form enctype="multipart/form-data" action="{{ route('photography.store') }}" method="POST" class="m-0 w-100">
+                                @csrf
+                                @method("POST")
+
+                                    <input class="form-control w-50 d-inline-block" type="file" name="image[]" multiple>
+                                    <button class="btn btn-outline-primary" type="submit">Subir imagen</button>
+
+                                <input type="hidden" name="id_establishment" value="{{ $establishment->id}}">
+
+                            </form>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0 d-inline-block">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                            </form>
+                            <a href="{{ route('establishment.edit', $establishment->id) }}" class="btn btn-success">Editar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 d-flex align-items-center" style="padding: 10px 10px 10px 10px;">
+                    <div class="row w-100">
                 @if(isset($photographyListEstablishment))
                     @foreach ($photographyListEstablishment as $photography)
                         @if($photography->id_establishment == $establishment->id)
-                            <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
-                            <a href="{{ route('photography.edit', $photography->id) }}">Modificar</a>
-                            <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
-                                @csrf
-                                @method("DELETE")
-                                <input type="submit" value="Borrar">
-                            </form>
+                            <div class="boxPhotographyAdmin col-3 d-flex justify-content-center align-items-center position-relative mb-5">
+                                <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $photography->image) }}" style="width:50%; height: 200px;">
+                                <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <input type="submit" value="Borrar Fotografia" class="btn btn-danger me-2 ms-1 centerVerticalHorizontal">
+                                </form>
+                            </div>
                         @endif
                     @endforeach
                 @endif
+                    </div>
                 </div>
-
-                <div class="col-12 d-flex align-items-center justify-content-end">
-                    <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
-                    </form>
-                    <a href="{{ route('establishment.edit', $establishment->id) }}" class="btn btn-success">Editar</a>
-                </div>
+                
             </div>
         </container-mg>
         @endforeach
     @endif
-
-    @if (isset($photographyList))
-    <div class="w-100 d-flex justify-content-center">
-        <div class="input-group mb-3 w-50">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Dropdown</button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <a href="{{ route('photography.create') }}">
-            <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
-        </a>
-    </div>
-        @foreach ($photographyList as $photography)
-            <img src="{{ asset('assets/img/' . $photography->image) }}" style="width:15%;">
-            <a href="{{ route('photography.edit', $photography->id) }}">Modificar</a>
-            <form action="{{ route('photography.destroy', $photography->id) }}" method="POST">
-                @csrf
-                @method("DELETE")
-                <input type="submit" value="Borrar">
-            </form>
-        @endforeach
-        <a href="{{ route('photography.create') }}">Crear</a>
-    @endif
-
 
     @if (isset($reviewList))
     <div class="w-100 d-flex justify-content-center">

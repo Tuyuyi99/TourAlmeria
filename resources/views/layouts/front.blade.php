@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>@yield("title")</title>
 </head>
 <body>
@@ -45,6 +46,12 @@
 
     <div>@yield("content")</div>
 
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url('assets/js/scriptFront.js') }}"></script>
     <script src="{{ url('assets/js/bootstrap.bundle.min.js') }}"></script>
 </body>

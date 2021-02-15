@@ -32,7 +32,7 @@ class PhotographyController extends Controller
     public function create()
     {
         $establishmentList = Establishment::all();
-        return view("admin/photographyForm", ['establishmentList' => $establishmentList]);
+        return view("admin/establishmentPhotographyForm", ['establishmentList' => $establishmentList]);
     }
 
     /**
@@ -43,15 +43,20 @@ class PhotographyController extends Controller
      */
     public function store(Request $request)
     {
-        $photography = new Photography();
-        $photography->image = $request->image;
-        $photography->id_establishment = $request->id_establishment;
-        $image = $request->image;
-        $imageName = $image->getClientOriginalName();
-        $image->move(public_path('assets/img'), $imageName);
-        $photography->image = $imageName;
-        $photography->save();
-        return redirect()->route("photography.index");
+        $establishment = Establishment::find($request->id_establishment);
+        foreach($request->image as $image){
+            
+            $photography = new Photography();
+            $photography->image = $image;
+            $photography->id_establishment = $request->id_establishment;
+            
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('assets/img/establishments/' . $establishment->name), $imageName);
+            $photography->image = $imageName;
+            $photography->save();
+        }
+
+        return redirect()->route("establishment.index");
     }
 
     /**
@@ -94,7 +99,7 @@ class PhotographyController extends Controller
         $photography->image = $request->image;
         $photography->id_establishment = $request->id_establishment;
         $photography->save();
-        return redirect()->route("photography.index");
+        return redirect()->route("establishment.index");
     }
 
     /**
@@ -107,6 +112,6 @@ class PhotographyController extends Controller
     {
         $photography = Photography::find($id);
         $photography->delete();
-        return redirect()->route("photography.index");
+        return redirect()->route("establishment.index");
     }
 }

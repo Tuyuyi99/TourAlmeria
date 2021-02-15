@@ -46,3 +46,81 @@ function scroll(){
        }
       }
 }
+
+function establishmentShowContentModal(id){
+
+  $(document).ready(function(){
+    $("#establishmentModalDialog").addClass("d-none");
+      var name;
+      var description;
+      var address;
+      var google_maps;
+      $.ajax({url: "admin/establishment/showAjax/" + id,
+      beforeSend: function () {
+        $("#establishmentModalTitle").html("<h4>Procesando, espere por favor...</h4>");
+        $("#establishmentModalDescription").html("");
+      },
+       success: function(result){
+        name = result.name;
+        description = result.description;
+        address = result.address;
+        google_maps = result.google_maps;
+        $("#establishmentModalTitle").html(name);
+        $("#establishmentModalDescription").append(`
+        <h5>Descripcion: ${description}</h5>
+        <h5>Dirección: ${address}</h5>
+        ${google_maps}
+        `);
+        },
+        complete: function(){
+
+          $.ajax({url: "admin/establishment/showAjaxPhotography/" + id,
+      
+          beforeSend: function() {
+            $("#carouselMainEstablishmentGalery").html("<h4>Procesando, espere por favor...</h4>");
+            $("#carouselMainEstablishmentIndicators").html("");
+          },
+          success: function(resultImg){
+            $("#carouselMainEstablishmentGalery").html("");
+            $.each(resultImg, function(i, result){
+              if(i == 0){
+                $("#carouselMainEstablishmentIndicators").append(`
+                <li data-bs-target="#carouselMainEstablishment" data-bs-slide-to="${i}" class="active"></li>`);
+              }
+              else{
+                $("#carouselMainEstablishmentIndicators").append(`
+                <li data-bs-target="#carouselMainEstablishment" data-bs-slide-to="${i}"></li>
+                `);
+              }
+                if(i == 0){
+                  $("#carouselMainEstablishmentGalery").append(`
+                  <div class="carousel-item active" data-bs-interval="10000">
+                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-100" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
+                  <div class="carousel-caption d-none d-md-block">
+                  </div>
+                </div>
+                `);
+                }
+                else{
+                $("#carouselMainEstablishmentGalery").append(`
+                  <div class="carousel-item" data-bs-interval="10000">
+                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-100" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
+                  <div class="carousel-caption d-none d-md-block">
+                  </div>
+                </div>
+                `);
+                }
+            });
+    
+          },
+          complete: function(){
+            $("#establishmentModalDialog").removeClass("d-none");
+          }
+        
+        });
+
+        }
+      });
+      
+  });
+}

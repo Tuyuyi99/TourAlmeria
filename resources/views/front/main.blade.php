@@ -19,23 +19,17 @@
   <div class="row d-flex align-items-center m-auto">
     @if(isset($establishmentList))
       @foreach ($establishmentList as $establishment)
-        @php($count = 1)
-        <div class="col-4 d-flex justify-content-center">
-          <div class="card" style="width: 18rem;">
-          @if(isset($photographyList))
-            @foreach ($photographyList as $photography)
-
-              @if($photography->id_establishment == $establishment->id && $count == 1)
-                <img src="{{ asset('assets/img/' . $photography->image) }}" class="card-img-top" alt="">
-                @php($count++)
-              @endif
-            @endforeach
-          @endif
-          
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
+          <div data-aos="fade-up" class="card cardMain" style="width: 25rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
+            @if(isset($establishment->photography->first()->image))
+            <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
+            @endif
             <div class="card-body">
-              <h5 class="card-title">{{ $establishment->name }}</h5>
+              <h2 class="card-title text-center">{{ $establishment->name }}</h2>
               <p class="card-text">{{ $establishment->description }}</p>
-              <a href="#" class="btn btn-primary">ir</a>
+              <button type="button" class="btn btn-primary d-flex justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#establishmentModal">
+                Abrir
+              </button>
             </div>
           </div>
         </div>
@@ -43,7 +37,43 @@
     @endif
   </div>
 
-  <div id="carouselMain" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="modal fade" id="establishmentModal" tabindex="-1" aria-hidden="true">
+
+  <div class="lds-facebook centerVerticalHorizontal"><div></div><div></div><div></div></div>
+
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" id="establishmentModalDialog">
+    <div class="modal-content animate-zoom">
+      <div class="modal-header">
+        <h2 class="modal-title" id="establishmentModalTitle"></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div id="establishmentModalDescription"></div>
+
+      <div id="carouselMainEstablishment" class="carousel slide w-100" data-bs-ride="carousel">
+            <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators">
+            </ol>
+            <div class="carousel-inner" id="carouselMainEstablishmentGalery">
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+
+        </div>
+    
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="carouselMain" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
       <li data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"></li>
       <li data-bs-target="#carouselMain" data-bs-slide-to="1"></li>
@@ -81,12 +111,5 @@
     <span class="visually-hidden">Next</span>
   </a>
 </div>
-
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
-<h1>Principal2</h1>
 
 @endsection
