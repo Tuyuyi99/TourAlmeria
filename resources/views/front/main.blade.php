@@ -20,14 +20,14 @@
     @if(isset($establishmentList))
       @foreach ($establishmentList as $establishment)
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
-          <div data-aos="fade-up" class="card cardMain" style="width: 25rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
+          <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
             @if(isset($establishment->photography->first()->image))
             <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
             @endif
             <div class="card-body">
               <h2 class="card-title text-center">{{ $establishment->name }}</h2>
               <p class="card-text">{{ $establishment->description }}</p>
-              <button type="button" class="btn btn-primary d-flex justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#establishmentModal">
+              <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
             </div>
@@ -37,12 +37,12 @@
     @endif
   </div>
 
-  <div class="modal fade" id="establishmentModal" tabindex="-1" aria-hidden="true">
+  <div class="modal fade p-0" id="establishmentModal" tabindex="-1" aria-hidden="true">
 
   <div class="lds-facebook centerVerticalHorizontal"><div></div><div></div><div></div></div>
 
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" id="establishmentModalDialog">
-    <div class="modal-content animate-zoom">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-md-down" id="establishmentModalDialog">
+    <div class="modal-content animate__animated animate__slideInUp">
       <div class="modal-header">
         <h2 class="modal-title" id="establishmentModalTitle"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -51,23 +51,21 @@
       <div id="establishmentModalDescription"></div>
 
       <div id="carouselMainEstablishment" class="carousel slide w-100" data-bs-ride="carousel">
-            <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators">
-            </ol>
-            <div class="carousel-inner" id="carouselMainEstablishmentGalery">
-            </div>
-
-            <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </a>
-
+        <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators">
+        </ol>
+        <div class="carousel-inner" id="carouselMainEstablishmentGalery">
         </div>
-    
 
+        <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+    
       </div>
     </div>
   </div>

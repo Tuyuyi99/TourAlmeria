@@ -67,9 +67,16 @@ function establishmentShowContentModal(id){
         google_maps = result.google_maps;
         $("#establishmentModalTitle").html(name);
         $("#establishmentModalDescription").append(`
-        <h5>Descripcion: ${description}</h5>
-        <h5>Dirección: ${address}</h5>
-        ${google_maps}
+        <div class="row d-flex justify-content-between px-4 mb-5 mt-2">
+          <div class="col">
+            <h5 class="d-inline-block mb-3">Dirección: </h5><span>${address}</span>
+            <br>
+            <h5 class="d-inline-block mb-3">Descripcion: </h5><span>${description}</span>
+          </div>
+          <div class="col">
+            ${google_maps}
+          </div>
+        </div>
         `);
         },
         complete: function(){
@@ -95,7 +102,7 @@ function establishmentShowContentModal(id){
                 if(i == 0){
                   $("#carouselMainEstablishmentGalery").append(`
                   <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-100" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
+                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-auto" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
                   <div class="carousel-caption d-none d-md-block">
                   </div>
                 </div>
@@ -104,7 +111,7 @@ function establishmentShowContentModal(id){
                 else{
                 $("#carouselMainEstablishmentGalery").append(`
                   <div class="carousel-item" data-bs-interval="10000">
-                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-100" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
+                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-auto" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
                   <div class="carousel-caption d-none d-md-block">
                   </div>
                 </div>

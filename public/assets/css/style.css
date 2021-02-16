@@ -135,7 +135,7 @@ container-mg {
 }
 
 .cardMain:hover{
-    transition: all .4s!important;
+    transition: all .3s!important;
     transform: translateY(-20px)!important;
 }
 
@@ -193,4 +193,8 @@ container-mg {
     }
   }
   
-  .animate-zoom {animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0);} to{transform:scale(1);}}
+  .animate__animated.animate__slideInUp {
+    --animate-duration: .72s;
+  }
+
+  .animate-zoom {animation:animatezoom 0.4s}@keyframes animatezoom{from{transform:scale(0);} to{transform:scale(1);}}
