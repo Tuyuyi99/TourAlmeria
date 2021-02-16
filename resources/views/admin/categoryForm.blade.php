@@ -1,25 +1,39 @@
 @extends("layouts/master")
-@section("title", "Panel de Administracion Modificación")
-@section("content")
+@section('title', 'Panel de Administracion Modificación')
+@section('content')
 
-@isset($category)
-        <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST">
-            <div class="input-group mb-3 w-25">
-                <span class="input-group-text">Name</span>
-                <input type="text" class="form-control" name="name" value="{{$category->name}}"><br>
-            </div>
-        @method("PATCH")
-@else
-    <form action="{{ route('category.store') }}" method="POST">
-        <div class="input-group mb-3 w-25">
-            <span class="input-group-text">Name</span>
-            <input type="text" class="form-control" name="name" size="25"><br>
-        </div>
+    @isset($category)
+        <container-mg>
+            <div class="row w-100">
+                <div class="col-8 d-flex align-items-center">
+                    <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST"
+                        class="m-0 d-flex align-items-center">
+                        <div class="col-12 col-xxl-6 d-flex align-items-center" style="height: 100px; margin-right: 5px;">
+                            <span class="input-group-text">Name</span>
+                            <input type="text" class="form-control" size="50" name="name" value="{{ $category->name }}">
+                        </div>
 
-@endisset
- @csrf
 
-    <input type="submit" class="btn btn-outline-secondary">
-    </form>
+                        @method("PATCH")
+                    @else
+                        <container-mg>
+                            <div class="row w-100">
+                                <div class="col-8 d-flex align-items-center">
+                                    <form action="{{ route('category.store') }}" method="POST"
+                                        class="m-0 d-flex align-items-center">
+                                        <div class="col-12 col-xxl-6 d-flex align-items-center"
+                                            style="height: 100px; margin-right: 5px;">
+                                            <span class="input-group-text">Name</span>
+                                            <input type="text" class="form-control" size="50" name="name"><br>
+                                        </div>
 
-@endsection
+                                    @endisset
+                                    @csrf
+
+                                    <input type="submit" class="btn btn-outline-secondary">
+                                </form>
+                            </div>
+                        </div>
+                    </container-mg>
+
+                @endsection
