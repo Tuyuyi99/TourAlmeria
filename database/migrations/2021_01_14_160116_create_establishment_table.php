@@ -18,7 +18,7 @@ class CreateEstablishmentTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('address');
-            $table->string('google_maps');
+            $table->string('google_maps', 1000);
             $table->enum('outstanding', ['yes', 'no'])->default('no');
             $table->integer('id_category');
             $table->timestamps();
