@@ -2,18 +2,6 @@
 @section('title', 'Panel de Administracion Listado')
 @section('content')
     @if (isset($userList))
-        <div class="w-100 d-flex justify-content-center">
-            <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-            </div>
-        </div>
-
         <div class="d-flex justify-content-center">
             <a href="{{ route('user.create') }}">
                 <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
@@ -50,22 +38,40 @@
     @endif
 
     @if (isset($categoriesList))
-        <div class="w-100 d-flex justify-content-center">
-            <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">Dropdown</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                </ul>
-            </div>
-        </div>
-
         <div class="d-flex justify-content-center">
-            <a href="{{ route('category.create') }}">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#categoryModal">
                 <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
             </a>
+            <div class="modal fade" tabindex="-1" id="categoryModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">New Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">  
+                                <div class="row w-100 d-flex justify-content-center">
+                                    <div class="col-12 d-flex align-items-center p-3">
+                                        <form action="{{ route('category.store') }}" method="POST"
+                                            class="m-0 d-flex align-items-center">
+                                            <div class="row">
+                                                <div class="col-12 d-flex align-items-center justify-content-center"
+                                                    style="height: 100px; margin-right: 5px;">
+                                                    <span class="input-group-text">Name</span>
+                                                    <input type="text" class="form-control" name="name"><br>
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    @csrf
+                                                    <input type="submit" class="btn btn-outline-primary">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         @foreach ($categoriesList as $category)
             <container-mg>
@@ -94,22 +100,75 @@
     @endif
 
     @if (isset($establishmentList))
-    <div class="w-100 d-flex justify-content-center">
-        <div class="input-group mb-3 w-50">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Dropdown</button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
-        </div>
-    </div>
-
     <div class="d-flex justify-content-center">
-        <a href="{{ route('establishment.create') }}">
+        <a href="#"  data-bs-toggle="modal" data-bs-target="#establishmentModal">
             <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
         </a>
+        
+        <div class="modal fade" tabindex="-1" id="establishmentModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">New Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">  
+
+                        <div class="row w-100">
+                            <div class="col-12 d-flex align-items-center">
+                                <form action="{{ route('establishment.store') }}" method="POST"
+                                class="m-0 d-flex align-items-center">
+                                    <div class="row">
+                                        <div class="col-12 col-xxl-6 d-flex align-items-center"
+                                        style="height: 100px; margin-right: 25px;">
+                                            <span class="input-group-text">Name</span>
+                                            <input type="text" class="form-control" name="name">
+
+
+                                            <span class="input-group-text">Description</span>
+                                            <input type="text" class="form-control" name="description">
+
+
+                                            <span class="input-group-text">Address</span>
+                                            <input type="text" class="form-control" name="address">
+
+
+                                            <span class="input-group-text">Google Maps</span>
+                                            <input type="text" class="form-control" name="google_maps">
+
+                                        </div>
+                                        <div class="col-8 d-flex align-items-center" style="height: 100px;">
+                                            <span class="input-group-text">Outstanding</span>
+                                            <select name="outstanding" class="form-select">
+                                                <option value="yes">yes</option>
+                                                <option value="no">no</option>
+                                            </select>
+                                            <span class="input-group-text">Category</span>
+                                            <select name="id_category" class="form-select">
+                                                @if (isset($categoriesList))
+                                                    @foreach ($categoriesList as $category)
+                                                        <option value="{{ $category->id }}">
+                                                        {{ $category->name }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                                @csrf
+                                                <button type="submit"
+                                                class="btn btn-outline-secondary me-1 ms-2">Enviar
+                                                </button>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
         @foreach ($establishmentList as $establishment)
         <container-mg>
@@ -215,18 +274,6 @@
     @endif
 
     @if (isset($reviewList))
-    <div class="w-100 d-flex justify-content-center">
-        <div class="input-group mb-3 w-50">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Dropdown</button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
-        </div>
-    </div>
-
     <div class="d-flex justify-content-center">
         <a href="{{ route('review.create') }}">
             <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>

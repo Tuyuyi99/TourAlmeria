@@ -27,13 +27,12 @@
                                             <input type="text" class="form-control" size="50" name="name"><br>
                                         </div>
 
-                                    @endisset
-                                    @csrf
+    @endisset
+                                        @csrf
 
-                                    <input type="submit" class="btn btn-outline-secondary">
-                                </form>
+                                        <input type="submit" class="btn btn-outline-secondary">
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    </container-mg>
-
-                @endsection
+                        </container-mg>
+@endsection

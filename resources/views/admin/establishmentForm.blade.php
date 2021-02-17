@@ -9,21 +9,23 @@
                     <form action="{{ route('establishment.update', ['id' => $establishment->id]) }}" method="POST"
                         class="m-0 d-flex align-items-center">
                         <div class="row">
-                            <div class="col-12 col-xxl-6 d-flex align-items-center" style="height: 100px; margin-right: 25px;">
+                            <div class="col-12 col-md-6 d-flex align-items-center" style="height: 100px;">
                                 <span class="input-group-text">Name</span>
                                 <input type="text" class="form-control" name="name" value="{{ $establishment->name }}">
                                 <span class="input-group-text">Description</span>
                                 <input type="text" class="form-control" name="description"
                                     value="{{ $establishment->description }}">
-                                <span class="input-group-text">Address</span>
-                                <input type="text" class="form-control" name="address" value="{{ $establishment->address }}">
-                                <span class="input-group-text">Google Maps</span>
-                                <input type="text" class="form-control" name="google_maps"
-                                    value="{{ $establishment->google_maps }}">
-
                             </div>
-                            <div class="col-12 col-xxl-6 d-flex align-items-center" style="height: 100px; margin-right: 25px;">
+                        <div class="col-12 col-md-6 d-flex align-items-center">
+                            <span class="input-group-text">Address</span>
+                            <input type="text" class="form-control" name="address" value="{{ $establishment->address }}">
+                            <span class="input-group-text">Google Maps</span>
+                            <input type="text" class="form-control" name="google_maps"
+                                value="{{ $establishment->google_maps }}">
 
+                        </div>
+                            <div class="col-12 d-flex align-items-center" style="height: 100px; margin-right: 25px;">
+    
                                 <span class="input-group-text">Outstanding</span>
 
                                 <select name="outstanding" class="form-select">
@@ -50,36 +52,36 @@
                                     @endif
                                 </select>
                                 @method("PATCH")
-                            @else
-                                <container-mg>
-                                    <div class="row w-100">
-                                        <div class="col-12 d-flex align-items-center">
-                                            <form action="{{ route('establishment.store') }}" method="POST"
-                                                class="m-0 d-flex align-items-center">
-                                                <div class="row">
-                                                    <div class="col-12 col-xxl-6 d-flex align-items-center"
-                                                        style="height: 100px; margin-right: 25px;">
-                                                        <span class="input-group-text">Name</span>
-                                                        <input type="text" class="form-control" name="name">
+                                    @else
+                                    <container-mg>
+                                        <div class="row w-100">
+                                            <div class="col-12 d-flex align-items-center">
+                                                <form action="{{ route('establishment.store') }}" method="POST"
+                                                    class="m-0 d-flex align-items-center">
+                                                    <div class="row">
+                                                        <div class="col-12 col-xxl-6 d-flex align-items-center"
+                                                            style="height: 100px; margin-right: 25px;">
+                                                            <span class="input-group-text">Name</span>
+                                                            <input type="text" class="form-control" name="name">
 
 
-                                                        <span class="input-group-text">Description</span>
-                                                        <input type="text" class="form-control" name="description">
+                                                            <span class="input-group-text">Description</span>
+                                                            <input type="text" class="form-control" name="description">
 
 
-                                                        <span class="input-group-text">Address</span>
-                                                        <input type="text" class="form-control" name="address">
+                                                            <span class="input-group-text">Address</span>
+                                                            <input type="text" class="form-control" name="address">
 
 
-                                                        <span class="input-group-text">Google Maps</span>
-                                                        <input type="text" class="form-control" name="google_maps">
+                                                            <span class="input-group-text">Google Maps</span>
+                                                            <input type="text" class="form-control" name="google_maps">
 
-                                                    </div>
-                                                    <div class="col-8 d-flex align-items-center" style="height: 100px;">
+                                                        </div>
+                                                        <div class="col-8 d-flex align-items-center" style="height: 100px;">
 
 
 
-                                                        <span class="input-group-text">Outstanding</span>
+                                                            <span class="input-group-text">Outstanding</span>
                                                         <select name="outstanding" class="form-select">
                                                             <option value="yes">yes</option>
                                                             <option value="no">no</option>
@@ -97,14 +99,16 @@
 
 
                                                     @endisset
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="btn btn-outline-secondary me-1 ms-2">Enviar</button>
+                                                @csrf
+                                                <button type="submit"
+                                                class="btn btn-outline-secondary me-1 ms-2">Enviar
+                                                </button>
 
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                            </container-mg>
-                        @endsection
+                            </div>
+                        </container-mg>
+                    @endsection
