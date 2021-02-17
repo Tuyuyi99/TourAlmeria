@@ -16,11 +16,11 @@
         <div class="container-fluid h-100">
           <div class="row w-100 h-100 text-center d-flex align-items-center">
 
-            <div class="col-8 h-100 d-flex justify-content-start align-items-center">
+            <div class="col h-100 d-flex justify-content-start align-items-center" id="navTituloCol">
                 <a href="#" class="nav-link" id="navTitulo" style="font-size:2rem; color:white; letter-spacing: 7px; cursor: pointer;">TourAlmería</a>
             </div>
 
-            <div class="col-4 h-100 d-flex align-items-center justify-content-center">
+            <div class="col h-100 d-flex align-items-center justify-content-end p-0">
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link-scale" style="color: white; cursor: pointer;" id="dropdownMenuTop" data-bs-toggle="dropdown">
                     Categorías

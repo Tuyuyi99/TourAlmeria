@@ -93,7 +93,7 @@ container-mg {
 }
 
 #boxInputFindHeader {
-    width: 50%;
+    width: 35%;
     transition: width 1s;
 }
 
@@ -159,6 +159,13 @@ container-mg {
     transform: scale(1.2);
 }
 
+#waveHeaderMobile {
+    display:none;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
 /*loader */
 
 .lds-facebook {
@@ -203,3 +210,32 @@ container-mg {
   }
 
   .animate-zoom {animation:animatezoom 0.4s}@keyframes animatezoom{from{transform:scale(0);} to{transform:scale(1);}}
+
+  /* media screen */
+
+  @media only screen and (max-width: 1000px) {
+    .container-header {
+        background-size: unset;
+        background-position-y: top;
+    }
+    
+  }
+
+  @media only screen and (max-width: 600px) {
+    .navHome #navTituloCol {
+        display: none!important;
+    }
+
+    #boxInputFindHeader{
+        width: 100%!important;
+    }
+
+    #waveHeaderPC {
+        display: none;
+    }
+
+    #waveHeaderMobile {
+        display: block;
+    }
+    
+  }  

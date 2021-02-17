@@ -4,13 +4,19 @@
 
   <section class="container-header animate__animated animate__rotateInDownLeft">
     <span id="titleContainerHeader">
-        <h1 class="animate__animated animate__bounceInDown animate__delay-2s">Tour Almería</h1>
+        <h1 class="animate__animated animate__bounceInDown animate__delay-2s text-center">Tour Almería</h1>
     </span>
 
-    <div class="w-100 position-absolute" style="height: 150px; overflow: hidden; bottom: 0; color: white;" id="waveHeader">
-      <div style="height: 150px; overflow: hidden;" >
+    <div class="w-100 position-absolute" style="height: 240px; overflow: hidden; bottom: 0; color: white;" id="waveHeader">
+      <div style="height: 100%; overflow: hidden;" id="waveHeaderPC">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
           <path d="M-4.22,-3.45 C253.67,166.28 342.27,-66.61 523.98,34.03 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+        </svg>
+      </div>
+
+      <div style="height: 100%; overflow: hidden;" id="waveHeaderMobile">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+          <path d="M-8.17,31.08 C264.95,132.72 346.78,-1.47 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
         </svg>
       </div>
     </div>
