@@ -46,12 +46,12 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">New Category</h5>
+                            <h5 class="modal-title">Nueva categoría</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">  
-                                <div class="row w-100 d-flex justify-content-center">
-                                    <div class="col-12 d-flex align-items-center p-3">
+                                <div class="row w-100 m-0 d-flex justify-content-center">
+                                    <div class="col-12 d-flex align-items-center justify-content-center p-3">
                                         <form action="{{ route('category.store') }}" method="POST"
                                             class="m-0 d-flex align-items-center">
                                             <div class="row">
@@ -238,7 +238,7 @@
 
                             </form>
                         </div>
-                        <div class="col-4 d-flex justify-content-end align-items-center">
+                        <div class="col-4 d-flex justify-content-end align-items-center p-0">
                             <form action="{{ route('establishment.destroy', $establishment->id) }}" method="POST" class="m-0 d-inline-block">
                                 @csrf
                                 @method("DELETE")

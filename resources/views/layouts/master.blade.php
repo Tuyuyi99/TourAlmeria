@@ -10,13 +10,32 @@
     <title>@yield("title")</title>
 </head>
 <body>
-    <div class="text-center my-5">
-        <a href="{{ route('user.index') }}">Listado Usuarios</a>
-        <a href="{{ route('category.index') }}">Listado Categorias</a>
-        <a href="{{ route('establishment.index') }}">Listado Establecimientos</a>
-        <a href="{{ route('review.index') }}">Listado Reseñas</a>
-        <a href="{{ route('logout') }}">Logout</a>
-    </div>
+    <nav class="navbar navbar-light nav-admin bg-primary sticky-top mb-5">
+        <div class="container-fluid p-2">
+            <div class="row w-100">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <a href="{{ route('main') }}">
+                        <h4 class="text-white d-flex justify-content-center m-0" style="letter-spacing: 3px;">TourAlmería</h4>
+                    </a>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <a class="nav-link text-white text-center" href="{{ route('user.index') }}">Listado Usuarios</a>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <a class="nav-link text-white text-center" href="{{ route('category.index') }}">Listado Categorias</a>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <a class="nav-link text-white text-center" href="{{ route('establishment.index') }}">Listado Establecimientos</a>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <a class="nav-link text-white text-center" href="{{ route('review.index') }}">Listado Reseñas</a>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <a class="nav-link text-white text-center" href="{{ route('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <div>@yield("content")</div>
     

@@ -15,7 +15,7 @@ class GeneralController extends Controller
     
  
     public function getAdmin(){
-        return view("admin/admin");
+        return redirect()->route('user.index');
     }
 
     public function getMain(){
