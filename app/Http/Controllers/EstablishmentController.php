@@ -107,7 +107,12 @@ class EstablishmentController extends Controller
      */
     public function update(Request $request){
         $establishment = Establishment::find($request->id);
+        $ruta = "assets/img/establishments/";
+        $nameOriginal = $establishment->name;
         $establishment->name = $request->name;
+        if($nameOriginal != $establishment->name){
+            rename($ruta . $nameOriginal, $ruta . $establishment->name);
+        }
         $establishment->description = $request->description;
         $establishment->address = $request->address;
         $establishment->google_maps = $request->google_maps;
