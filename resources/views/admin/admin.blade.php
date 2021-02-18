@@ -126,8 +126,8 @@
 
 
                                                 <span class="input-group-text">Descripcion</span>
-                                                <input type="textarea" class="form-control" name="description">
-
+                                                <textarea class="form-control" name="description" rows="5">
+                                                </textarea>
 
                                                 <span class="input-group-text">Direccion</span>
                                                 <input type="text" class="form-control" name="address">
@@ -315,7 +315,7 @@
                                             <input type="text" class="form-control" name="rating">
 
                                             <span class="input-group-text">Comentario</span>
-                                            <input type="text" class="form-control" name="commentary">
+                                            <textarea class="form-control" name="commentary" rows="3"></textarea>
 
                                         </div>
                                         <div class="col-8 d-flex align-items-center"
