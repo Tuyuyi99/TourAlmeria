@@ -344,7 +344,6 @@
                                             @csrf
                                         </div>
 
-
                                         <div class="col-12 d-flex justify-content-center">
                                             @csrf
                                             <input type="submit" class="btn btn-outline-danger">
