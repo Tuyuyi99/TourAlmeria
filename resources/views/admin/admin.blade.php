@@ -4,7 +4,10 @@
     @if (isset($userList))
         <div class="d-flex justify-content-center">
             <a href="{{ route('user.create') }}">
-                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
+                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px; color: #cb2d3e;  /* fallback for old browsers */
+                color: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+                color: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                 "></i>
             </a>
         </div>
         @foreach ($userList as $user)
@@ -40,7 +43,10 @@
     @if (isset($categoriesList))
         <div class="d-flex justify-content-center">
             <a href="#" data-bs-toggle="modal" data-bs-target="#categoryModal">
-                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
+                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px; color: #cb2d3e;  /* fallback for old browsers */
+                color: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+                color: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                 "></i>
             </a>
             <div class="modal fade" tabindex="-1" id="categoryModal">
                 <div class="modal-dialog modal-dialog-centered">
@@ -62,7 +68,7 @@
                                             </div>
                                             <div class="col-12 d-flex justify-content-center">
                                                 @csrf
-                                                <input type="submit" class="btn btn-outline-primary">
+                                                <input type="submit" class="btn btn-outline-danger">
                                             </div>
                                         </div>
                                     </form>
@@ -102,7 +108,10 @@
     @if (isset($establishmentList))
         <div class="d-flex justify-content-center">
             <a href="#" data-bs-toggle="modal" data-bs-target="#establishmentModal">
-                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
+                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px; color: #cb2d3e;  /* fallback for old browsers */
+                color: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+                color: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                 "></i>
             </a>
 
             <div class="modal fade" tabindex="-1" id="establishmentModal">
@@ -119,25 +128,26 @@
                                     <form action="{{ route('establishment.store') }}" method="POST"
                                         class="m-0 d-flex align-items-center">
                                         <div class="row">
-                                            <div class="col-12 d-flex align-items-center"
-                                                style="height: 100px; margin-right: 5px;">
+                                            <div class="col-12 d-flex align-items-center mb-4">
                                                 <span class="input-group-text">Nombre</span>
                                                 <input type="text" class="form-control" name="name">
-
-
-                                                <span class="input-group-text">Descripcion</span>
+                                            </div>
+                                            <div class="col-12 d-flex align-items-center mb-4">
+                                                <span class="input-group-text h-100">Descripcion</span>
                                                 <textarea class="form-control" name="description" rows="5">
                                                 </textarea>
-
+                                            </div>
+                                            <div class="col-12 d-flex align-items-center mb-4">
                                                 <span class="input-group-text">Direccion</span>
                                                 <input type="text" class="form-control" name="address">
+                                            </div>
 
-
+                                            <div class="col-12 d-flex align-items-center mb-4">
                                                 <span class="input-group-text">Google Maps</span>
                                                 <input type="text" class="form-control" name="google_maps">
-
                                             </div>
-                                            <div class="col-12 d-flex align-items-center" style="height: 100px;">
+
+                                            <div class="col-12 d-flex align-items-center mb-4">
                                                 <span class="input-group-text">Destacado</span>
                                                 <select name="outstanding" class="form-select">
                                                     <option value="yes">si</option>
@@ -156,7 +166,7 @@
                                             @csrf
                                             <div class="col-12 d-flex justify-content-center">
                                                 @csrf
-                                                <input type="submit" class="btn btn-outline-primary">
+                                                <input type="submit" class="btn btn-outline-danger">
                                             </div>
 
                                         </div>
@@ -288,7 +298,10 @@
     @if (isset($reviewList))
         <div class="d-flex justify-content-center">
             <a href="#" data-bs-toggle="modal" data-bs-target="#reviewModal">
-                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px;"></i>
+                <i class="fa fa-plus" style="font-size:4rem; margin-right:10px; color: #cb2d3e;  /* fallback for old browsers */
+                color: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+                color: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                 "></i>
             </a>
         </div>
 
@@ -306,20 +319,19 @@
                                 <form action="{{ route('review.store') }}" method="POST"
                                     class="m-0 d-flex align-items-center">
                                     <div class="row">
-                                        <div class="col-12 d-flex align-items-center"
-                                            style="height: 100px; margin-right: 25px;">
+                                        <div class="col-12 d-flex align-items-center mb-4">
                                             <span class="input-group-text">Nombre</span>
                                             <input type="text" class="form-control" name="name">
-
+                                        </div>
+                                        <div class="col-12 d-flex align-items-center mb-4">
                                             <span class="input-group-text">Puntuacion</span>
                                             <input type="text" class="form-control" name="rating">
-
+                                        </div>
+                                        <div class="col-12 d-flex align-items-center mb-4">
                                             <span class="input-group-text">Comentario</span>
                                             <textarea class="form-control" name="commentary" rows="3"></textarea>
-
                                         </div>
-                                        <div class="col-8 d-flex align-items-center"
-                                            style="height: 100px; margin-right: 5px;">
+                                        <div class="col-8 d-flex align-items-center mb-4">
                                             <span class="input-group-text">Establecimiento</span>
                                             <select name="id_establishment" class="form-select">
                                                 @if (isset($establishmentListReview))
@@ -335,7 +347,7 @@
 
                                         <div class="col-12 d-flex justify-content-center">
                                             @csrf
-                                            <input type="submit" class="btn btn-outline-primary">
+                                            <input type="submit" class="btn btn-outline-danger">
                                         </div>
                                     </div>
                                 </form>

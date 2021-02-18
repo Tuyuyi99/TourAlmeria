@@ -166,6 +166,11 @@ container-mg {
     bottom: 0;
 }
 
+.fa-plus:hover {
+    transition: all .3s;
+    transform: scale(1.3);
+}
+
 /*loader */
 
 .lds-facebook {

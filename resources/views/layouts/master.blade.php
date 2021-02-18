@@ -10,11 +10,13 @@
     <title>@yield("title")</title>
 </head>
 <body>
-    <nav class="navbar navbar-light nav-admin bg-primary sticky-top mb-5">
+    <nav class="navbar navbar-light nav-admin sticky-top mb-5" style="background: #cb2d3e; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #cb2d3e, #ef473a); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #cb2d3e, #ef473a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
         <div class="container-fluid p-2">
             <div class="row w-100">
                 <div class="col d-flex justify-content-center align-items-center">
-                    <a href="{{ route('main') }}">
+                    <a href="{{ route('main') }}" style="text-decoration-color:white">
                         <h4 class="text-white d-flex justify-content-center m-0" style="letter-spacing: 3px;">TourAlmería</h4>
                     </a>
                 </div>
