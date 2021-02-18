@@ -85,7 +85,7 @@ class EstablishmentController extends Controller
     }
 
     public function showEstablishmentFind($name){
-        $establishmentFind = Establishment::where('name', 'LIKE', $name.'%')->get();
+        $establishmentFind = Establishment::where('name', 'LIKE', '%'.$name.'%')->get();
         return $establishmentFind;
     }
 

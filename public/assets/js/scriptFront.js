@@ -133,14 +133,26 @@ function establishmentShowContentModal(id){
 }
 
 function showResult(name){
-  $.ajax({url: "admin/establishment/showEstablishmentFind/" + name, 
-    success: function(resultEstablishment){
-      $.each(resultEstablishment, function(i, result){
-      var name = result.name;
-      $("#establishmentFind").html(result.name);
-      console.log(result);
-      console.log(name);
-      });
-    }
-  });
+  var names = [];
+
+  if(name.length >= 2){
+    $.ajax({url: "admin/establishment/showEstablishmentFind/" + name, 
+      success: function(resultEstablishment){
+        $.each(resultEstablishment, function(i, result){
+        names[i] = result.name;
+        console.log(result);
+        });
+      },
+      complete: function(){
+        $("#establishmentFind").html("");
+        $.each(names, function(i, result){
+          $("#establishmentFind").append(`<h3>${result}</h3>`);
+        });
+      }
+    });
+  }
+  else{
+    $("#establishmentFind").html("");
+  }
+
 }

@@ -37,7 +37,7 @@
                   <input type="text" class="form-control textInputWhite" placeholder="Buscar" aria-label="buscador" aria-describedby="buscador" 
                   id="inputFindHeader" style="color:white;" onkeyup="showResult(this.value)">
                   <i class="fa fa-search inputFindIcon" style="color: white;"></i>
-                  <div id="establishmentFind"></div>
+                  <div class="w-100" style="position:absolute; background: white; top: 39px;" id="establishmentFind"></div>
                 </div>
             </div>
 
