@@ -131,3 +131,16 @@ function establishmentShowContentModal(id){
       
   });
 }
+
+function showResult(name){
+  $.ajax({url: "admin/establishment/showEstablishmentFind/" + name, 
+    success: function(resultEstablishment){
+      $.each(resultEstablishment, function(i, result){
+      var name = result.name;
+      $("#establishmentFind").html(result.name);
+      console.log(result);
+      console.log(name);
+      });
+    }
+  });
+}

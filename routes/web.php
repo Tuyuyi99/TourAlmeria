@@ -44,6 +44,7 @@ Route::delete('admin/establishment/destroy/{id}', 'App\Http\Controllers\Establis
 Route::post('admin/establishment/store', 'App\Http\Controllers\EstablishmentController@store')->name('establishment.store');
 Route::get('admin/establishment/showAjax/{id}', 'App\Http\Controllers\EstablishmentController@showAjax')->name('establishment.showAjax');
 Route::get('admin/establishment/showAjaxPhotography/{id}', 'App\Http\Controllers\EstablishmentController@showAjaxPhotography')->name('establishment.showAjaxPhotography');
+Route::get('admin/establishment/showEstablishmentFind/{name}', 'App\Http\Controllers\EstablishmentController@showEstablishmentFind')->name('establishment.showEstablishmentFind');
 
  //CRUD de fotografías
 

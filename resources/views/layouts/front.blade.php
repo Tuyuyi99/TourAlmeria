@@ -34,8 +34,10 @@
                     </ul>
                 </div>
                 <div class="input-group" id="boxInputFindHeader">
-                  <input type="text" class="form-control textInputWhite" placeholder="Buscar" aria-label="buscador" aria-describedby="buscador" id="inputFindHeader" style="color:white;">
+                  <input type="text" class="form-control textInputWhite" placeholder="Buscar" aria-label="buscador" aria-describedby="buscador" 
+                  id="inputFindHeader" style="color:white;" onkeyup="showResult(this.value)">
                   <i class="fa fa-search inputFindIcon" style="color: white;"></i>
+                  <div id="establishmentFind"></div>
                 </div>
             </div>
 
@@ -45,7 +47,6 @@
     </header>
 
     <div>@yield("content")</div>
-
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

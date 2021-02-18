@@ -328,7 +328,7 @@
                                             <input type="text" class="form-control" name="rating">
                                         </div>
                                         <div class="col-12 d-flex align-items-center mb-4">
-                                            <span class="input-group-text">Comentario</span>
+                                            <span class="input-group-text h-100">Comentario</span>
                                             <textarea class="form-control" name="commentary" rows="3"></textarea>
                                         </div>
                                         <div class="col-8 d-flex align-items-center mb-4">
