@@ -38,7 +38,7 @@
                   id="inputFindHeader" style="color:white;" onkeyup="showResult(this.value)">
                   <i class="fa fa-search inputFindIcon" style="color: white; cursor: pointer; z-index: 9;" id="inputFindIconSearch"></i>
                   <i class="fa fa-times inputFindIcon d-none" style="color: white; cursor: pointer; z-index: 9;" id="inputFindIconClose" onclick="inputFindRemoveText()"></i>
-                  <div class="w-100" style="position:absolute; background: white; top: 39px;" id="establishmentFind"></div>
+                  <div class="inputFindResult w-100" id="establishmentFind"></div>
                 </div>
             </div>
 

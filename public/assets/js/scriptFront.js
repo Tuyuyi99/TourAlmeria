@@ -142,14 +142,21 @@ function showResult(name){
     $.ajax({url: "admin/establishment/showEstablishmentFind/" + name, 
       success: function(resultEstablishment){
         $.each(resultEstablishment, function(i, result){
-        names[i] = result.name;
+        names[i] = {
+          id: result.id,
+          name: result.name
+        }
         console.log(result);
         });
       },
       complete: function(){
         $("#establishmentFind").html("");
         $.each(names, function(i, result){
-          $("#establishmentFind").append(`<h3>${result}</h3>`);
+          $("#establishmentFind").append(`
+          <div data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
+            <h5>${result.name}</h5>
+          </div>
+          <hr>`);
         });
       }
     });
