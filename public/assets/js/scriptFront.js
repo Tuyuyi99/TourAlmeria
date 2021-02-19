@@ -136,6 +136,9 @@ function showResult(name){
   var names = [];
 
   if(name.length >= 2){
+    $("#inputFindIconSearch").addClass("d-none");
+    $("#inputFindIconClose").removeClass("d-none");
+
     $.ajax({url: "admin/establishment/showEstablishmentFind/" + name, 
       success: function(resultEstablishment){
         $.each(resultEstablishment, function(i, result){
@@ -152,16 +155,27 @@ function showResult(name){
     });
   }
   else{
+    $("#inputFindIconSearch").removeClass("d-none");
+    $("#inputFindIconClose").addClass("d-none");
     $("#establishmentFind").html("");
   }
 
 }
 
-function limitText(str) {
-  var res = str.substr(0, 150);
-  res += "...";
-  return res;
+function inputFindRemoveText(){
+  $("#establishmentFind").html("");
+  $("#inputFindHeader").val("");
+  $("#inputFindIconSearch").removeClass("d-none");
+  $("#inputFindIconClose").addClass("d-none");
 }
 
-console.log(limitText("Hola mundo"));
-
+function limitText() {
+  var text = document.getElementsByClassName("cardestablishmentDescription");
+  for (i = 0; i < text.length; i++) {
+    var description = text[i].textContent;
+    document.getElementsByClassName("cardestablishmentDescription")[i].textContent = description.substr(0, 150) + "...";
+  }
+}
+window.addEventListener('load', function() {
+  limitText();
+});

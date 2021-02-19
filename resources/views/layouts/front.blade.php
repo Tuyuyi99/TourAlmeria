@@ -36,7 +36,8 @@
                 <div class="input-group" id="boxInputFindHeader">
                   <input type="text" class="form-control textInputWhite" placeholder="Buscar" aria-label="buscador" aria-describedby="buscador" 
                   id="inputFindHeader" style="color:white;" onkeyup="showResult(this.value)">
-                  <i class="fa fa-search inputFindIcon" style="color: white;"></i>
+                  <i class="fa fa-search inputFindIcon" style="color: white; cursor: pointer; z-index: 9;" id="inputFindIconSearch"></i>
+                  <i class="fa fa-times inputFindIcon d-none" style="color: white; cursor: pointer; z-index: 9;" id="inputFindIconClose" onclick="inputFindRemoveText()"></i>
                   <div class="w-100" style="position:absolute; background: white; top: 39px;" id="establishmentFind"></div>
                 </div>
             </div>

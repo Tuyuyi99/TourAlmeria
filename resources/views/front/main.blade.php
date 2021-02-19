@@ -32,7 +32,7 @@
             @endif
             <div class="card-body">
               <h2 class="card-title text-center">{{ $establishment->name }}</h2>
-              <p class="card-text">{{ $establishment->description }}</p>
+              <p class="card-text cardestablishmentDescription">{{ $establishment->description }}</p>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
