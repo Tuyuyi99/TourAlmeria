@@ -156,3 +156,12 @@ function showResult(name){
   }
 
 }
+
+function limitText(str) {
+  var res = str.substr(0, 150);
+  res += "...";
+  return res;
+}
+
+console.log(limitText("Hola mundo"));
+
