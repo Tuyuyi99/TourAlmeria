@@ -35,10 +35,12 @@
                 </div>
                 <div class="input-group" id="boxInputFindHeader">
                   <input type="text" class="form-control textInputWhite" placeholder="Buscar" aria-label="buscador" aria-describedby="buscador" 
-                  id="inputFindHeader" style="color:white;" onkeyup="showResult(this.value)">
+                  id="inputFindHeader" style="color:white;" onkeyup="inputFind(this.value)">
                   <i class="fa fa-search inputFindIcon" style="color: white; cursor: pointer; z-index: 9;" id="inputFindIconSearch"></i>
                   <i class="fa fa-times inputFindIcon d-none" style="color: white; cursor: pointer; z-index: 9;" id="inputFindIconClose" onclick="inputFindRemoveText()"></i>
-                  <div class="inputFindResult w-100" id="establishmentFind"></div>
+                  <div class="inputFindResult row w-100 p-2 d-flex justify-content-center align-items-center d-none" id="inputFindResult">
+                    <div class="lds-ring d-flex justify-content-center"><div></div><div></div><div></div><div></div></div>
+                  </div>
                 </div>
             </div>
 

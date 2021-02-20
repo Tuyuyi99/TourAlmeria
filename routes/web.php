@@ -42,9 +42,11 @@ Route::get('admin/establishment/create', 'App\Http\Controllers\EstablishmentCont
 Route::patch('admin/establishment/update/{id}', 'App\Http\Controllers\EstablishmentController@update')->name('establishment.update');
 Route::delete('admin/establishment/destroy/{id}', 'App\Http\Controllers\EstablishmentController@destroy')->name('establishment.destroy');
 Route::post('admin/establishment/store', 'App\Http\Controllers\EstablishmentController@store')->name('establishment.store');
+
 Route::get('admin/establishment/showAjax/{id}', 'App\Http\Controllers\EstablishmentController@showAjax')->name('establishment.showAjax');
 Route::get('admin/establishment/showAjaxPhotography/{id}', 'App\Http\Controllers\EstablishmentController@showAjaxPhotography')->name('establishment.showAjaxPhotography');
 Route::get('admin/establishment/showEstablishmentFind/{name}', 'App\Http\Controllers\EstablishmentController@showEstablishmentFind')->name('establishment.showEstablishmentFind');
+Route::get('admin/establishment/showAjaxReview/{id}', 'App\Http\Controllers\EstablishmentController@showAjaxReview')->name('establishment.showAjaxReview');
 
  //CRUD de fotografías
 

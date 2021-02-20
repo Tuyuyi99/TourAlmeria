@@ -50,7 +50,7 @@ function scroll(){
 function establishmentShowContentModal(id){
 
   $(document).ready(function(){
-    $("#establishmentModalDialog").addClass("d-none");
+      $("#establishmentModalDialog").addClass("d-none");
       var name;
       var description;
       var address;
@@ -121,6 +121,7 @@ function establishmentShowContentModal(id){
     
           },
           complete: function(){
+            $("#establishmentModalCommentsId").val(id);
             $("#establishmentModalDialog").removeClass("d-none");
           }
         
@@ -129,17 +130,41 @@ function establishmentShowContentModal(id){
         }
       });
       
+      $.ajax({url: "admin/establishment/showAjaxReview/" + id,
+      success: function(resultReview){
+        $("#establishmentModalReview").html("");
+        $.each(resultReview, function(i, result){
+          $("#establishmentModalReview").append(`
+            <container-mg>
+              <div class="row w-100">
+                <div class="col-12 d-flex justify-content-between">
+                  <h4>${result.name}</h4>
+                  ${result.rating}
+                </div>
+                <div class="col-12">
+                  <h5>${result.commentary}</h5>
+                </div>
+              </div>
+            </container-mg>
+          `);
+        });
+      }
+    });
   });
 }
 
-function showResult(name){
+function inputFind(name){
   var names = [];
 
   if(name.length >= 2){
+    $("#inputFindResult").removeClass("d-none");
     $("#inputFindIconSearch").addClass("d-none");
     $("#inputFindIconClose").removeClass("d-none");
 
-    $.ajax({url: "admin/establishment/showEstablishmentFind/" + name, 
+    $.ajax({url: "admin/establishment/showEstablishmentFind/" + name,
+      beforeSend: function(){
+        $("#inputFindResult").html("<div class='lds-ring d-flex justify-content-center'><div></div><div></div><div></div><div></div></div>");
+      },
       success: function(resultEstablishment){
         $.each(resultEstablishment, function(i, result){
         names[i] = {
@@ -150,27 +175,35 @@ function showResult(name){
         });
       },
       complete: function(){
-        $("#establishmentFind").html("");
-        $.each(names, function(i, result){
-          $("#establishmentFind").append(`
-          <div data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
-            <h5>${result.name}</h5>
-          </div>
-          <hr>`);
-        });
+        if(names.length == 0){
+          $("#inputFindResult").html("<h5 class='m-3'>No se encontraron resultados...</h5>");
+        }
+        else {
+          $("#inputFindResult").html("");
+          $.each(names, function(i, result){
+            $("#inputFindResult").append(`
+            <div class="col-12 d-flex align-items-center justify-content-center my-1" style="padding: 2rem!important;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
+              <h5>${result.name}</h5>
+            </div>
+            `);
+          });
+        }
       }
     });
   }
   else{
+    $("#inputFindResult").addClass("d-none");
     $("#inputFindIconSearch").removeClass("d-none");
     $("#inputFindIconClose").addClass("d-none");
-    $("#establishmentFind").html("");
+    $("#inputFindResult").html("");
+
   }
 
 }
 
 function inputFindRemoveText(){
-  $("#establishmentFind").html("");
+  $("#inputFindResult").html("");
+  $("#inputFindResult").addClass("d-none");
   $("#inputFindHeader").val("");
   $("#inputFindIconSearch").removeClass("d-none");
   $("#inputFindIconClose").addClass("d-none");

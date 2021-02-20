@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="{{ url('assets/css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>@yield("title")</title>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 13px;
+            height: 13px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(13deg, #cb2d3e, #ef473a 64%);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: linear-gradient(13deg, #ef473a, #cb2d3e 64%);
+        }
+        ::-webkit-scrollbar-track{
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: inset 7px 10px 12px #f0f0f0;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-light nav-admin sticky-top mb-5" style="background: #cb2d3e; /* fallback for old browsers */

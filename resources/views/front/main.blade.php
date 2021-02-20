@@ -31,7 +31,7 @@
             <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
             @endif
             <div class="card-body">
-              <h2 class="card-title text-center">{{ $establishment->name }}</h2>
+              <h3 class="card-title text-center">{{ $establishment->name }}</h3>
               <p class="card-text cardestablishmentDescription">{{ $establishment->description }}</p>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
@@ -49,29 +49,58 @@
 
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-md-down" id="establishmentModalDialog">
     <div class="modal-content animate__animated animate__slideInUp">
+
       <div class="modal-header">
         <h2 class="modal-title" id="establishmentModalTitle"></h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-      <div id="establishmentModalDescription"></div>
 
-      <div id="carouselMainEstablishment" class="carousel slide w-100" data-bs-ride="carousel">
-        <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators">
-        </ol>
-        <div class="carousel-inner" id="carouselMainEstablishmentGalery">
+      <div class="modal-body">
+        <div id="establishmentModalDescription">
         </div>
 
-        <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
-      </div>
-    
+        <div id="carouselMainEstablishment" class="carousel slide w-100" data-bs-ride="carousel">
+          <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators">
+          </ol>
+          <div class="carousel-inner" id="carouselMainEstablishmentGalery">
+          </div>
+
+          <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+
+        <h3 class="my-5">Comentarios:</h3>
+
+        <form action="{{ route('review.store') }}" method="POST"
+        class="m-0 d-flex align-items-center">
+          <div class="row">
+            <div class="col-12 d-flex align-items-center mb-4">
+              <span class="input-group-text">Nombre</span>
+              <input type="text" class="form-control" name="name">
+            </div>
+            <div class="col-12 d-flex align-items-center mb-4">
+              <span class="input-group-text">Puntuacion</span>
+              <input type="text" class="form-control" name="rating">
+            </div>
+            <div class="col-12 d-flex align-items-center mb-4">
+              <span class="input-group-text h-100">Comentario</span>
+              <textarea class="form-control" name="commentary" rows="3"></textarea>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              @csrf
+              <input type="hidden" id="establishmentModalCommentsId" name="id_establishment">
+              <input type="submit" class="btn btn-outline-primary">
+            </div>
+          </div>
+        </form>
+        <div id="establishmentModalReview"></div>
+
       </div>
     </div>
   </div>

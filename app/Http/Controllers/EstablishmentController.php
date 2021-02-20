@@ -12,7 +12,7 @@ class EstablishmentController extends Controller
 {
     
     public function __construct(){
-        $this->middleware("auth")->except("showAjax", "showAjaxPhotography", "showEstablishmentFind");
+        $this->middleware("auth")->except("showAjax", "showAjaxPhotography", "showEstablishmentFind", "showAjaxReview");
     }
     /**
      * Display a listing of the resource.
@@ -82,6 +82,11 @@ class EstablishmentController extends Controller
     public function showAjaxPhotography($id){
         $establishmentPhotography = Establishment::find($id);
         return $establishmentPhotography->photography;
+    }
+
+    public function showAjaxReview($id){
+        $establishmentReview = Establishment::find($id);
+        return $establishmentReview->review;
     }
 
     public function showEstablishmentFind($name){
