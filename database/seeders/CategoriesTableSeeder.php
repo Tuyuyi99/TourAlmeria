@@ -19,7 +19,8 @@ class CategoriesTableSeeder extends Seeder
 
         DB::table('categories')->insert([
             'name' => 'bares o restaurantes'
-        ]);
+        ]
+        );
 
         DB::table('categories')->insert([
             'name' => 'hoteles'

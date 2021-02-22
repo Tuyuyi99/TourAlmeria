@@ -151,7 +151,7 @@
                                                 <span class="input-group-text">Destacado</span>
                                                 <select name="outstanding" class="form-select">
                                                     <option value="yes">si</option>
-                                                    <option value="no">no</option>
+                                                    <option value="no" selected>no</option>
                                                 </select>
                                                 <span class="input-group-text">Categoria</span>
                                                 <select name="id_category" class="form-select">
@@ -210,10 +210,10 @@
                                     <div class="w-100 d-flex justify-content-end">
                                         <select name="outstanding" class="mx-1">
                                             @if ($establishment->outstanding == 'yes')
-                                                <option value="yes" selected>yes</option>
+                                                <option value="yes" selected>si</option>
                                                 <option value="no">no</option>
                                             @else
-                                                <option value="yes">yes</option>
+                                                <option value="yes">si</option>
                                                 <option value="no" selected>no</option>
                                             @endif
                                         </select>
