@@ -75,28 +75,49 @@
           </a>
         </div>
 
-        <h3 class="my-5">Comentarios:</h3>
+        <div class="container">
+          <h3 class="my-5">Comentarios:</h3>
 
           <div class="row">
             <div class="col-12 d-flex align-items-center mb-4">
-              <span class="input-group-text">Nombre</span>
-              <input type="text" class="form-control" name="name" id="insertReviewName">
+              <div class="row w-100">
+
+              <div class="col-12 col-xl-4 d-flex align-items-center order-xl-2" id="colBoxEmojiRating">
+                  <div class="boxEmojiRating d-flex align-items-center justify-content-center" align="center">
+                    <div id="emoji" align="center" style="font-size:56px;">😶</div>
+                    <div class="row">
+                      <div class="col-12" style="z-index: 2;">
+                        <i class="fa fa-star mx-2" id = "star1" style="font-size:2rem;" onclick="star(1)"></i>
+                        <i class="fa fa-star mx-2" id = "star2" style="font-size:2rem;" onclick="star(2)"></i>
+                        <i class="fa fa-star mx-2" id = "star3" style="font-size:2rem;" onclick="star(3)"></i>
+                        <i class="fa fa-star mx-2" id = "star4" style="font-size:2rem;" onclick="star(4)"></i>
+                        <i class="fa fa-star mx-2" id = "star5" style="font-size:2rem;" onclick="star(5)"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-xl-8 d-flex align-items-center order-xl-1">
+                  <span class="input-group-text">Nombre</span>
+                  <input type="text" class="form-control" name="name" id="insertReviewName">
+                </div>
+
+              </div>
             </div>
-            <div class="col-12 d-flex align-items-center mb-4">
-              <span class="input-group-text">Puntuacion</span>
-              <input type="text" class="form-control" name="rating" id="insertReviewRating">
-            </div>
+
             <div class="col-12 d-flex align-items-center mb-4">
               <span class="input-group-text h-100">Comentario</span>
               <textarea class="form-control" name="commentary" id="insertReviewCommentary" rows="3"></textarea>
             </div>
             <div class="col-12 d-flex justify-content-center">
-              <input type="hidden" id="establishmentModalCommentsId" name="id_establishment">
+              <input type="hidden" name="id_establishment" id="establishmentModalCommentsId">
+              <input type="hidden" name="rating" id="insertReviewRating" value="1">
               <input type="submit" class="btn btn-outline-primary m-2" onclick="insertAjaxReview()">
             </div>
           </div>
+        </div>
+
         <div id="establishmentModalReview">
-          <div class="row"></div>
         </div>
 
       </div>

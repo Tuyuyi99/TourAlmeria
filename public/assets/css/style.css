@@ -196,6 +196,29 @@ margin: 0;
     opacity: .8;
 }
 
+/* rating emoji */
+.boxEmojiRating{
+  background-color:#252525;
+  border-radius: 2px;
+  box-shadow:0 0 0 10px #252525;
+  position: relative;
+  width: 250px;
+  height: 31px;
+}
+
+.boxEmojiRating #emoji{
+  position:absolute;
+  top: -31px;
+  right: 0;
+  left: 233px;
+  text-align:center;
+}
+
+.boxEmojiRating i{
+  color:#555555;
+  text-shadow:0 2px 2px rgba(255,255,255,0.2);
+}
+
 /*loader 1 */
 
 .lds-facebook {
@@ -287,6 +310,16 @@ margin: 0;
     .container-header {
         background-size: unset;
         background-position-y: top;
+    }
+    
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #colBoxEmojiRating {
+      justify-content: center;
+    }
+    .boxEmojiRating{
+      margin-bottom: 2rem;
     }
     
   }

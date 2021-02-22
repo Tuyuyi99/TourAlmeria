@@ -145,10 +145,10 @@ success: function(resultReview){
           <div class="row w-100">
             <div class="col-12 d-flex justify-content-between">
               <h4>${result.name}</h4>
-              ${result.rating}
+              <h3>${translateNumEmoji(result.rating)}</h3>
             </div>
             <div class="col-12">
-              <h5>${result.commentary}</h5>
+              <h5 style="font-weight:400;">${result.commentary}</h5>
             </div>
           </div>
         </container-mg>
@@ -248,3 +248,55 @@ function limitText() {
 window.addEventListener('load', function() {
   limitText();
 });
+
+/* stars emojis */
+function star(rating){
+  if(rating==1){
+      document.getElementById("emoji").innerHTML="😢";
+      $("#insertReviewRating").val("1");
+  }
+  else if(rating==2){
+      document.getElementById("emoji").innerHTML="🙁";
+      $("#insertReviewRating").val("2");
+  }
+  else if(rating==3){
+      document.getElementById("emoji").innerHTML="😐";
+      $("#insertReviewRating").val("3");
+  }
+  else if(rating==4){
+      document.getElementById("emoji").innerHTML="🙂";
+      $("#insertReviewRating").val("4");
+  }
+  else if(rating==5){
+      document.getElementById("emoji").innerHTML="😊";
+      $("#insertReviewRating").val("5");
+  }
+  for(var i=1;i<=rating;i++){
+      var id="star"+i;
+      document.getElementById(id).style.color="yellow";
+      document.getElementById(id).style.textShadow="0 0 30px yellow";
+  }
+  for(var j=rating+1;j<=5;j++){
+      var id="star"+j;
+      document.getElementById(id).style.color="#555555";
+      document.getElementById(id).style.textShadow="0 2px 2px rgba(255,255,255,0.13)";
+  } 
+}
+
+function translateNumEmoji(num){
+  if(num == 1){
+    return "😢";
+  }
+  else if(num == 2){
+    return "🙁";
+  }
+  else if(num == 3){
+    return "😐";
+  }
+  else if(num == 4){
+    return "🙂";
+  }
+  else if(num == 5){
+    return "😊";
+  }
+}
