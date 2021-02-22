@@ -145,7 +145,7 @@ success: function(resultReview){
           <div class="row w-100">
             <div class="col-12 d-flex justify-content-between">
               <h4>${result.name}</h4>
-              <h3>${translateNumEmoji(result.rating)}</h3>
+              <h3 class='rotate360' style='cursor: default;'>${translateNumEmoji(result.rating)}</h3>
             </div>
             <div class="col-12">
               <h5 style="font-weight:400;">${result.commentary}</h5>
@@ -174,7 +174,7 @@ function insertAjaxReview(){
   },
   complete: function(){
     $("#insertReviewName").val("");
-    $("#insertReviewRating").val("");
+    $("#insertReviewRating").val("1");
     $("#insertReviewCommentary").val("");
     showAjaxReview(id);
   }
@@ -271,12 +271,12 @@ function star(rating){
       document.getElementById("emoji").innerHTML="😊";
       $("#insertReviewRating").val("5");
   }
-  for(var i=1;i<=rating;i++){
+  for(var i=1; i<=rating; i++){
       var id="star"+i;
       document.getElementById(id).style.color="yellow";
       document.getElementById(id).style.textShadow="0 0 30px yellow";
   }
-  for(var j=rating+1;j<=5;j++){
+  for(var j=rating+1 ;j<=5; j++){
       var id="star"+j;
       document.getElementById(id).style.color="#555555";
       document.getElementById(id).style.textShadow="0 2px 2px rgba(255,255,255,0.13)";

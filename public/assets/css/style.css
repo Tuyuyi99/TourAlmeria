@@ -1,19 +1,23 @@
 ::-webkit-scrollbar {
     width: 13px;
     height: 13px;
-   }
-   ::-webkit-scrollbar-thumb {
+}
+::-webkit-scrollbar-thumb {
     background: linear-gradient(13deg, #49def5 14%,#94d8ff 64%);
     border-radius: 10px;
-   }
-   ::-webkit-scrollbar-thumb:hover{
+}
+::-webkit-scrollbar-thumb:hover{
     background: linear-gradient(13deg, #94d8ff 14%,#49DEF5 64%);
-   }
-   ::-webkit-scrollbar-track{
+}
+::-webkit-scrollbar-track{
     background: #ffffff;
     border-radius: 10px;
     box-shadow: inset 7px 10px 12px #f0f0f0;
-   }
+}
+::selection {
+    color: white;
+    background: #94d8ff;
+}
 
 header{
     z-index: 999;
@@ -33,7 +37,8 @@ container-mg {
     box-shadow: 0 16px 24px 2px rgb(0 0 0 / 0%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 0%);
     background: #fff;
     top: 700px;
-    z-index: 3
+    z-index: 3;
+    word-wrap: break-word;
 }
 
 .centerVerticalHorizontal{
@@ -212,11 +217,19 @@ margin: 0;
   right: 0;
   left: 233px;
   text-align:center;
+  cursor: default;
 }
 
 .boxEmojiRating i{
+  cursor: pointer;
   color:#555555;
   text-shadow:0 2px 2px rgba(255,255,255,0.2);
+}
+
+.rotate360:hover {
+  transition: all 1s;
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 /*loader 1 */
