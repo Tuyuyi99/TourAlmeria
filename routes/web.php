@@ -65,4 +65,4 @@ Route::delete('admin/review/destroy/{id}', 'App\Http\Controllers\ReviewControlle
 Route::get('admin/review/create', 'App\Http\Controllers\ReviewController@create')->name('review.create');
 Route::post('admin/review/store', 'App\Http\Controllers\ReviewController@store')->name('review.store');
 Route::get('admin/review/edit/{id}', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
-
+Route::get('admin/review/insertAjax/{id}/{name}/{rating}/{commentary}', 'App\Http\Controllers\ReviewController@insertAjax')->name('review.insertAjax');

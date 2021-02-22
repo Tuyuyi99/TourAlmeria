@@ -77,29 +77,27 @@
 
         <h3 class="my-5">Comentarios:</h3>
 
-        <form action="{{ route('review.store') }}" method="POST"
-        class="m-0 d-flex align-items-center">
           <div class="row">
             <div class="col-12 d-flex align-items-center mb-4">
               <span class="input-group-text">Nombre</span>
-              <input type="text" class="form-control" name="name">
+              <input type="text" class="form-control" name="name" id="insertReviewName">
             </div>
             <div class="col-12 d-flex align-items-center mb-4">
               <span class="input-group-text">Puntuacion</span>
-              <input type="text" class="form-control" name="rating">
+              <input type="text" class="form-control" name="rating" id="insertReviewRating">
             </div>
             <div class="col-12 d-flex align-items-center mb-4">
               <span class="input-group-text h-100">Comentario</span>
-              <textarea class="form-control" name="commentary" rows="3"></textarea>
+              <textarea class="form-control" name="commentary" id="insertReviewCommentary" rows="3"></textarea>
             </div>
             <div class="col-12 d-flex justify-content-center">
-              @csrf
               <input type="hidden" id="establishmentModalCommentsId" name="id_establishment">
-              <input type="submit" class="btn btn-outline-primary">
+              <input type="submit" class="btn btn-outline-primary m-2" onclick="insertAjaxReview()">
             </div>
           </div>
-        </form>
-        <div id="establishmentModalReview"></div>
+        <div id="establishmentModalReview">
+          <div class="row"></div>
+        </div>
 
       </div>
     </div>

@@ -130,27 +130,56 @@ function establishmentShowContentModal(id){
         }
       });
       
-      $.ajax({url: "admin/establishment/showAjaxReview/" + id,
-      success: function(resultReview){
-        $("#establishmentModalReview").html("");
-        $.each(resultReview, function(i, result){
-          $("#establishmentModalReview").append(`
-            <container-mg>
-              <div class="row w-100">
-                <div class="col-12 d-flex justify-content-between">
-                  <h4>${result.name}</h4>
-                  ${result.rating}
-                </div>
-                <div class="col-12">
-                  <h5>${result.commentary}</h5>
-                </div>
-              </div>
-            </container-mg>
-          `);
-        });
-      }
-    });
+      showAjaxReview(id);
   });
+}
+
+function showAjaxReview(id){
+  $.ajax({url: "admin/establishment/showAjaxReview/" + id,
+success: function(resultReview){
+  $("#establishmentModalReview").html("");
+  $.each(resultReview, function(i, result){
+    $("#establishmentModalReview").append(`
+      <div class="col-12">
+        <container-mg class="my-5">
+          <div class="row w-100">
+            <div class="col-12 d-flex justify-content-between">
+              <h4>${result.name}</h4>
+              ${result.rating}
+            </div>
+            <div class="col-12">
+              <h5>${result.commentary}</h5>
+            </div>
+          </div>
+        </container-mg>
+      </div>
+    `);
+  });
+}
+});
+}
+
+function insertAjaxReview(){
+  var name = $("#insertReviewName").val();
+  var rating = $("#insertReviewRating").val();
+  var commentary = $("#insertReviewCommentary").val();
+  var id = $("#establishmentModalCommentsId").val();
+  $.ajax({url: `admin/review/insertAjax/${id}/${name}/${rating}/${commentary}`,
+  beforeSend: function(){
+    $("#establishmentModalReview").prepend(`
+    <div class="col-12 d-flex justify-content-center mt-5">
+      <div class='lds-ring'><div></div><div></div><div></div><div></div></div>
+    </div>
+    `);
+  },
+  complete: function(){
+    $("#insertReviewName").val("");
+    $("#insertReviewRating").val("");
+    $("#insertReviewCommentary").val("");
+    showAjaxReview(id);
+  }
+});
+
 }
 
 function inputFind(name){

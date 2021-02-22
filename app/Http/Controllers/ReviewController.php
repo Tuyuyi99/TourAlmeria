@@ -10,7 +10,7 @@ class ReviewController extends Controller
 {
 
     public function __construct(){
-        $this->middleware("auth");
+        $this->middleware("auth")->except("insertAjax");
     }
     /**
      * Display a listing of the resource.
@@ -103,10 +103,21 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $review = Review::find($id);
         $review->delete();
         return redirect()->route('review.index');
     }
+
+    
+    public function insertAjax($id, $name, $rating, $commentary){
+        $review = new Review();
+        $review->name = $name;
+        $review->rating = $rating;
+        $review->commentary = $commentary;
+        $review->id_establishment = $id;
+        $review->save();
+        return redirect()->route('main');
+    }
+
 }

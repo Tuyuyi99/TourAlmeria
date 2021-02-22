@@ -272,7 +272,8 @@ margin: 0;
       transform: rotate(360deg);
     }
   }
-  
+
+  /* animate */
   
   .animate__animated.animate__slideInUp {
     --animate-duration: .72s;
