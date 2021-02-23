@@ -12,8 +12,8 @@ require __DIR__.'/auth.php';
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/{num}', 'App\Http\Controllers\GeneralController@getMain')->name('main');
+Route::get('/', 'App\Http\Controllers\GeneralController@getMain')->name('main');
+Route::get('page/{num}', 'App\Http\Controllers\GeneralController@getMainPage');
 Route::get('admin', 'App\Http\Controllers\GeneralController@getAdmin')->name('admin');
 
  //CRUD de usuarios

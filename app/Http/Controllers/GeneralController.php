@@ -18,12 +18,19 @@ class GeneralController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function getMain($num){
+    public function getMain(){
+        $categoriesList = Category::all();
+        $establishmentList = Establishment::where('outstanding', '=', "no")->take(10)->get();
+        $data["categoriesList"] = $categoriesList;
+        $data["establishmentList"] = $establishmentList;
+        return view("front/main", $data);
+    }
+
+    public function getMainPage($num){
         $categoriesList = Category::all();
         $establishmentList = Establishment::where('outstanding', '=', "no")->take($num)->get();
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
         return view("front/main", $data);
     }
-
 }
