@@ -211,13 +211,14 @@ margin: 0;
   height: 31px;
 }
 
-.boxEmojiRating #emoji{
-  position:absolute;
-  top: -31px;
-  right: 0;
-  left: 233px;
-  text-align:center;
+.boxEmojiRating #emoji {
+  position: absolute;
+  top: 50%;
+  left: 244px;
+  text-align: center;
   cursor: default;
+  transform: translateY(-50%);
+  width: 4rem;
 }
 
 .boxEmojiRating i{

@@ -153,18 +153,6 @@ class EstablishmentsTableSeeder extends Seeder
         ]
         );
 
-        DB::table('establishments')->insert([
-            'name' => 'B & BUTIK Almeria Centro',
-            'description' => 'Este hotel está basado en el turismo, ocio y facilidad de desplazamiento, 
-            gracias a que se encuentra cerca del centro de la ciudad. Cuenta con 4 estrellas.',
-            'address' => 'Calle San Diego de Alcalá, 9, 04003 Almería',
-            'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10740.42116803531!2d-2.4648115006341134!3d36.83897167748799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7075fe6005aaab%3A0x141346536dc496c5!2sB%20%26%20BUTIK%20Almeria%20Centro!5e0!3m2!1ses!2ses!4v1613988900722!5m2!1ses!2ses" 
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
-            'outstanding' => 'no',
-            'id_category' => '2'
-        ]
-        );
-
         // Turismo
         
         DB::table('establishments')->insert([

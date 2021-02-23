@@ -84,7 +84,9 @@
 
               <div class="col-12 col-xl-4 d-flex align-items-center order-xl-2" id="colBoxEmojiRating">
                   <div class="boxEmojiRating d-flex align-items-center justify-content-center" align="center">
-                    <div id="emoji" align="center" style="font-size:56px;">😶</div>
+                    <div id="emoji" align="center">
+                      <img src="{{ url('assets/img/emojis/star0.svg')  }}">
+                    </div>
                     <div class="row">
                       <div class="col-12" style="z-index: 2;">
                         <i class="fa fa-star mx-2" id = "star1" style="font-size:2rem;" onclick="star(1)"></i>

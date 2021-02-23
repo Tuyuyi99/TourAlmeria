@@ -145,7 +145,7 @@ success: function(resultReview){
           <div class="row w-100">
             <div class="col-12 d-flex justify-content-between">
               <h4>${result.name}</h4>
-              <h3 class='rotate360' style='cursor: default;'>${translateNumEmoji(result.rating)}</h3>
+              <img src='${translateNumEmoji(result.rating)}' class='rotate360' style='cursor: default; width: 2rem;'>
             </div>
             <div class="col-12">
               <h5 style="font-weight:400;">${result.commentary}</h5>
@@ -252,23 +252,23 @@ window.addEventListener('load', function() {
 /* stars emojis */
 function star(rating){
   if(rating==1){
-      document.getElementById("emoji").innerHTML="😢";
+      document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star1.svg">';
       $("#insertReviewRating").val("1");
   }
   else if(rating==2){
-      document.getElementById("emoji").innerHTML="🙁";
+      document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star2.svg">';
       $("#insertReviewRating").val("2");
   }
   else if(rating==3){
-      document.getElementById("emoji").innerHTML="😐";
+      document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star3.svg">';
       $("#insertReviewRating").val("3");
   }
   else if(rating==4){
-      document.getElementById("emoji").innerHTML="🙂";
+      document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star4.svg">';
       $("#insertReviewRating").val("4");
   }
   else if(rating==5){
-      document.getElementById("emoji").innerHTML="😊";
+      document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star5.svg">';
       $("#insertReviewRating").val("5");
   }
   for(var i=1; i<=rating; i++){
@@ -285,18 +285,18 @@ function star(rating){
 
 function translateNumEmoji(num){
   if(num == 1){
-    return "😢";
+    return 'assets/img/emojis/star1.svg';
   }
   else if(num == 2){
-    return "🙁";
+    return 'assets/img/emojis/star2.svg';
   }
   else if(num == 3){
-    return "😐";
+    return 'assets/img/emojis/star3.svg';
   }
   else if(num == 4){
-    return "🙂";
+    return 'assets/img/emojis/star4.svg';
   }
   else if(num == 5){
-    return "😊";
+    return 'assets/img/emojis/star5.svg';
   }
 }
