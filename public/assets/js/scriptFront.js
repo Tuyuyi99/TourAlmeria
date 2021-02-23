@@ -47,11 +47,35 @@ function scrollNav(){
       }
 }
 
-function scrollMainReload(){
+/*function scrollMainReload(){
   var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
   if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
     
   }
+}*/
+
+function getMainPageAjax(skips, takes){
+  $.ajax({url: `page/${skips}/${takes}`,
+  success: function(resultPage){
+      console.log(resultPage);
+      $.each(resultPage, function(i, result){
+        $("#establishmentListRow").append(`
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
+        <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
+          <div class="card-body">
+            <h3 class="card-title text-center">${result.name}</h3>
+            <p class="card-text cardestablishmentDescription">${result.description}</p>
+            <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
+              Abrir
+            </button>
+          </div>
+        </div>
+      </div>
+        `);
+      });
+      AOS.init(); // como son elementos creados hay que volver a ejecutar las animaciones para que se le añadan
+  }
+  });
 }
 
 function establishmentShowContentModal(id){

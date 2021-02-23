@@ -24,8 +24,7 @@
 
   <h1 class="text-center mb-5">General</h1>
 
-  <div class="row d-flex align-items-center m-auto">
-    @if(isset($establishmentList))
+  <div class="row d-flex align-items-center m-auto" id="establishmentListRow">
       @foreach ($establishmentList as $establishment)
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
           <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
@@ -42,7 +41,6 @@
           </div>
         </div>
       @endforeach
-    @endif
   </div>
 
   <div class="modal fade p-0" id="establishmentModal" tabindex="-1" aria-hidden="true">
@@ -129,6 +127,7 @@
     </div>
   </div>
 
+<button class="text-center" onclick="getMainPageAjax(10, 20)">mas datos</button>
 
   <br>
   <br>

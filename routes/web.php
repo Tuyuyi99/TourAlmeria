@@ -13,8 +13,9 @@ require __DIR__.'/auth.php';
 |
 */
 Route::get('/', 'App\Http\Controllers\GeneralController@getMain')->name('main');
-Route::get('page/{num}', 'App\Http\Controllers\GeneralController@getMainPage');
+Route::get('page/{skips}/{takes}', 'App\Http\Controllers\GeneralController@getMainPage');
 Route::get('admin', 'App\Http\Controllers\GeneralController@getAdmin')->name('admin');
+
 
  //CRUD de usuarios
 
