@@ -141,7 +141,7 @@ success: function(resultReview){
   $.each(resultReview, function(i, result){
     $("#establishmentModalReview").append(`
       <div class="col-12">
-        <container-mg class="my-5">
+        <container-mg class="my-5" style='border: solid 1px #0000002e;'>
           <div class="row w-100">
             <div class="col-12 d-flex justify-content-between">
               <h4>${result.name}</h4>
@@ -211,7 +211,7 @@ function inputFind(name){
           $("#inputFindResult").html("");
           $.each(names, function(i, result){
             $("#inputFindResult").append(`
-            <div class="col-12 d-flex align-items-center justify-content-center my-1" style="padding: 2rem!important;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
+            <div class="col-12 d-flex align-items-center justify-content-center my-1" style="padding: 2rem 0rem 2rem 0rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
               <h5>${result.name}</h5>
             </div>
             `);

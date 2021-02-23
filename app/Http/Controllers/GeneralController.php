@@ -18,9 +18,9 @@ class GeneralController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function getMain(){
+    public function getMain($num){
         $categoriesList = Category::all();
-        $establishmentList = Establishment::all();
+        $establishmentList = Establishment::where('outstanding', '=', "no")->take($num)->get();
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
         return view("front/main", $data);

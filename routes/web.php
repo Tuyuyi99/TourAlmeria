@@ -13,7 +13,7 @@ require __DIR__.'/auth.php';
 |
 */
 
-Route::get('/', 'App\Http\Controllers\GeneralController@getMain')->name('main');
+Route::get('/{num}', 'App\Http\Controllers\GeneralController@getMain')->name('main');
 Route::get('admin', 'App\Http\Controllers\GeneralController@getAdmin')->name('admin');
 
  //CRUD de usuarios
