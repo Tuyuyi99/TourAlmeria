@@ -244,17 +244,6 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
-            'name' => 'La Hormiguita',
-            'description' => 'Bar Clasico en Almería, terraza perfecta para unas cervezas y unas tapas de pescado.',
-            'address' => 'Parque de Nicolás Salmerón, Almería',
-            'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.2992732674184!2d-2.464745791952106!3d36.835308022538676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd70760439e2e531%3A0xd31d1266e28101c9!2sLa%20Hormiguita!5e0!3m2!1ses!2ses!4v1614095272010!5m2!1ses!2ses" 
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
-            'outstanding' => 'no',
-            'id_category' => '1'
-        ]
-        );
-
-        DB::table('establishments')->insert([
             'name' => 'King Sushi',
             'description' => 'Restaurante Japonés con gran variedad de Sushi en relación a calidad-precio y bebidas de importación.',
             'address' => 'Av. de la Estación, 23, 04005 Almería',

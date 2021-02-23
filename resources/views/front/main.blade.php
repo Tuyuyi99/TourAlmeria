@@ -33,7 +33,7 @@
             @endif
             <div class="card-body">
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
-              <p class="card-text cardestablishmentDescription">{{ $establishment->description }}</p>
+              <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
@@ -126,15 +126,4 @@
       </div>
     </div>
   </div>
-
-<button class="text-center" onclick="getMainPageAjax(10, 20)">mas datos</button>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 @endsection

@@ -1,4 +1,4 @@
-window.onscroll = function() {scrollNav()};
+window.onscroll = function() {scrollNav(), scrollMainPageReload()};
 
 function scrollNav(){
     var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
@@ -47,15 +47,29 @@ function scrollNav(){
       }
 }
 
-/*function scrollMainReload(){
-  var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
-  if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
-    
+var validarTimeScroll = true;
+function scrollMainPageReload(){
+  var alturaTotal = $(document).height(); // scroll + viewport = altura del documento es que ha llegado alfinal del documento.
+  var alturaScrollTop = $(window).scrollTop(); // scroll realizado contando desde la linea de arriba (los elementos que desaparecen arriba)
+  var alturaViewPort = $(window).height(); // posicion en px de donde se encuentra el viewport (lo que se esta visualizando)
+  if ((alturaScrollTop + alturaViewPort) == alturaTotal && validarTimeScroll) {
+    validarTimeScroll = false;
+    getMainPageAjax();
+    setTimeout(function(){
+      validarTimeScroll = true;
+    }, 1000);
   }
-}*/
-
-function getMainPageAjax(skips, takes){
+}
+var skips = 10; // saltos empieza en 10 se va añadiendo +10 a saltos cada vez
+function getMainPageAjax(){
+  var takes = 10;
   $.ajax({url: `page/${skips}/${takes}`,
+  beforeSend: function(){
+    $("#establishmentListRow").append(`
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" id="establishmentListLoaderCol" style="margin-bottom: 5rem;">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>`);
+  },
   success: function(resultPage){
       console.log(resultPage);
       $.each(resultPage, function(i, result){
@@ -64,7 +78,7 @@ function getMainPageAjax(skips, takes){
         <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
           <div class="card-body">
             <h3 class="card-title text-center">${result.name}</h3>
-            <p class="card-text cardestablishmentDescription">${result.description}</p>
+            <p class="card-text cardEstablishmentDescription">${result.description}</p>
             <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
               Abrir
             </button>
@@ -73,7 +87,13 @@ function getMainPageAjax(skips, takes){
       </div>
         `);
       });
-      AOS.init(); // como son elementos creados hay que volver a ejecutar las animaciones para que se le añadan
+  },
+  complete: function(){
+    $("#establishmentListLoaderCol").remove();
+    AOS.init(); // como son elementos creados hay que volver a ejecutar las animaciones para que se le añadan
+    limitText(); // ERROOOOOOOOOOR hay que volver a ejecutar el limitador de descripciones ya que hay nuevos elementos a los que limitar texto
+    skips += 10;
+    console.log(`skips: ${skips}`);
   }
   });
 }
@@ -270,15 +290,13 @@ function inputFindRemoveText(){
 }
 
 function limitText() {
-  var text = document.getElementsByClassName("cardestablishmentDescription");
+  var text = document.getElementsByClassName("cardEstablishmentDescription");
   for (i = 0; i < text.length; i++) {
     var description = text[i].textContent;
-    document.getElementsByClassName("cardestablishmentDescription")[i].textContent = description.substr(0, 150) + "...";
+    document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 150) + "...";
   }
 }
-window.addEventListener('load', function() {
-  limitText();
-});
+window.addEventListener('load', limitText());
 
 /* stars emojis */
 function star(rating){
