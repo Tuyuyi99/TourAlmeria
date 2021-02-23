@@ -17,6 +17,6 @@ class Establishment extends Model
     }
 
     public function review(){
-        return $this->hasMany(Review::class, 'id_establishment');
+        return $this->hasMany(Review::class, 'id_establishment')->orderBy("id", "desc");
     }
 }

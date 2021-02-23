@@ -1,6 +1,6 @@
-window.onscroll = function() {scroll()};
+window.onscroll = function() {scrollNav()};
 
-function scroll(){
+function scrollNav(){
     var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
 
     if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
@@ -45,6 +45,13 @@ function scroll(){
           navLink[navLinkCount].style.color = "white";
        }
       }
+}
+
+function scrollMainReload(){
+  var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
+  if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
+    
+  }
 }
 
 function establishmentShowContentModal(id){
