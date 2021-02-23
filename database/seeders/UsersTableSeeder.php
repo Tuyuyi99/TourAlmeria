@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder{
     /**
@@ -13,6 +14,13 @@ class UsersTableSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        //
+
+        User::truncate();
+
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'password' => Hash::make('12345678')
+        ]
+        );
     }
 }
