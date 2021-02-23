@@ -18,21 +18,21 @@ class CategoriesTableSeeder extends Seeder
         Category::truncate();
 
         DB::table('categories')->insert([
-            'name' => 'bares o restaurantes'
+            'name' => 'Bares y restaurantes'
         ]
         );
 
         DB::table('categories')->insert([
-            'name' => 'hoteles'
+            'name' => 'Hoteles'
         ]
         );
         DB::table('categories')->insert([
-            'name' => 'museos'
+            'name' => 'Museos'
         ]
         );
 
         DB::table('categories')->insert([
-            'name' => 'turismo'
+            'name' => 'Turismo'
         ]
         );
     }
