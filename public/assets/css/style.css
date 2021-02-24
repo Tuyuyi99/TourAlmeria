@@ -201,6 +201,11 @@ margin: 0;
     opacity: .8;
 }
 
+.dropdown-item:hover {
+  background: #94d8ff;
+  color: white;
+}
+
 /* rating emoji */
 .boxEmojiRating{
   background-color:#252525;

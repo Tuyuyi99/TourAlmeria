@@ -91,7 +91,7 @@ function getMainPageAjax(){
   complete: function(){
     $("#establishmentListLoaderCol").remove();
     AOS.init(); // como son elementos creados hay que volver a ejecutar las animaciones para que se le añadan
-    limitText(); // ERROOOOOOOOOOR hay que volver a ejecutar el limitador de descripciones ya que hay nuevos elementos a los que limitar texto
+    limitText(); // hay que volver a ejecutar el limitador de descripciones ya que hay nuevos elementos a los que limitar texto
     skips += 10;
     console.log(`skips: ${skips}`);
   }
@@ -293,7 +293,13 @@ function limitText() {
   var text = document.getElementsByClassName("cardEstablishmentDescription");
   for (i = 0; i < text.length; i++) {
     var description = text[i].textContent;
-    document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 150) + "...";
+    var endPointPosition = description.length - 4;
+    var prueba = description.indexOf("...");
+
+    if(endPointPosition != prueba){
+      console.log(endPointPosition + "/" + prueba);
+      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 150) + "...";
+    }
   }
 }
 window.addEventListener('load', limitText());
