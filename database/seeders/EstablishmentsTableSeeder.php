@@ -535,8 +535,7 @@ class EstablishmentsTableSeeder extends Seeder
         DB::table('establishments')->insert([
             'id' => '41',
             'name' => 'Museo de Arte de Almería Espacio 2',
-            'description' => 'Museo de arte almeriense de los siglos XIX y XX, 
-            situado en un edificio de estilo vasco de los años 20.',
+            'description' => 'Museo de arte almeriense con varias obras de artistas famosos.',
             'address' => 'C/ Jardín de Medina, Autovía del Aeropuerto, 04006 Almería',
             'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12773.75818375218!2d-2.463335394859291!3d36.8319478766891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9d77e660f3e17346!2sMuseo%20de%20Arte%20de%20Almer%C3%ADa%20Espacio%202!5e0!3m2!1ses!2ses!4v1614077431544!5m2!1ses!2ses" 
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
@@ -914,7 +913,7 @@ class EstablishmentsTableSeeder extends Seeder
 
         DB::table('establishments')->insert([
             'id' => '71',
-            'name' => 'Plaza José Fernández Torres "Tomatito"',
+            'name' => 'Plaza José Fernández Torres',
             'description' => 'Plaza en honor a José Fernández "Tomatito", guitarrista almeriense de fama mundial con seis Grammys.',
             'address' => 'Calle Tenor Iribarne, 24, 04001 Almería',
             'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.0488670949226!2d-2.464907943362451!3d36.84130569503703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1bc3cdd5afe492d!2sPlaza%20Jos%C3%A9%20Fern%C3%A1ndez%20Torres%20%22Tomatito%22!5e0!3m2!1ses!2ses!4v1614097200396!5m2!1ses!2ses" 
