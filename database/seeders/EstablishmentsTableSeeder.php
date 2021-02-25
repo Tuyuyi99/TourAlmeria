@@ -21,6 +21,7 @@ class EstablishmentsTableSeeder extends Seeder
         //////////////////////////////////////////// Bares
 
         DB::table('establishments')->insert([
+            'id' => '1',
             'name' => 'Bar Barro',
             'description' => 'Bar apartado del centro con mucha variedad de tapas.',
             'address' => 'Av. de Madrid, 1, 04007 Almería',
@@ -32,6 +33,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '2',
             'name' => 'Jauja taberna',
             'description' => 'Bar de tapas con especialidad en tapas argentinas.',
             'address' => 'Calle Lentisco, 2, 04007 Almería',
@@ -41,8 +43,10 @@ class EstablishmentsTableSeeder extends Seeder
             'id_category' => '1'
         ]
         );
+        
 
         DB::table('establishments')->insert([
+            'id' => '3',
             'name' => 'Aladdin',
             'description' => 'Tetería-cafetería con buen menaje y decoración, con un té árabe muy
             bueno en conjunto con unas pastas.',
@@ -55,6 +59,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '4',
             'name' => 'La Ruta Cafe - Bar',
             'description' => 'Café-bar especializado sobretodo en tapas de pescado.',
             'address' => 'Calle Lentisco, 15, 04007 Almería',
@@ -66,6 +71,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '5',
             'name' => 'Terraza El Kinto',
             'description' => 'Terraza con buenas tapas y atención del personal.',
             'address' => 'Plaza de Alcalá, 04007 Almería',
@@ -78,6 +84,7 @@ class EstablishmentsTableSeeder extends Seeder
 
         
         DB::table('establishments')->insert([
+            'id' => '6',
             'name' => 'Bar La Barquilla',
             'description' => 'Bar económico y especializado en pescado, con variedad de cerveza.',
             'address' => 'Calle Retama, 3, 04007 Almería',
@@ -90,6 +97,7 @@ class EstablishmentsTableSeeder extends Seeder
 
         
         DB::table('establishments')->insert([
+            'id' => '7',
             'name' => 'Café Bar Hermoso',
             'description' => 'Cafetería con terraza y tapas.',
             'address' => 'Calle Úbeda, 73, 04007 Almería',
@@ -101,6 +109,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '8',
             'name' => 'Meson el Zagal',
             'description' => 'Mesón con variedad de tapas para todos los gustos.',
             'address' => 'Calle Mejorana, 2, 04007 Almería',
@@ -112,6 +121,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '9',
             'name' => 'La Marquesina Terraza',
             'description' => 'Terraza con tapas bastante grandes y variadas.',
             'address' => 'Parque de las Familias, Calle Argentinita, s/n, 04007 Almería',
@@ -123,6 +133,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '10',
             'name' => 'La Cabaña del Tío Tom',
             'description' => 'Tapas, raciones y platos tradicionales españoles en una bulliciosa y sobria taberna con terraza frente al mar.',
             'address' => 'Calle Joaquín Vázquez, 2, 04007 Almería',
@@ -134,6 +145,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '11',
             'name' => 'Kebab Tiptop Pizzería',
             'description' => 'Comida de calidad con buen trato del personal.',
             'address' => 'Av. de Cabo de Gata, 04007 Almería',
@@ -145,6 +157,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '12',
             'name' => 'Charros',
             'description' => 'Sitio histórico imprescindible.',
             'address' => 'Av. de Cabo de Gata, 385, 04007 Almería',
@@ -156,6 +169,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '13',
             'name' => 'Buono',
             'description' => 'Pizzería con agradable ambiente cerca del paseo marítimo y la playa.',
             'address' => 'Calle San Miguel, 2, 04007 Almería',
@@ -167,6 +181,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '14',
             'name' => 'VIPS',
             'description' => 'Platos para comidas informales y menú en cadena de cafeterías con horario amplio, tienda de comida y revistas.',
             'address' => 'Calle Canónigo Molina Alonso, 8, 04004 Almería',
@@ -178,6 +193,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '15',
             'name' => 'Vintage54',
             'description' => 'Cafetería-bar con tapas veganas y raciones.',
             'address' => 'Av. Federico García Lorca, 54, 04005 Almería',
@@ -189,6 +205,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '16',
             'name' => 'Chester Café',
             'description' => 'Cafetería con desayunos, tapas y meriendas.',
             'address' => 'Av. de la Estación, 2, 04005 Almería',
@@ -200,6 +217,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '17',
             'name' => 'El Chilecito',
             'description' => 'Restaurante con comida típica mexicana.',
             'address' => 'Av. Federico García Lorca, 117, 04004 Almería',
@@ -211,6 +229,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '18',
             'name' => 'Bar La Lupe',
             'description' => 'Bar en el que ofrecen distintas comidas mexicanas con gran variedad.',
             'address' => 'Calle Trajano, 04001 Almería',
@@ -222,6 +241,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '19',
             'name' => 'El Rincón de Basi',
             'description' => 'Clásica taberna-restaurante con lámparas de hierro forjado para tapas y raciones de cocina tradicional.',
             'address' => 'Calle Gral. Segura, 12, 04004 Almería',
@@ -233,6 +253,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '20',
             'name' => 'La Hormiguita',
             'description' => 'Bar Clasico en Almería, terraza perfecta para unas cervezas y unas tapas de pescado.',
             'address' => 'Parque de Nicolás Salmerón, Almería',
@@ -244,6 +265,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '21',
             'name' => 'King Sushi',
             'description' => 'Restaurante Japonés con gran variedad de Sushi en relación a calidad-precio y bebidas de importación.',
             'address' => 'Av. de la Estación, 23, 04005 Almería',
@@ -257,6 +279,7 @@ class EstablishmentsTableSeeder extends Seeder
         //////////////////////////////////////////// Hoteles
 
         DB::table('establishments')->insert([
+            'id' => '22',
             'name' => 'Hotel Embajador',
             'description' => 'Hotel sencillo, situado enfrente del museo de Almería, se encuentra a 6 minutos a pie de la estación de tren de Almería 
             y a 15 minutos a pie de la playa de la misma ciudad. Se trata de un hotel de 2 estrellas.',
@@ -269,6 +292,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
             DB::table('establishments')->insert([
+            'id' => '23',
             'name' => 'Hostal Estación',
             'description' => 'Este hostal, económico y sencillo, se encuentra a 5 minutos a pie del museo de Almería, 
             a 7 minutos a pie de la estación de tren y a 16 minutos a pie de la playa del Zapillo. Se trata de un hostal de 1 estrella.',
@@ -281,6 +305,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '24',
             'name' => 'Albergue Inturjoven Almería',
             'description' => 'Sencillo albergue que se halla a 6 minutos a pie de la playa, a 3 km de la catedral de Almería y a 4 km de la Alcazaba. 
             Ideal para tus vacaciones de verano. Se trata de un albergue de 2 estrellas.',
@@ -293,6 +318,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '25',
             'name' => 'Hostal Delfín Verde',
             'description' => 'Este discreto hostal está frente a la playa mediterránea de Almería, 
             a 13 minutos a pie de la estación de tren y a 3 km de la Alcazaba, una fortaleza situada en una colina. 
@@ -306,6 +332,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '26',
             'name' => 'Torreluz Senior',
             'description' => 'Hotel que se encuentra en una calle peatonal estrecha con tiendas y restaurantes, 
             a 6 minutos a pie de la catedral gótica y renacentista de Almería, del siglo XVI, y a 2 km de la estación de tren. Es un hotel de 3 estrellas.',
@@ -318,6 +345,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '27',
             'name' => 'AIRE Hotel & Ancient Baths ALMERÍA',
             'description' => 'Situado en un edificio del siglo XIX, este elegante hotel boutique está a 4 minutos a pie de la catedral de Almería y 
             a 11 minutos de la Alcazaba de Almería. Se trata de un hotel de 4 estrellas.',
@@ -330,6 +358,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '28',
             'name' => 'Ohtels Gran Hotel Almería',
             'description' => 'Este sofisticado hotel, con vistas al puerto de Almería, 
             se encuentra a 11 minutos a pie de la estación de tren, a 14 de la playa del Zapillo y a 2 km de la Alcazaba. Es un hotel de 4 estrellas.',
@@ -342,6 +371,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '29',
             'name' => 'AC Hotel Almeria',
             'description' => 'Este hotel moderno, ubicado en el casco antiguo de la ciudad, 
             está a 15 minutos a pie de la Alcazaba de Almería y a 4,7 km del Puerto de Almería. Es un hotel de 4 estrellas.',
@@ -354,6 +384,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '30',
             'name' => 'Hostal Maribel',
             'description' => 'Este hostal, de estilo informal y regentado por una familia, está en una calle arbolada, 
             a 2 km de la estación de tren de Almería y a 3 de la playa más cercana de la Costa del Sol y del complejo monumental de la Alcazaba, 
@@ -367,6 +398,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '31',
             'name' => 'Hotel Sevilla',
             'description' => 'Este hotel modesto está a 8 minutos a pie de la catedral de Almería, 
             a 12 minutos del Museo de Almería y a 15 minutos de la estación de tren de la misma ciudad. Es de 1 estrella.',
@@ -379,6 +411,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '32',
             'name' => 'B & BUTIK Almeria Centro',
             'description' => 'Este hotel está basado en el turismo, ocio y facilidad de desplazamiento, 
             gracias a que se encuentra cerca del centro de la ciudad. Cuenta con 4 estrellas.',
@@ -391,6 +424,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '33',
             'name' => 'Hotel La Perla',
             'description' => 'Este hotel sin pretensiones ubicado en un edificio modesto 
             y situado a 7 minutos a pie de la catedral de Almería se encuentra a 1,3 km de la alcazaba de Almería y a 3,2 km del puerto de Almería.
@@ -404,6 +438,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '34',
             'name' => 'Murallas de Jayrán Hotel Boutique',
             'description' => 'Basada en turismo, ocio y facilidad de desplazamiento.',
             'address' => 'Calle Antonio Vico, 21, 04003 Almería',
@@ -415,6 +450,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '35',
             'name' => 'Los Molinos suites',
             'description' => 'Este informal hotel económico se encuentra en una calle arbolada de una zona residencial, 
             a 10 minutos a pie del río Andarax y a 4 km de la estación de tren 
@@ -428,6 +464,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '36',
             'name' => 'Sercotel Gran Fama',
             'description' => 'Este hotel sin pretensiones se encuentra a 2 km de la estación de tren de Almería 
             y a 3 de la animada playa del Zapillo y de la Alcazaba, que data del siglo X. Se trata de un hotel de 4 estrellas.',
@@ -440,6 +477,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '37',
             'name' => 'Elba Almería Business & Convention Hotel',
             'description' => 'Este hotel de negocios se encuentra a 3 km de la estación de tren 
             y de la Catedral de Almería, y a 4 de la playa del Zapillo. Tiene categoría de 4 estrellas.',
@@ -452,6 +490,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '38',
             'name' => 'Avenida Hotel Almería',
             'description' => 'Este sencillo hotel se encuentra en una concurrida calle arbolada con tiendas y restaurantes, 
             a 2 km de la estación de tren de Almería, a 3 km de la playa más cercana y a 4 km de la catedral, que data del siglo XVI. Tiene 4 estrellas.',
@@ -464,6 +503,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '39',
             'name' => 'Hotel Catedral Almería',
             'description' => 'Este hotel boutique elegante con vistas a la catedral de Almería y la plaza de la Catedral data de 1850 
             y se encuentra a 14 minutos a pie de la alcazaba de Almería, del siglo X. Es de 4 estrellas.',
@@ -479,6 +519,7 @@ class EstablishmentsTableSeeder extends Seeder
         //////////////////////////////////////////// Museos
 
         DB::table('establishments')->insert([
+            'id' => '40',
             'name' => 'Museo de Almería',
             'description' => 'Moderno museo con una colección diversa de objetos, 
             armas y cerámica de la Prehistoria y el Neolítico.',
@@ -491,6 +532,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '41',
             'name' => 'Museo de Arte Doña Pakyta',
             'description' => 'Museo de arte almeriense de los siglos XIX y XX, 
             situado en un edificio de estilo vasco de los años 20.',
@@ -503,6 +545,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '42',
             'name' => 'Museo de Arte de Almería Espacio 2',
             'description' => 'Museo de arte almeriense de los siglos XIX y XX, 
             situado en un edificio de estilo vasco de los años 20.',
@@ -515,6 +558,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '43',
             'name' => 'Museo de la Guitarra',
             'description' => 'Museo sobre el arte y la historia de la guitarra 
             que alberga una sección dedicada al lutier Antonio de Torres.',
@@ -527,6 +571,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '44',
             'name' => 'Casa del Cine',
             'description' => 'Vivienda del barrio de Villablanca y 
             conocida como Cortijo Romero o casa de Santa Isabel.',
@@ -539,6 +584,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '45',
             'name' => 'Museo de la Catedral de la Encarnación',
             'description' => 'Abierto y reformado recientemente, ofrece una visión cultural e histórica de la catedral, 
             a la vez que expone algunos objetos relacionados con su historia.',
@@ -551,8 +597,9 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '46',
             'name' => 'Casa del Poeta José Ángel Valente',
-            'description' => 'Bonita casa con mobiliario original, obra del poeta y vistas a la Alcazaba',
+            'description' => 'Bonita casa con mobiliario original, obra del poeta y vistas a la Alcazaba.',
             'address' => 'Calle José Ángel Valente, 7, 04002 Almería',
             'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.1878532613637!2d-2.4668502569159885!3d36.837976833031554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2068e59f297d8aef!2sCasa%20del%20Poeta%20Jos%C3%A9%20%C3%81ngel%20Valente!5e0!3m2!1ses!2ses!4v1614097435120!5m2!1ses!2ses" 
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
@@ -564,6 +611,7 @@ class EstablishmentsTableSeeder extends Seeder
         //////////////////////////////////////////// Turismo
         
         DB::table('establishments')->insert([
+            'id' => '47',
             'name' => 'Conjunto Monumental de la Alcazaba de Almería',
             'description' => 'es uno de los conjuntos monumentales y arqueológicos andalusíes más importantes de la península ibérica.
             Fue construido en la segunda mitad del siglo X al siglo XVI por Abderramán III.',
@@ -576,6 +624,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '48',
             'name' => 'Auditorio Maestro Padilla',
             'description' => 'Auditorio con buena acústica inaugurado el séis de mayo de 1992.',
             'address' => 'Plaza Alfredo Kraus, 04007 Almería',
@@ -587,6 +636,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '49',
             'name' => 'Anfiteatro de la Rambla',
             'description' => 'Anfiteatro al aire libre situado en el centro de la ciudad. 
             En él, se puede disfrutar de numerosos conciertos, actuaciones y representaciones teatrales.
@@ -600,6 +650,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '50',
             'name' => 'Parque de las Familias',
             'description' => 'Es un parque que se encuentra abierto al público desde el 14 de noviembre de 2014, siendo 
             el recinto destinado a uso exclusivamente infantil más grande de Andalucía.',
@@ -612,6 +663,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '51',
             'name' => 'Playa de San Miguel',
             'description' => 'Es un parque que se encuentra abierto al público desde el 14 de noviembre de 2014, siendo 
             el recinto destinado a uso exclusivamente infantil más grande de Andalucía.',
@@ -624,6 +676,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '52',
             'name' => 'El Cable Inglés',
             'description' => 'También conocido como muelle El Alquife, es un antiguo cargadero de mineral situado en Almería, España, 
             de la sociedad The Alquife Mines and Railway Company Limited, ejemplo de la arquitectura del hierro. 
@@ -637,6 +690,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '53',
             'name' => 'Catedral de la Encarnación de Almería',
             'description' => 'Catedral católica de estilos gótico y renacentista, 
             que data del siglo XVI, con rasgos de fortaleza defensiva.',
@@ -649,6 +703,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '54',
             'name' => 'Monumento a Víctimas Almerienses de Mauthausen',
             'description' => 'Monumento dedicado a las víctimas almerienses del holocausto nazi. 
             Fue inaugurado en 1999 situado junto a El Cable Inglés.',
@@ -661,6 +716,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '55',
             'name' => 'Parque de las Almadrabillas',
             'description' => 'Monumento con columnas en amplio parque con zona verde que organiza exposiciones temporales.',
             'address' => 'Calle Matadero, 3, 04007 Almería',
@@ -672,6 +728,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '56',
             'name' => 'Parque del Andarax',
             'description' => 'Parque, extenso, bonito y con un merendero perfecto para celebraciones.',
             'address' => 'Camino Jaúl Bajo, 230, 04007 Almería',
@@ -683,6 +740,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '57',
             'name' => 'Refugios de la Guerra Civil Española de Almería',
             'description' => 'Sistema subterráneo de refugios antiaéreos de hormigón 
             usado en la Guerra Civil española con visitas guiadas.',
@@ -695,6 +753,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '58',
             'name' => 'Plaza Vieja',
             'description' => 'Plaza amplia para realizar todo tipo de actos y conciertos.',
             'address' => 'Plaza de la Administración Vieja, 8, 04003 Almería',
@@ -706,6 +765,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '59',
             'name' => 'Pescaíto',
             'description' => 'Escultura de la Ballena, que espontáneamente, se ha convertido 
             en lugar de homenaje y recuerdo del niño Gabriel Cruz "Pescaíto", tristemente asesinado.',
@@ -718,6 +778,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '60',
             'name' => 'Casa de las Mariposas',
             'description' => 'Emblemático edificio de cuatro plantas 
             de 1909 diseñado por el arquitecto español Trinidad Cuartara.',
@@ -730,6 +791,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '61',
             'name' => 'IES Celia Viñas',
             'description' => 'Instituto Histórico Educativo Andaluz, Centro bilingüe, dedicado a Celia Viñas Olivella, escritora de poesías infantiles
             la cual estuvo en el propio centro estudiando. <a href="https://iescelia.org/celia360/">Puedes visitarlo aquí</a>',
@@ -743,6 +805,7 @@ class EstablishmentsTableSeeder extends Seeder
 
         
         DB::table('establishments')->insert([
+            'id' => '62',
             'name' => 'Mirador de la Rambla de Almería',
             'description' => 'Plaza agradable para sentarse, charlar y jugar, con buena iluminación y buenas vistas.',
             'address' => '04004 Almería',
@@ -754,6 +817,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '63',
             'name' => 'Puerto de Almería',
             'description' => 'Puerto historico de Almería, donde entre los años 1908 y 1936 se terminan los muelles y se inicia el puerto pesquero.',
             'address' => 'Almería',
@@ -765,6 +829,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '64',
             'name' => 'Cerro de San Cristóbal',
             'description' => 'Cerro con vistas a toda la ciudad, y accesible.',
             'address' => 'Camino San Cristóbal, 24, 04003 Almería',
@@ -776,6 +841,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '65',
             'name' => 'Puerta de Purchena',
             'description' => 'Lugar de interés histórico, donde puedes pasear y pasar un buen rato.',
             'address' => 'Puerta de Purchena, 33, 04003 Almería',
@@ -787,6 +853,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '66',
             'name' => 'Plaza de Toros de Almería',
             'description' => 'Sitio emblemático e histórico, con bares cercanos para saborear las tapas de la ciudad.',
             'address' => '04008, Circunvalación Plaza de Toros, 29, 04008 Almería',
@@ -798,6 +865,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '67',
             'name' => 'Recinto Ferial de Almería',
             'description' => 'Lugar muy amplio para varios espectáculos de la ciudad, como conciertos o la propia feria.',
             'address' => '04007 Vega de Aca, Almería',
@@ -809,6 +877,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '68',
             'name' => 'Anfiteatro Parque Nicolas Salmerón',
             'description' => 'Parque con más de un siglo de antigüedad en Almería, con extensa vegetación y lugares de ocio.',
             'address' => 'Parque de Nicolás Salmerón, 12, 04002 Almería',
@@ -820,6 +889,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '69',
             'name' => 'Cable Francés',
             'description' => 'Antiguo cargadero de minerales Almeriense construído en 1920 el cual se encuentra actualmente en desuso y sin acceso peatonal.',
             'address' => 'Paseo Marítimo Carmen de Burgos, 04007 Verseg, Almería',
@@ -831,6 +901,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '70',
             'name' => 'Mirador del Muelle de Levante',
             'description' => 'Lugar perfecto para poder divisar diferentes lugares de Almería.',
             'address' => '04001 Almería',
@@ -842,6 +913,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '71',
             'name' => 'Plaza de las Velas',
             'description' => 'Punto de inicio a la rambla de Almería, donde se encuentran bastantes monumentos, en pleno centro de la ciudad.',
             'address' => 'Calle Belén, 04004 Almería',
@@ -853,6 +925,7 @@ class EstablishmentsTableSeeder extends Seeder
         );
 
         DB::table('establishments')->insert([
+            'id' => '72',
             'name' => 'Plaza José Fernández Torres "Tomatito"',
             'description' => 'Plaza en honor a José Fernández "Tomatito", guitarrista almeriense de fama mundial con seis Grammys.',
             'address' => 'Calle Tenor Iribarne, 24, 04001 Almería',

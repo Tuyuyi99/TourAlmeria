@@ -120,9 +120,9 @@ function establishmentShowContentModal(id){
         $("#establishmentModalDescription").append(`
         <div class="row d-flex justify-content-between px-4 mb-5 mt-2">
           <div class="col">
-            <h5 class="d-inline-block mb-3">Dirección: </h5><span>${address}</span>
+            <h5 class="d-inline-block mb-3">Dirección: </h5><span> ${address}</span>
             <br>
-            <h5 class="d-inline-block mb-3">Descripcion: </h5><span>${description}</span>
+            <h5 class="d-inline-block mb-3">Descripcion: </h5><span> ${description}</span>
           </div>
           <div class="col">
             ${google_maps}
