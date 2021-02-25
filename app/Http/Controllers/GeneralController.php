@@ -22,8 +22,10 @@ class GeneralController extends Controller {
     public function getMain(){
         $categoriesList = Category::all();
         $establishmentList = Establishment::where('outstanding', '=', "no")->take(10)->get();
+        $establishmentListOutstanding = Establishment::where('outstanding', '=', "yes")->get();
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
+        $data["establishmentListOutstanding"] = $establishmentListOutstanding;
         return view("front/main", $data);
     }
 

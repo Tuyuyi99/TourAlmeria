@@ -57,7 +57,7 @@ function scrollMainPageReload(){
     getMainPageAjax();
     setTimeout(function(){
       validarTimeScroll = true;
-    }, 1000);
+    }, 500);
   }
 }
 var skips = 10; // saltos empieza en 10 se va añadiendo +10 a saltos cada vez

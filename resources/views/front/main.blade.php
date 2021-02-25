@@ -2,25 +2,25 @@
 @section("title", "TourAlmeria")
 @section("content")
 
-  <section class="container-header animate__animated animate__rotateInDownLeft">
-    <span id="titleContainerHeader">
-        <h1 class="animate__animated animate__bounceInDown animate__delay-2s text-center">Tour Almería</h1>
-    </span>
-
-    <div class="w-100 position-absolute" style="height: 240px; overflow: hidden; bottom: 0; color: white;" id="waveHeader">
-      <div style="height: 100%; overflow: hidden;" id="waveHeaderPC">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path d="M-4.22,-3.45 C253.67,166.28 342.27,-66.61 523.98,34.03 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
-        </svg>
-      </div>
-
-      <div style="height: 100%; overflow: hidden;" id="waveHeaderMobile">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path d="M-8.17,31.08 C264.95,132.72 346.78,-1.47 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
-        </svg>
-      </div>
-    </div>
-  </section>
+  <h1 class="text-center mb-5">Destacados</h1>
+  <div class="row d-flex align-items-center m-auto">
+      @foreach ($establishmentListOutstanding as $establishment)
+        <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
+          <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal({{ $establishment->id }})">
+            @if(isset($establishment->photography->first()->image))
+            <img src="{{ asset('assets/img/establishments/' . $establishment->name . '/' . $establishment->photography->first()->image) }}" class="card-img-top" style="height: 270px;" alt="">
+            @endif
+            <div class="card-body">
+              <h3 class="card-title text-center">{{ $establishment->name }}</h3>
+              <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>
+              <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
+                Abrir
+              </button>
+            </div>
+          </div>
+        </div>
+      @endforeach
+  </div>
 
   <h1 class="text-center mb-5">General</h1>
 
