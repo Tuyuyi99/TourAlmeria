@@ -30,7 +30,8 @@ class GeneralController extends Controller {
     }
 
     public function getMainPage($skips, $takes){
-        $establishmentList = Establishment::where('outstanding', '=', "no")->skip($skips)->take($takes)->get();
+        $establishmentList = Establishment::where('outstanding', '=', "no")->skip($skips)->take($takes)->with("photography")->get();
+        /* Se trae los establecimientos con sus imagenes con with */
         return $establishmentList;
     }
 }

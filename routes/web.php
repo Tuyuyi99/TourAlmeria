@@ -48,6 +48,7 @@ Route::get('admin/establishment/showAjax/{id}', 'App\Http\Controllers\Establishm
 Route::get('admin/establishment/showAjaxPhotography/{id}', 'App\Http\Controllers\EstablishmentController@showAjaxPhotography')->name('establishment.showAjaxPhotography');
 Route::get('admin/establishment/showEstablishmentFind/{name}', 'App\Http\Controllers\EstablishmentController@showEstablishmentFind')->name('establishment.showEstablishmentFind');
 Route::get('admin/establishment/showAjaxReview/{id}', 'App\Http\Controllers\EstablishmentController@showAjaxReview')->name('establishment.showAjaxReview');
+Route::get('admin/establishment/showAjaxReview/{id}', 'App\Http\Controllers\EstablishmentController@showAjaxReview')->name('establishment.showAjaxReview');
 
  //CRUD de fotografías
 

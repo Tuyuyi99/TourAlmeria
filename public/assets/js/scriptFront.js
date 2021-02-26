@@ -76,7 +76,8 @@ function getMainPageAjax(){
         $("#establishmentListRow").append(`
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
         <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
-          <div class="card-body">
+        <img src="assets/img/establishments/${result.name + "/" + result.photography[0].image}" class="card-img-top" style="height: 270px;" alt="">  
+        <div class="card-body">
             <h3 class="card-title text-center">${result.name}</h3>
             <p class="card-text cardEstablishmentDescription">${result.description}</p>
             <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
