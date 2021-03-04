@@ -326,7 +326,7 @@ function limitText() {
 
     if(endPointPosition != prueba){
       console.log(endPointPosition + "/" + prueba);
-      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 150) + "...";
+      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 48) + "...";
     }
   }
 }
