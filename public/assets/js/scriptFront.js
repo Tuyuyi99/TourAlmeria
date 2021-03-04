@@ -318,17 +318,31 @@ function inputFindRemoveText(){
 }
 
 function limitText() {
+  // Descripcion de card
   var text = document.getElementsByClassName("cardEstablishmentDescription");
   for (i = 0; i < text.length; i++) {
     var description = text[i].textContent;
     var endPointPosition = description.length - 4;
-    var prueba = description.indexOf("...");
+    var puntosSuspensivos = description.indexOf("...");
 
-    if(endPointPosition != prueba){
-      console.log(endPointPosition + "/" + prueba);
-      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 48) + "...";
+    if(endPointPosition != puntosSuspensivos &&  description.length >= 48){
+      console.log(endPointPosition + "/" + puntosSuspensivos);
+      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 45) + "...";
     }
   }
+
+  // titulo de card
+  var title = document.getElementsByClassName("card-title");
+  for (i = 0; i < text.length; i++) {
+    var titleCard = title[i].textContent;
+    var endPointPositionTitle = titleCard.length - 3;
+    var puntosSuspensivosTitle = titleCard.indexOf("...");
+    if(endPointPositionTitle != puntosSuspensivosTitle && titleCard.length >= 26){
+      console.log(endPointPositionTitle + "/" + puntosSuspensivosTitle);
+      document.getElementsByClassName("card-title")[i].textContent = titleCard.substr(0, 23) + "...";
+    }
+  }
+
 }
 window.addEventListener('load', limitText());
 
