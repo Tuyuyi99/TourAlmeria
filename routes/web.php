@@ -12,10 +12,15 @@ require __DIR__.'/auth.php';
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'App\Http\Controllers\GeneralController@getMain')->name('main');
-Route::get('page/{skips}/{takes}', 'App\Http\Controllers\GeneralController@getMainPage');
 Route::get('admin', 'App\Http\Controllers\GeneralController@getAdmin')->name('admin');
+Route::get('/', 'App\Http\Controllers\GeneralController@getMain')->name('main');
+Route::get('page/{skips}/{takes}/{category}', 'App\Http\Controllers\GeneralController@getMainPage');
+Route::get('categoria/page/{skips}/{takes}/{category}', 'App\Http\Controllers\GeneralController@getMainPage');
 
+Route::get('categoria/bares-y-restaurantes', 'App\Http\Controllers\GeneralController@getMainBaresRestaurantes')->name('getMainBaresRestaurantes');
+Route::get('categoria/hoteles', 'App\Http\Controllers\GeneralController@getMainHoteles')->name('getMainHoteles');
+Route::get('categoria/museos', 'App\Http\Controllers\GeneralController@getMainMuseos')->name('getMainMuseos');
+Route::get('categoria/turismo', 'App\Http\Controllers\GeneralController@getMainTurismo')->name('getMainTurismo');
 
  //CRUD de usuarios
 

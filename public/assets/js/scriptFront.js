@@ -62,8 +62,41 @@ function scrollMainPageReload(){
 }
 var skips = 10; // saltos empieza en 10 se va añadiendo +10 a saltos cada vez
 function getMainPageAjax(){
+  var compLocation = window.location.pathname.indexOf("categoria"); // comprobacion de url para saber desde donde debe de coger las imagenes
+  var urlImg = "";
+  if(compLocation != -1){
+    urlImg = "../";
+  }
+
+  var compCategoryArray = [
+    {
+      categoria: "bares-y-restaurantes",
+      id: "1"
+    },
+    {
+      categoria: "hoteles",
+      id: "2"
+    },
+    {
+      categoria: "museos",
+      id: "3"
+    },
+    {
+      categoria: "turismo",
+      id: "4"
+    }
+  ];
+  var idCategory = "all";
+
+  $.each(compCategoryArray, function(i, result){
+    var compCategory = window.location.pathname.indexOf(result.categoria);
+    if(compCategory != -1){
+      idCategory = result.id;
+    }
+  });
+
   var takes = 10;
-  $.ajax({url: `page/${skips}/${takes}`,
+  $.ajax({url: `page/${skips}/${takes}/${idCategory}`,
   beforeSend: function(){
     $("#establishmentListRow").append(`
     <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" id="establishmentListLoaderCol" style="margin-bottom: 5rem;">
@@ -76,7 +109,7 @@ function getMainPageAjax(){
         $("#establishmentListRow").append(`
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
         <div data-aos="fade-up" class="card cardMain" style="width: 26rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal" onclick="establishmentShowContentModal(${result.id})">
-        <img src="assets/img/establishments/${result.name + "/" + result.photography[0].image}" class="card-img-top" style="height: 270px;" alt="">  
+        <img src="${urlImg}assets/img/establishments/${result.name + "/" + result.photography[0].image}" class="card-img-top" style="height: 270px;" alt="">  
         <div class="card-body">
             <h3 class="card-title text-center">${result.name}</h3>
             <p class="card-text cardEstablishmentDescription">${result.description}</p>

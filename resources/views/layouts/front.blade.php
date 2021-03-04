@@ -29,7 +29,21 @@
                     <ul class="dropdown-menu centerVertical" aria-labelledby="dropdownMenuTop">
                   @if(isset($categoriesList))
                     @foreach ($categoriesList as $category)
-                      <a class="dropdown-item" href="#">{{ $category->name }}</a>
+
+                      @if($category->id == 1)
+                        <a class="dropdown-item" href="{{ route('getMainBaresRestaurantes') }}">{{ $category->name }}</a>
+                      
+
+                      @elseif($category->id == 2)
+                        <a class="dropdown-item" href="{{ route('getMainHoteles') }}">{{ $category->name }}</a>
+                      
+                      @elseif($category->id == 3)
+                        <a class="dropdown-item" href="{{ route('getMainMuseos') }}">{{ $category->name }}</a>
+
+                      @elseif($category->id == 4)
+                        <a class="dropdown-item" href="{{ route('getMainTurismo') }}">{{ $category->name }}</a>
+                      @endif
+                      
                     @endforeach
                       @endif
                     </ul>
