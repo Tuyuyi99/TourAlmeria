@@ -10,7 +10,7 @@ use App\Models\Photography;
 class GeneralController extends Controller {
 
     public function __construct(){
-        $this->middleware("auth")->except("getMain", "getMainPage", "getMainBaresRestaurantes", "getMainHoteles");
+        $this->middleware("auth")->except("getMain", "getMainPage", "getMainBaresRestaurantes", "getMainHoteles", "getMainMuseos", "getMainTurismo");
     }
     
  

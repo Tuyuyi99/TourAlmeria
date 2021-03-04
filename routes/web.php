@@ -17,10 +17,10 @@ Route::get('/', 'App\Http\Controllers\GeneralController@getMain')->name('main');
 Route::get('page/{skips}/{takes}/{category}', 'App\Http\Controllers\GeneralController@getMainPage');
 Route::get('categoria/page/{skips}/{takes}/{category}', 'App\Http\Controllers\GeneralController@getMainPage');
 
-Route::get('categoria/bares-y-restaurantes', 'App\Http\Controllers\GeneralController@getMainBaresRestaurantes')->name('getMainBaresRestaurantes');
-Route::get('categoria/hoteles', 'App\Http\Controllers\GeneralController@getMainHoteles')->name('getMainHoteles');
-Route::get('categoria/museos', 'App\Http\Controllers\GeneralController@getMainMuseos')->name('getMainMuseos');
-Route::get('categoria/turismo', 'App\Http\Controllers\GeneralController@getMainTurismo')->name('getMainTurismo');
+Route::get('bares-y-restaurantes', 'App\Http\Controllers\GeneralController@getMainBaresRestaurantes')->name('getMainBaresRestaurantes');
+Route::get('hoteles', 'App\Http\Controllers\GeneralController@getMainHoteles')->name('getMainHoteles');
+Route::get('museos', 'App\Http\Controllers\GeneralController@getMainMuseos')->name('getMainMuseos');
+Route::get('turismo', 'App\Http\Controllers\GeneralController@getMainTurismo')->name('getMainTurismo');
 
  //CRUD de usuarios
 
