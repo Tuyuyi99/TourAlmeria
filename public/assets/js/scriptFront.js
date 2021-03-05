@@ -1,9 +1,9 @@
 window.onscroll = function() {scrollNav(), scrollMainPageReload()};
 
 function scrollNav(){
-    var pxScroll = document.getElementById("titleContainerHeader").offsetTop;
-
-    if (document.body.scrollTop > pxScroll || document.documentElement.scrollTop > pxScroll) {
+    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+        document.getElementById("menuNav").classList.remove("navbar-dark");
+        document.getElementById("menuNav").classList.add("navbar-light");
         document.getElementById("header").style.position = "fixed";
         document.getElementById("header").style.display = "none";
         document.getElementById("header").classList.remove("animate__bounce");
@@ -25,6 +25,8 @@ function scrollNav(){
           navLink[navLinkCount].style.color = "#343a40";
         }
       } else {
+        document.getElementById("menuNav").classList.add("navbar-dark");
+        document.getElementById("menuNav").classList.remove("navbar-light");
         document.getElementById("header").style.position = "absolute";
         document.getElementById("header").style.display = "block";
         document.getElementById("header").classList.add("animate__bounce");
@@ -395,5 +397,21 @@ function translateNumEmoji(num){
   }
   else if(num == 5){
     return 'assets/img/emojis/star5.svg';
+  }
+}
+
+var controlDesplegableMobile = false;
+function abrirCerrarDesplegableMobile() {
+  if(controlDesplegableMobile == false){
+    controlDesplegableMobile = true;
+    document.getElementById("menuDesplegableMobile").style.left = "0%";
+    document.getElementById("desenfoque").style.display = "block";
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+  }
+  else{
+    controlDesplegableMobile = false;
+    document.getElementById("menuDesplegableMobile").style.left = "-50%";
+    document.getElementById("desenfoque").style.display = "none";
+    document.getElementsByTagName("body")[0].style.overflow = "auto";
   }
 }

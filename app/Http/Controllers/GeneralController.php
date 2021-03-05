@@ -46,6 +46,7 @@ class GeneralController extends Controller {
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
         $data["establishmentListOutstanding"] = $establishmentListOutstanding;
+        $data["categoryTitle"] = "Bares y restaurantes";
         return view("front/main", $data);
     }
 
@@ -56,6 +57,7 @@ class GeneralController extends Controller {
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
         $data["establishmentListOutstanding"] = $establishmentListOutstanding;
+        $data["categoryTitle"] = "Hoteles";
         return view("front/main", $data);
     }
 
@@ -66,6 +68,7 @@ class GeneralController extends Controller {
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
         $data["establishmentListOutstanding"] = $establishmentListOutstanding;
+        $data["categoryTitle"] = "Museos";
         return view("front/main", $data);
     }
 
@@ -76,6 +79,7 @@ class GeneralController extends Controller {
         $data["categoriesList"] = $categoriesList;
         $data["establishmentList"] = $establishmentList;
         $data["establishmentListOutstanding"] = $establishmentListOutstanding;
+        $data["categoryTitle"] = "Turismo";
         return view("front/main", $data);
     }
 
