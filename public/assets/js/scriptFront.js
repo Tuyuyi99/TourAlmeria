@@ -66,6 +66,10 @@ var skips = 10; // saltos empieza en 10 se va añadiendo +10 a saltos cada vez
 function getMainPageAjax(){
   var compCategoryArray = [
     {
+      categoria: "Todos",
+      id: "all"
+    },
+    {
       categoria: "bares-y-restaurantes",
       id: "1"
     },

@@ -29,11 +29,13 @@
                       </a>
                       <ul class="dropdown-menu centerVertical" aria-labelledby="dropdownMenuTop">
                     @if(isset($categoriesList))
+
+                    <a class="dropdown-item" href="{{ route('main') }}">Todos</a>  
+                    
                       @foreach ($categoriesList as $category)
 
                         @if($category->id == 1)
-                          <a class="dropdown-item" href="{{ route('getMainBaresRestaurantes') }}">{{ $category->name }}</a>
-                        
+                          <a class="dropdown-item" href="{{ route('getMainBaresRestaurantes') }}">{{ $category->name }}</a>  
 
                         @elseif($category->id == 2)
                           <a class="dropdown-item" href="{{ route('getMainHoteles') }}">{{ $category->name }}</a>
