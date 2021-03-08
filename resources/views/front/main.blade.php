@@ -13,6 +13,8 @@
             <div class="card-body">
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
               <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>
+              <img src="{{ asset('assets/img/address.png')}}" class="mb-1" style="height: 30px;">
+              {{ $establishment->address }}
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
@@ -34,6 +36,8 @@
             <div class="card-body">
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
               <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>
+              <p class="mb-1 cardEstablishmentAddress"><img src="{{ asset('assets/img/address.png')}}" style="height: 30px;">
+              {{ $establishment->address }}</p>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>

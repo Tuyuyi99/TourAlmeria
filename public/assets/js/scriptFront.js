@@ -109,6 +109,8 @@ function getMainPageAjax(){
         <div class="card-body">
             <h3 class="card-title text-center">${result.name}</h3>
             <p class="card-text cardEstablishmentDescription">${result.description}</p>
+            <p class="mb-1 cardEstablishmentAddress"><img src="assets/img/address.png" style="height: 30px;">
+            ${result.address}</p>
             <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
               Abrir
             </button>
@@ -344,6 +346,22 @@ function limitText() {
       document.getElementsByClassName("card-title")[i].textContent = titleCard.substr(0, 23) + "...";
     }
   }
+
+    // direccion de la card
+
+  var address = document.getElementsByClassName("cardEstablishmentAddress");
+  for (i = 0; i < text.length; i++) {
+    var addressCard = address[i].textContent;
+    var endPointPositionAddress = addressCard.length - 4;
+    var puntosSuspensivosAddress = addressCard.indexOf("...");
+
+    if(endPointPositionAddress != puntosSuspensivosAddress &&  addressCard.length >= 75){
+      console.log(endPointPositionAddress + "/" + puntosSuspensivosAddress);
+      document.getElementsByClassName("cardEstablishmentAddress")[i].textContent = addressCard.substr(0, 72) + "...";
+    }
+  }
+
+  
 
 }
 window.addEventListener('load', limitText());
