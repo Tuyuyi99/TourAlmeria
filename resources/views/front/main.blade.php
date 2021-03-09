@@ -12,9 +12,10 @@
             @endif
             <div class="card-body">
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
-              <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>
               <img src="{{ asset('assets/img/address.png')}}" style="height: 30px;">
-              <div class="d-inline-block mb-1 cardEstablishmentAddress">{{ $establishment->address }}</div>
+              <div class="d-inline-block mb-2 cardEstablishmentAddress">{{ $establishment->address }}</div>
+              <img src="{{ asset('assets/img/description.png')}}" style="height: 1.5rem;">
+              <div class="card-text cardEstablishmentDescription">{{ $establishment->description }}</div>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
@@ -35,9 +36,9 @@
             @endif
             <div class="card-body">
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
-              <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>
               <img src="{{ asset('assets/img/address.png')}}" style="height: 30px;">
               <div class="d-inline-block mb-1 cardEstablishmentAddress">{{ $establishment->address }}</div>
+              <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>  
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
@@ -87,7 +88,7 @@
 
                 <div class="col-12 col-xl-4 d-flex align-items-center order-xl-2" id="colBoxEmojiRating">
                     <div class="boxEmojiRating d-flex align-items-center justify-content-center" align="center">
-                      <div id="emoji" align="center">
+                      <div id="emoji">
                         <img src="{{ url('assets/img/emojis/star0.svg')  }}">
                       </div>
                       <div class="row">
