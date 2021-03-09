@@ -14,8 +14,14 @@
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
               <img src="{{ asset('assets/img/address.png')}}" style="height: 30px;">
               <div class="d-inline-block mb-2 cardEstablishmentAddress">{{ $establishment->address }}</div>
-              <img src="{{ asset('assets/img/description.png')}}" style="height: 1.5rem;">
-              <div class="card-text cardEstablishmentDescription">{{ $establishment->description }}</div>
+              <div class="row mb-3">
+                <div class="col-1">
+                  <img src="{{ asset('assets/img/description.png')}}" style="height: 1.5rem;">
+                </div>
+                <div class="col-11">
+                  <div class="card-text cardEstablishmentDescription">{{ $establishment->description }}</div>
+                </div>
+              </div>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>
@@ -37,8 +43,15 @@
             <div class="card-body">
               <h3 class="card-title text-center">{{ $establishment->name }}</h3>
               <img src="{{ asset('assets/img/address.png')}}" style="height: 30px;">
-              <div class="d-inline-block mb-1 cardEstablishmentAddress">{{ $establishment->address }}</div>
-              <p class="card-text cardEstablishmentDescription">{{ $establishment->description }}</p>  
+              <div class="d-inline-block mb-2 cardEstablishmentAddress">{{ $establishment->address }}</div>
+              <div class="row mb-3">
+                <div class="col-1">
+                  <img src="{{ asset('assets/img/description.png')}}" style="height: 1.5rem;">
+                </div>
+                <div class="col-11">
+                  <div class="card-text cardEstablishmentDescription">{{ $establishment->description }}</div>
+                </div>
+              </div>
               <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
                 Abrir
               </button>

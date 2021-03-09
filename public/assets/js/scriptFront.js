@@ -114,7 +114,14 @@ function getMainPageAjax(){
             <h3 class="card-title text-center">${result.name}</h3>
             <img src="assets/img/address.png" style="height: 30px;">
             <div class="d-inline-block mb-2 cardEstablishmentAddress">${result.address}</div>
-            <p class="card-text cardEstablishmentDescription">${result.description}</p>
+            <div class="row mb-3">
+              <div class="col-1">
+                <img src="assets/img/description.png" style="height: 1.5rem;">
+              </div>
+              <div class="col-11">
+                <div class="card-text cardEstablishmentDescription">${result.description}</div>
+              </div>
+            </div>
             <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center w-100" style="border-radius:20px; height:2.6rem;" data-bs-toggle="modal" data-bs-target="#establishmentModal">
               Abrir
             </button>
@@ -156,9 +163,9 @@ function establishmentShowContentModal(id){
         $("#establishmentModalDescription").append(`
         <div class="row d-flex justify-content-between px-4 mb-5 mt-2">
           <div class="col">
-            <img src="assets/img/address.png" class="mb-3" style="height: 1.5rem;"><span> ${address}</span>
+            <img src="assets/img/address.png" class="mb-3" style="height: 30px;"><span> ${address}</span>
             <br>
-            <img src="assets/img/description.png" style="height: 30px;"<span> ${description}</span>
+            <img src="assets/img/description.png" style="height: 1.5rem;"<span> ${description}</span>
           </div>
           <div class="col">
             ${google_maps}
