@@ -1,3 +1,4 @@
+var idCategory = "all";
 window.onscroll = function() {scrollNav(), scrollMainPageReload()};
 
 function scrollNav(){
@@ -62,39 +63,37 @@ function scrollMainPageReload(){
     }, 500);
   }
 }
+
+var compCategoryArray = [
+  {
+    categoria: "bares-y-restaurantes",
+    id: "1"
+  },
+  {
+    categoria: "hoteles",
+    id: "2"
+  },
+  {
+    categoria: "museos",
+    id: "3"
+  },
+  {
+    categoria: "turismo",
+    id: "4"
+  }
+];
+
+$.each(compCategoryArray, function(i, result){
+  var compCategory = window.location.pathname.indexOf(result.categoria);
+  if(compCategory != -1){
+    idCategory = result.id;
+  }
+});
+window.addEventListener('load', limitText());
+
+
 var skips = 10; // saltos empieza en 10 se va añadiendo +10 a saltos cada vez
 function getMainPageAjax(){
-  var compCategoryArray = [
-    {
-      categoria: "Todos",
-      id: "all"
-    },
-    {
-      categoria: "bares-y-restaurantes",
-      id: "1"
-    },
-    {
-      categoria: "hoteles",
-      id: "2"
-    },
-    {
-      categoria: "museos",
-      id: "3"
-    },
-    {
-      categoria: "turismo",
-      id: "4"
-    }
-  ];
-  var idCategory = "all";
-
-  $.each(compCategoryArray, function(i, result){
-    var compCategory = window.location.pathname.indexOf(result.categoria);
-    if(compCategory != -1){
-      idCategory = result.id;
-    }
-  });
-
   var takes = 10;
   $.ajax({url: `page/${skips}/${takes}/${idCategory}`,
   beforeSend: function(){
@@ -104,7 +103,6 @@ function getMainPageAjax(){
     </div>`);
   },
   success: function(resultPage){
-      console.log(resultPage);
       $.each(resultPage, function(i, result){
         $("#establishmentListRow").append(`
         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 d-flex justify-content-center" style="margin-bottom: 5rem;">
@@ -240,8 +238,30 @@ function establishmentShowContentModal(id){
     
           },
           complete: function(){
-            $("#establishmentModalCommentsId").val(id);
-            $("#establishmentModalDialog").removeClass("d-none");
+            var totalRating = 0;
+            var count = 0;
+            var mediaRating = 0;
+            $.ajax({url: `admin/review/showAjax/${id}`,
+              success: function(resultReview) {
+                $.each(resultReview[0].review, function(i, result){
+                  totalRating += result.rating;
+                  count++;
+                });
+              },
+              complete: function(){
+                mediaRating = Math.round(totalRating / count);
+                if(isNaN(mediaRating)){
+                  mediaRating = 0;
+                }
+                $("#establishmentModalTitle").append(`
+                  <img src='${translateNumEmoji(mediaRating)}' class='rotate360' style='cursor: default; width: 2rem;'></img>
+                `);
+
+                $("#establishmentModalCommentsId").val(id);
+                $("#establishmentModalDialog").removeClass("d-none");
+              }
+            });
+
           }
         
         });
@@ -319,7 +339,6 @@ function inputFind(name){
           id: result.id,
           name: result.name
         }
-        console.log(result);
         });
       },
       complete: function(){
@@ -365,9 +384,9 @@ function limitText() {
     var endPointPosition = description.length - 4;
     var puntosSuspensivos = description.indexOf("...");
 
-    if(endPointPosition != puntosSuspensivos &&  description.length >= 48){
+    if(endPointPosition != puntosSuspensivos &&  description.length >= 43){
       console.log(endPointPosition + "/" + puntosSuspensivos);
-      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 45) + "...";
+      document.getElementsByClassName("cardEstablishmentDescription")[i].textContent = description.substr(0, 40) + "...";
     }
   }
 
@@ -400,7 +419,6 @@ function limitText() {
   
 
 }
-window.addEventListener('load', limitText());
 
 /* stars emojis */
 function star(rating){
@@ -437,6 +455,9 @@ function star(rating){
 }
 
 function translateNumEmoji(num){
+  if(num == 0){
+    return 'assets/img/emojis/star0.svg';
+  }
   if(num == 1){
     return 'assets/img/emojis/star1.svg';
   }

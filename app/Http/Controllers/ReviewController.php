@@ -10,7 +10,7 @@ class ReviewController extends Controller
 {
 
     public function __construct(){
-        $this->middleware("auth")->except("insertAjax");
+        $this->middleware("auth")->except("insertAjax", "showAjax");
     }
     /**
      * Display a listing of the resource.
@@ -61,6 +61,11 @@ class ReviewController extends Controller
     public function show($id){
         $review = Review::find($id);
         return view("admin/admin", $review);
+    }
+
+    public function showAjax($id){
+        $establishment = Establishment::where("id", "=", $id)->with("review")->get();
+        return $establishment;
     }
 
     /**
