@@ -359,9 +359,9 @@ function limitText() {
     var endPointPositionAddress = addressCard.length - 4;
     var puntosSuspensivosAddress = addressCard.indexOf("...");
 
-    if(endPointPositionAddress != puntosSuspensivosAddress &&  addressCard.length >= 75){
+    if(endPointPositionAddress != puntosSuspensivosAddress &&  addressCard.length >= 46){
       console.log(endPointPositionAddress + "/" + puntosSuspensivosAddress);
-      document.getElementsByClassName("cardEstablishmentAddress")[i].textContent = addressCard.substr(0, 72) + "...";
+      document.getElementsByClassName("cardEstablishmentAddress")[i].textContent = addressCard.substr(0, 43) + "...";
     }
   }
 
