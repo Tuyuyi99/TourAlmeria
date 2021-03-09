@@ -155,6 +155,7 @@ function establishmentShowContentModal(id){
         $("#establishmentModalDescription").html("");
       },
        success: function(result){
+        /* bootstrap br = <div class="w-100"> */
         name = result.name;
         description = result.description;
         address = result.address;
@@ -162,13 +163,37 @@ function establishmentShowContentModal(id){
         $("#establishmentModalTitle").html(name);
         $("#establishmentModalDescription").append(`
         <div class="row d-flex justify-content-between px-4 mb-5 mt-2">
-          <div class="col">
-            <img src="assets/img/address.png" class="mb-3" style="height: 30px;"><span> ${address}</span>
-            <br>
-            <img src="assets/img/description.png" style="height: 1.5rem;"<span> ${description}</span>
-          </div>
-          <div class="col">
+          <div class="col-lg-5 order-lg-2 infoModalCol">
+            <img src="assets/img/address.png" class="mb-3" style="height: 30px;">
+            <h5 class="d-inline-block">Dirección:</h5>
+            <span> ${address}</span>
+            <div class="w-100"></div>
+            <img src="assets/img/description.png" style="height: 1.5rem;">
+            <h5 class="d-inline-block">Descripción:</h5>
+            <span> ${description}</span>
+            
             ${google_maps}
+
+          </div>
+          <div class="col-lg-7 order-lg-1 d-flex justify-content-center">
+
+            <div id="carouselMainEstablishment" class="carousel slide" data-bs-ride="carousel"
+            style="background: #00000073; border-radius: 3px;">
+              <ol class="carousel-indicators" id="carouselMainEstablishmentIndicators"> 
+              </ol>
+              <div class="carousel-inner" id="carouselMainEstablishmentGalery">
+              </div>
+
+              <a class="carousel-control-prev" href="#carouselMainEstablishment" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselMainEstablishment" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </a>
+            </div>
+          
           </div>
         </div>
         `);
@@ -196,7 +221,7 @@ function establishmentShowContentModal(id){
                 if(i == 0){
                   $("#carouselMainEstablishmentGalery").append(`
                   <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-auto" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
+                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-auto" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px;" alt="">
                   <div class="carousel-caption d-none d-md-block">
                   </div>
                 </div>
@@ -205,7 +230,7 @@ function establishmentShowContentModal(id){
                 else{
                 $("#carouselMainEstablishmentGalery").append(`
                   <div class="carousel-item" data-bs-interval="10000">
-                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-auto" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px; height: 500px;" alt="">
+                  <img src="assets/img/establishments/${name + "/" + result.image}" class="d-block w-auto" style="position: relative; left:50%; transform: translateX(-50%); border-radius: 5px;" alt="">
                   <div class="carousel-caption d-none d-md-block">
                   </div>
                 </div>
