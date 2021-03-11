@@ -132,6 +132,7 @@ container-mg {
 
 .cardMain {
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .cardMain:hover{
@@ -146,7 +147,7 @@ container-mg {
 
 .cardMain button:hover {
     transition: all .3s;
-    letter-spacing: 7px;
+    letter-spacing: 3px;
 }
 
 .cardMain:hover img{
@@ -258,6 +259,19 @@ margin: 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 19rem;
+}
+
+.menuDesplegableMobileCategorias a{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: all .2s;
+  margin-bottom: 2rem; 
+}
+
+.menuDesplegableMobileCategorias a:hover {
+  transform: scale(1.2);
 }
 
 /* rating emoji */
@@ -418,7 +432,7 @@ h3 .animate__fadeIn {
     
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 800px) {
     .navHome #navTituloCol {
         display: none!important;
     }
@@ -440,6 +454,7 @@ h3 .animate__fadeIn {
     }
 
     #menuCategoriasMobile {
-      display: block;
+      display: flex;
+      justify-content: flex-end;
     }
   }  

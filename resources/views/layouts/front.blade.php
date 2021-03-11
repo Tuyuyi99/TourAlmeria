@@ -29,8 +29,7 @@
                       </a>
                       <ul class="dropdown-menu centerVertical" aria-labelledby="dropdownMenuTop">
                     @if(isset($categoriesList))
-
-                    <a class="dropdown-item" href="{{ route('main') }}">Todos</a>  
+                        <a class="dropdown-item" href="{{ route('main') }}">Todos</a>  
                     
                       @foreach ($categoriesList as $category)
 
@@ -48,7 +47,7 @@
                         @endif
                         
                       @endforeach
-                        @endif
+                    @endif
                       </ul>
                   </div>
                 </div>
@@ -59,8 +58,44 @@
                   </button>
                 </div>
     
-                <div id="menuDesplegableMobile">
-                  <i class="fa fa-remove remove m-2" id="menuDesplegableMobileClose" onclick="abrirCerrarDesplegableMobile()"></i>
+                <div id="menuDesplegableMobile" style="word-wrap: break-word;">
+                  <div class="row menuDesplegableMobileCategorias">
+                    <div class="col-12">
+                      <i class="fa fa-remove remove m-2" style="color: #383636;" id="menuDesplegableMobileClose" onclick="abrirCerrarDesplegableMobile()"></i>
+                    </div>
+
+                      <div class="col-12">
+                        <p style="letter-spacing: 2px; margin-bottom: 2rem; font-size: 1.5rem;">TourAlmería</p>
+                      </div>    
+
+                    @if(isset($categoriesList))
+                        <div class="col-12">
+                          <a href="{{ route('main') }}">Todos</a>  
+                        </div>
+                        @foreach ($categoriesList as $category)
+
+                          @if($category->id == 1)
+                          <div class="col-12">
+                            <a href="{{ route('getMainBaresRestaurantes') }}">{{ $category->name }}</a>  
+                          </div>
+                          @elseif($category->id == 2)
+                          <div class="col-12">
+                            <a href="{{ route('getMainHoteles') }}">{{ $category->name }}</a>
+                          </div>
+                          @elseif($category->id == 3)
+                          <div class="col-12">
+                            <a href="{{ route('getMainMuseos') }}">{{ $category->name }}</a>
+                          </div>
+                          @elseif($category->id == 4)
+                          <div class="col-12">
+                            <a href="{{ route('getMainTurismo') }}">{{ $category->name }}</a>
+                          </div>
+                          @endif
+                          
+                        @endforeach
+                      @endif
+                  </div>
+                
                 </div>
                 <div class="animate__animated animate__fadeIn m-0 p-0" id="desenfoque" onclick="abrirCerrarDesplegableMobile()"></div>
 
@@ -98,7 +133,7 @@
       </div>
     </div>
 
-    <div class="w-100 position-absolute" style="height: 240px; overflow: hidden; bottom: 0; color: white;" id="waveHeader">
+    <div class="w-100 position-absolute" style="height: 240px; overflow: hidden; bottom: -1px; color: white;" id="waveHeader">
       <div style="height: 100%; overflow: hidden;" id="waveHeaderPC">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
           <path d="M-4.22,-3.45 C253.67,166.28 342.27,-66.61 523.98,34.03 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
