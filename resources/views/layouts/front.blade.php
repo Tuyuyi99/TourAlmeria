@@ -61,7 +61,7 @@
                 <div id="menuDesplegableMobile" style="word-wrap: break-word;">
                   <div class="row menuDesplegableMobileCategorias">
                     <div class="col-12">
-                      <i class="fa fa-remove remove m-2" style="color: #383636;" id="menuDesplegableMobileClose" onclick="abrirCerrarDesplegableMobile()"></i>
+                      <i class="remove m-2" style="color: #383636; font-weight: bold;" id="menuDesplegableMobileClose" onclick="abrirCerrarDesplegableMobile()">&times;</i>
                     </div>
 
                       <div class="col-12">

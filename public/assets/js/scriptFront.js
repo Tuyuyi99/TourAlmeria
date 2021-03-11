@@ -485,7 +485,7 @@ function abrirCerrarDesplegableMobile() {
   }
   else{
     controlDesplegableMobile = false;
-    document.getElementById("menuDesplegableMobile").style.left = "-50%";
+    document.getElementById("menuDesplegableMobile").style.left = "-65%";
     document.getElementById("desenfoque").style.display = "none";
     document.getElementsByTagName("body")[0].style.overflow = "auto";
   }

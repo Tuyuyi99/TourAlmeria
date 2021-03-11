@@ -236,8 +236,8 @@ margin: 0;
 #menuDesplegableMobile {
   position: fixed;
   top: 0;
-  left: -50%;
-  width: 50%;
+  left: -65%;
+  width: 65%;
   height: 100vh;
   background-color: white;
   z-index: 9999;
