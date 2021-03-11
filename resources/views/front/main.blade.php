@@ -80,6 +80,7 @@
             <h3 class="my-5">Comentarios:</h3>
 
             <div class="row">
+              <p style="color: red;" class="d-none mb-4" id="infoReview">* Debe de rellenar todos los datos para puntuar.</p>
               <div class="col-12 d-flex align-items-center mb-4">
                 <div class="row w-100">
 
@@ -114,7 +115,7 @@
               </div>
               <div class="col-12 d-flex justify-content-center">
                 <input type="hidden" name="id_establishment" id="establishmentModalCommentsId">
-                <input type="hidden" name="rating" id="insertReviewRating" value="1">
+                <input type="hidden" name="rating" id="insertReviewRating" value="0">
                 <input type="submit" class="btn btn-outline-primary m-2" onclick="insertAjaxReview()">
               </div>
             </div>

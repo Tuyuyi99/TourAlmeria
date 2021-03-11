@@ -149,6 +149,12 @@ function establishmentShowContentModal(id){
       var google_maps;
       $.ajax({url: "admin/establishment/showAjax/" + id,
       beforeSend: function () {
+        $("#insertReviewName").val("");
+        $("#insertReviewRating").val("0");
+        $("#insertReviewCommentary").val("");
+        document.getElementById("infoReview").classList.add("d-none");
+        star(0);
+
         $("#establishmentModalTitle").html("<h4>Procesando, espere por favor...</h4>");
         $("#establishmentModalDescription").html("");
       },
@@ -299,26 +305,34 @@ success: function(resultReview){
 }
 
 function insertAjaxReview(){
+  document.getElementById("infoReview").classList.add("d-none");
   var name = $("#insertReviewName").val();
   var rating = $("#insertReviewRating").val();
   var commentary = $("#insertReviewCommentary").val();
   var id = $("#establishmentModalCommentsId").val();
-  $.ajax({url: `admin/review/insertAjax/${id}/${name}/${rating}/${commentary}`,
-  beforeSend: function(){
-    $("#establishmentModalReview").prepend(`
-    <div class="col-12 d-flex justify-content-center mt-5">
-      <div class='lds-ring'><div></div><div></div><div></div><div></div></div>
-    </div>
-    `);
-  },
-  complete: function(){
-    $("#insertReviewName").val("");
-    $("#insertReviewRating").val("1");
-    $("#insertReviewCommentary").val("");
-    showAjaxReview(id);
-  }
-});
 
+  if(name != "" && rating != "0" && commentary != ""){
+    $.ajax({url: `admin/review/insertAjax/${id}/${name}/${rating}/${commentary}`,
+    beforeSend: function(){
+      $("#establishmentModalReview").prepend(`
+      <div class="col-12 d-flex justify-content-center mt-5">
+        <div class='lds-ring'><div></div><div></div><div></div><div></div></div>
+      </div>
+      `);
+    },
+    complete: function(){
+      $("#insertReviewName").val("");
+      $("#insertReviewRating").val("0");
+      $("#insertReviewCommentary").val("");
+      star(0);
+      showAjaxReview(id);
+    }
+  });
+
+  }
+  else {
+    document.getElementById("infoReview").classList.remove("d-none");
+  }
 }
 
 function inputFind(name){
@@ -422,6 +436,10 @@ function limitText() {
 
 /* stars emojis */
 function star(rating){
+  if(rating==0){
+    document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star0.svg">';
+    $("#insertReviewRating").val("0");
+  }
   if(rating==1){
       document.getElementById("emoji").innerHTML='<img src="assets/img/emojis/star1.svg">';
       $("#insertReviewRating").val("1");
