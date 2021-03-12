@@ -31,7 +31,7 @@
                         <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="m-0">
                             @csrf
                             @method("DELETE")
-                            <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                            <button onclick="return confirm('¿Seguro que quieres eliminarlo?')" type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                         </form>
                         <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success">Editar</a>
                     </div>
@@ -96,7 +96,7 @@
                         <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="m-0">
                             @csrf
                             @method("DELETE")
-                            <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                            <button onclick="return confirm('¿Seguro que quieres eliminarlo?')" type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                         </form>
                         <a href="{{ route('category.edit', $category->id) }}" class="btn btn-success">Editar</a>
                     </div>
@@ -259,7 +259,7 @@
                                     class="m-0 d-inline-block">
                                     @csrf
                                     @method("DELETE")
-                                    <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                                    <button onclick="return confirm('¿Seguro que quieres eliminarlo?')" type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                                 </form>
                                 <a href="{{ route('establishment.edit', $establishment->id) }}"
                                     class="btn btn-success">Editar</a>
@@ -397,7 +397,7 @@
                         <form action="{{ route('review.destroy', $review->id) }}" method="POST" class="m-0">
                             @csrf
                             @method("DELETE")
-                            <button type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
+                            <button onclick="return confirm('¿Seguro que quieres eliminarlo?')" type="submit" class="btn btn-danger me-2 ms-1">Borrar</button>
                         </form>
                         <a href="{{ route('review.edit', $review->id) }}" class="btn btn-success">Editar</a>
                     </div>

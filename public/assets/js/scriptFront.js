@@ -508,3 +508,7 @@ function abrirCerrarDesplegableMobile() {
     document.getElementsByTagName("body")[0].style.overflow = "auto";
   }
 }
+
+function confirmarBorrado(){
+  confirm('¿Seguro que quieres eliminarlo?');
+}
