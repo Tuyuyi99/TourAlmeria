@@ -58,9 +58,6 @@ function scrollMainPageReload(){
   if ((alturaScrollTop + alturaViewPort) == alturaTotal && validarTimeScroll) {
     validarTimeScroll = false;
     getMainPageAjax();
-    setTimeout(function(){
-      validarTimeScroll = true;
-    }, 500);
   }
 }
 
@@ -130,6 +127,7 @@ function getMainPageAjax(){
       });
   },
   complete: function(){
+    validarTimeScroll = true;
     $("#establishmentListLoaderCol").remove();
     AOS.init(); // como son elementos creados hay que volver a ejecutar las animaciones para que se le añadan
     limitText(); // hay que volver a ejecutar el limitador de descripciones ya que hay nuevos elementos a los que limitar texto
