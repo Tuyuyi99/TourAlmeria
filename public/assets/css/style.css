@@ -55,6 +55,7 @@ container-mg {
 }
 
 .container-header {
+  position: relative;
     width: 100%;
     height: 100vh;
     background: #009FFF;  /* fallback for old browsers */
@@ -171,8 +172,6 @@ container-mg {
 #waveHeaderMobile {
     display:none;
     width: 100%;
-    position: absolute;
-    bottom: 0;
 }
 
 .fa-plus:hover {

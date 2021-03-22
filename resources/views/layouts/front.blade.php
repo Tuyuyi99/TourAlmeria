@@ -29,6 +29,7 @@
                       </a>
                       <ul class="dropdown-menu centerVertical" aria-labelledby="dropdownMenuTop">
                     @if(isset($categoriesList))
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalContact">Contáctanos</a>
                         <a class="dropdown-item" href="{{ route('main') }}">Todos</a>  
                     
                       @foreach ($categoriesList as $category)
@@ -69,6 +70,9 @@
                       </div>    
 
                     @if(isset($categoriesList))
+                        <div class="col-12">
+                          <a href="#" data-bs-toggle="modal" data-bs-target="#modalContact">Contáctanos</a>
+                        </div>
                         <div class="col-12">
                           <a href="{{ route('main') }}">Todos</a>  
                         </div>
@@ -147,6 +151,20 @@
       </div>
     </div>
   </section>
+
+  <div class="modal fade" id="modalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contáctanos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-center">touralmeria@tour.com</h5>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div>@yield("content")</div>
 
